@@ -1,0 +1,85 @@
+body {
+    background-image: url(hintergrundWeiß.jpg);
+    background-size: 55%;
+}
+
+h1 {
+   font-family: 'Fredericka the Great', cursive; 
+    font-weight: normal;
+    color: #92a8d1;
+    text-align: center;
+    font-size: 50px;
+    background-color: white;
+    border-radius: 20px;
+    width: 900px;
+    margin: auto;
+}
+
+h2 {
+    font-family: 'Amatic SC', cursive;
+    font-weight: normal;
+    font-size: 40px;
+    color: #f7786b;
+    text-align: center;
+    background-color: white;
+    border-radius: 20px;
+    width: 900px;
+    margin-left:auto;
+    margin-right: auto;
+}
+
+h3{
+    font-family: 'Fredericka the Great', cursive;
+    font-weight: normal;
+    text-align: center;
+    font-size: 30px;
+    padding: 5px 0px 0px 0px;
+    display:inline;
+}
+
+.privatedaten {
+    font-family: 'Amatic SC', cursive;
+    font-size: 30px;
+    background-color: #f7cac9;
+    width: 50%;
+    padding: 0px 20px 10px 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.aussehen {
+    font-family: 'Amatic SC', cursive;
+    color: white;
+    font-size: 30px;
+    width: 50%;
+    background-color: #bdcebe;
+    padding: 0px 20px 10px 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.persoenlichkeit {
+    font-family: 'Amatic SC', cursive;
+    font-size: 30px;
+    width: 50%;
+    padding: 0px 20px 10px 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    background-color: #deeaee;
+    border-radius: 10px;
+    
+}
+
+img.janina {
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    display: block;
+    border-radius: 10px;
+}
