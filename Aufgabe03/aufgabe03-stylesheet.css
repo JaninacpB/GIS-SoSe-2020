@@ -1,0 +1,287 @@
+body {
+    background-image: url(https://gabriel-rausch.github.io/EIA1-SoSe20/L03/task_material/images/bg.png);
+    font-family: 'Lato', sans-serif;
+}
+/* Navigation oben*/
+.top {
+    position: fixed;
+    top: 0px;
+    right: 50%;
+    background-color:#191516;
+    font-size: 30px;
+}
+
+.nav:hover {
+    background-color: #FF5E5B;
+}
+
+.navi {
+    color: white;
+    padding: 0px 10px 0px 10px;
+}
+
+ol.naviListe {
+    display: inline;
+    list-style: none;
+    padding: 3px 3px 3px 0px;
+}
+
+li.naviElement{
+    display: inline;
+    border-right: 2px solid white;
+}
+
+li.naviElement:last-child {
+    border: none;
+}
+
+.activ {
+    background-color: #AB2346;
+    color: white;
+    border-radius: 8px;
+}
+
+/*header bild*/
+.headerBild {
+    background-image: url(https://janinacpb.github.io/GIS-SoSe-2020/Aufgabe03/Archiv/browserheader.svg);
+    height: 50px;
+    width: 100%;
+    padding: none;
+    margin: -10px;
+}
+
+/* h1 etc*/
+h1,h2,h3,h4 {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.527);
+    font-size: 50px;
+    width: 800px;
+    margin: 0px auto;
+}
+
+h4::first-letter {
+    font-size: 30px;
+    color: #FF5E5B;
+}
+
+/* LINKS */
+a {
+    text-decoration: none;
+    color:#191516;
+}
+
+a:hover {
+    font-weight: bolder;
+}
+
+/* Iframe */
+iframe {
+    width: 750px;
+    height: 400px;
+}
+
+/* video */
+
+video{
+    width: 750px;
+}
+
+/* embed*/
+embed{
+    width: 750px;
+    height: 250px;
+}
+
+/*Bilder blender */
+.blender {
+    width: 750px;
+}
+
+/* FOOTER */
+footer {
+    background-color: #191516;
+    color: white;
+    margin-bottom: -40px;
+    display: flex;
+}
+
+.socialMedia {
+    width: 30px;
+    height: 30px;
+    padding: 35px 10px 20px 10px;
+    filter: grayscale(100%);
+}
+
+.socialMedia:hover{
+    filter: none;
+}
+
+/* fürs erste Element*/
+.socialMediaEins{
+    margin-left: 300px;
+    width: 30px;
+    height: 30px;
+    padding: 35px 10px 20px 10px;
+    filter: grayscale(100%)
+}
+
+.socialMediaEins:hover{
+    filter: none;
+}
+
+.footerfloat {
+    padding: 10px 0px 10px 200px;
+    text-align: center;
+    vertical-align: center;
+}
+
+.footerlink {
+    color: white;
+}
+
+/*Inhalt 800px & center*/
+.center {
+    margin: 0 auto;
+    width: 800px;
+    padding-bottom: 20px;
+}
+
+/*fancy scrollbar */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #FF5E5B;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  /*Kontaktformular*/
+
+  .contact {
+      background-color: rgba(102, 102, 102, 0.527);
+      color: white;
+      width: 100px;
+      margin: 5px 0px 20px 0px;
+      text-align: center;
+      border-radius: 1px;
+      border: 1px solid rgba(102, 102, 102, 0.527);
+  }
+
+  .nameEtc {
+    width: 500px;
+    background-color: rgba(102, 102, 102, 0.527);
+    margin-top: 10px;
+    color: white;
+    border: none;
+  }
+
+ textarea {
+    width: 500px;
+    height: 300px;
+    margin-top: 10px;
+    background-color: rgba(102, 102, 102, 0.527);
+    border: none;
+  }
+
+  option{
+    width: 200px;
+    background-color: rgba(102, 102, 102, 0.527);
+    margin-top: 10px;
+    color: white;
+  }
+
+  select {
+    width: 200px;
+    background-color: rgba(102, 102, 102, 0.527);
+    margin-top: 10px;
+    color: white;
+  }
+
+  /*Placeholder color*/
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgba(240, 240, 240, 0.911);
+    opacity: 1; /* Firefox */
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: rgba(240, 240, 240, 0.911);
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: rgba(240, 240, 240, 0.911);
+  }
+
+  /*slider */
+  .slider {
+    -webkit-appearance: none;
+    width: 800px;
+    height: 15px;
+    border-radius: 5px;  
+    background: #d3d3d3;
+    outline: none;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }
+  
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%; 
+    background: rgba(255, 94, 91, 0.521);
+    cursor: pointer;
+  }
+  
+  .slider::-webkit-slider-thumb:hover {
+      background: #FF5E5B;
+  }
+
+  .slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background:#FF5E5B;
+    cursor: pointer;
+  }
+
+  .reglerbeschriftung {
+    display: inline;
+    color: #FF5E5B;
+    font-weight: bolder;
+    font-size: 18px;
+    padding-left: 20px;
+    padding-right: 670px;
+  }
+
+  .reglerbeschriftung:last-child {
+      padding: 0px;
+  }
+
+  /* Skilly */
+  .skills {
+    text-align: right;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+  }
+  
+  .html {width: 75%; background-color: #4CAF50;}
+  .css {width: 75%; background-color: #2196F3;}
+  .js {width: 35%; background-color: #f44336;}
+  .php {width: 100%; background-color: #808080;}
