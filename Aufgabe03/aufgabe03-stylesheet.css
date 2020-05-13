@@ -74,7 +74,6 @@ h4::first-letter {
     color: #FF5E5B;
 }
 
-
 /* LINKS */
 a {
     text-decoration: none;
@@ -161,7 +160,6 @@ footer {
   width: 800px;
   box-sizing: border-box;
   margin: 0px auto;
-  padding: none;
   margin-top: -180px;
 }
 
@@ -203,7 +201,6 @@ footer {
       margin: 5px 0px 20px 0px;
       text-align: center;
       border-radius: 1px;
-      border: 1px solid rgba(102, 102, 102, 0.527);
   }
 
   .nameEtc {
