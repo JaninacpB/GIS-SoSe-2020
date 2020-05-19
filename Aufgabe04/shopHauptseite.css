@@ -1,5 +1,21 @@
 body {
-font-family: 'Montserrat', sans-serif;
+    font-family: 'Raleway', sans-serif;
+    margin: 0px;
+}
+
+
+nav {
+
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.4em;
+    background-color: #131B23;
+
+}
+
+#logo {
+
+    width: 70px;
+
 }
 
 h1 {
