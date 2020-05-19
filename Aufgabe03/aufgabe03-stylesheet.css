@@ -47,7 +47,7 @@ li.naviElement:hover {
 }
 
 /*header bild*/
-.headerBild {
+#headerBild {
     background-image: url(https://janinacpb.github.io/GIS-SoSe-2020/Aufgabe03/Archiv/stroke.svg);
     width: 800px;
     box-sizing: border-box;
@@ -180,7 +180,7 @@ footer {
 
   /*Kontaktformular*/
 
-  .contact {
+  #contact {
       background-color: rgba(102, 102, 102, 0.527);
       color: white;
       width: 100px;
