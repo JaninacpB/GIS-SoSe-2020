@@ -108,15 +108,11 @@ h1 {
     font-size: 5em;
     text-align: center;
     margin: 0;
+    color: tomato;
 }
 
 nav + h1 {
     margin-top: 80px;
-}
-
-h1 {
-    color: tomato;
-    font-size: 7em;
 }
 
 h3 {
@@ -236,13 +232,11 @@ footer {
     footer {
         font-size: 1em;
     }
-    
-
   }
 
   /*Destop*/
 
-  @media only screen and (min-width: 992px) {
+  @media only screen and (min-width: 1024px) {
 
     .alltag:nth-child(even) {
         width: 35%;
@@ -273,7 +267,5 @@ footer {
     footer {
 
         justify-content: space-evenly;
-
     }
-
   }
