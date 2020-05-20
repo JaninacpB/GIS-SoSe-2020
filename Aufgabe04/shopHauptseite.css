@@ -173,12 +173,12 @@ footer {
     width: 100%;
     box-sizing: border-box;
     font-size: 1.5em;
+    justify-content: space-around;
 }
 
 /* fürs erste Element*/
 
 .footerfloat {
-    padding: 10px 0 50px 160px;
     text-align: center;
 }
 
