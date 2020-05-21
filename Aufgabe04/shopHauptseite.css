@@ -123,6 +123,10 @@ h1 {
     text-align: center;
     margin: 0;
     color: tomato;
+    
+}
+
+h1:last-child {
     border-top: 2px solid rgba(0, 0, 0, 0.397);
 }
 
