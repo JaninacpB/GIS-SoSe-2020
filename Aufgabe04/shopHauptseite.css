@@ -5,7 +5,6 @@ body {
     min-width: 100%;
 }
 
-
 nav {
 
     background-color: #131B23;
@@ -42,7 +41,24 @@ nav {
     max-width: 80px;
     max-height: 80px;
     filter: invert(100%);
+    background-color: #60edd2;
 
+}
+
+a {
+    color: rgb(92, 160, 180);
+}
+
+a:hover {
+    color: rgb(28, 38, 44);
+}
+
+a:active {
+    color: maroon;
+}
+
+a:visited {
+    color: violet;
 }
 
 /* Drop down*/
@@ -57,14 +73,14 @@ nav {
     box-sizing: border-box;
   }
   
-  /* The container <div> - needed to position the dropdown content */
+
   .dropdown {
     position: relative;
     display: inline-block;
     background-color: #F2542D;
   }
   
-  /* Dropdown Content (Hidden by Default) */
+
   .dropdown-content {
     display: none;
     position: absolute;
@@ -74,7 +90,7 @@ nav {
     z-index: 1;
   }
   
-  /* Links inside the dropdown */
+  /* Links inside */
   .dropdown-content a {
     font-size: 2em;
     color: black;
@@ -83,25 +99,23 @@ nav {
     display: block;
   }
   
-  /* Change color of dropdown links on hover */
+  /* dropdown links on hover */
   .dropdown-content a:hover {background-color: #ddd;}
   
-  /* Show the dropdown menu on hover */
+  /*dropdown menu on hover */
   .dropdown:hover .dropdown-content {display: block;}
   
-  /* Change the background color of the dropdown button when the dropdown content is shown */
+  /* dropdown button when the dropdown content is shown */
   .dropdown:hover .dropbtn {background-color: #F2542D;}
 
   /* Dropdown ende*/
 
-
-  .kaufen {
+  .kaufen{
       font-size: 3em;
       margin: 20px;
       background-color: rgb(206, 206, 206);
       border: none;
   }
-
 
 h1 {
     font-family: 'Bebas Neue', cursive;
@@ -109,6 +123,7 @@ h1 {
     text-align: center;
     margin: 0;
     color: tomato;
+    border-top: 2px solid rgba(0, 0, 0, 0.397);
 }
 
 nav + h1 {
@@ -130,7 +145,6 @@ h3::before {
     width: 100%;
 }
 
-
 .alltag:nth-child(even) {
     background-color:#131B23;
 }
@@ -150,10 +164,12 @@ p {
     color: white;
 }
 
-img + p::after {
+.fa + p::after {
     display: block;
     color: rgba(255, 99, 71, 0.678);
-    content: " Warnung, sichtbarer Gegenstands auf dem Bild dient nur für den größen Vergleich und wird nicht mit geliefert."
+    content: " Warnung, sichtbarer Gegenstands auf dem Bild dient nur für den Größenvergleich und werden nicht mitgeliefert.";
+    margin-top: 5px;
+    font-size: 0.5em;
 }
 
 .fa {
@@ -198,6 +214,7 @@ footer {
     .alltag:nth-child(even) {
         width: 30%;
         margin-bottom: 10px;
+        overflow: scroll;
     }
 
     .alltag:nth-child(odd) {
@@ -222,11 +239,10 @@ footer {
     .dropdown-content a {
         font-size: 1em;}
 
-    .kaufen {
+    button.kaufen {
 
         font-size: 1.5em;
-        margin-left: 40px;
-
+        margin-left: 20px;
     }
 
     footer {
@@ -234,21 +250,22 @@ footer {
     }
   }
 
-  /*Destop*/
+  /*Desktop*/
 
   @media only screen and (min-width: 1024px) {
 
     .alltag:nth-child(even) {
-        width: 35%;
+        width: 400px;
         margin-bottom: 10px;
+        height: 700px;
+        overflow: hidden;
     }
 
     .alltag:nth-child(odd) {
-        width: 35%; 
+        width: 400px; 
         margin-bottom: 10px;
-        height: 500px;
-        overflow: scroll;
         height: 700px;
+        overflow: hidden;
     }
 
     .bildArtikel {
@@ -268,4 +285,40 @@ footer {
 
         justify-content: space-evenly;
     }
+ /* Menü Leiste Desktop */
+
+ nav {
+    height: 40px;
+}
+
+img#logo {
+
+    max-width: 40px;
+    max-height: 40px;
+}
+
+.firma {
+    font-size: 1.5em;
+    padding-top: 0;
+}
+
+#einkaufswagen {
+    max-width: 40px;
+    max-height: 40px;
+}
+
+/* Drop down*/
+/* Dropdown Button */
+.dropbtn {
+    font-size:1.5em;
+    padding-top: 10px;
   }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    font-size: 1em;
+  }
+  /* Dropdown ende*/
+  }
+
+
