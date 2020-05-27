@@ -104,6 +104,7 @@ for (let index: number = 0; index < katAlltag.length; index++) {
         let p1: HTMLElement = document.createElement("p");
         document.getElementById(katAlltag[index].name)!.appendChild(p1);
         p1.innerHTML =  katAlltag[index].beschreibung;
+        p1.setAttribute("class", "beschreibung");
         
         let p2: HTMLElement = document.createElement("p");
         document.getElementById(katAlltag[index].name)!.appendChild(p2);
@@ -134,6 +135,7 @@ for (let index: number = 0; index < katAlltag.length; index++) {
         let p1: HTMLElement = document.createElement("p");
         document.getElementById(katAlltag[index].name)!.appendChild(p1);
         p1.innerHTML =  katAlltag[index].beschreibung;
+        p1.setAttribute("class", "beschreibung");
         
         let p2: HTMLElement = document.createElement("p");
         document.getElementById(katAlltag[index].name)!.appendChild(p2);
