@@ -163,7 +163,7 @@ p {
     color: white;
 }
 
- .fa + p::after {
+ .beschreibung::after {
     display: block;
     color: rgba(255, 99, 71, 0.678);
     content: " Warnung, sichtbarer Gegenstands auf dem Bild dient nur für den Größenvergleich und werden nicht mitgeliefert.";
