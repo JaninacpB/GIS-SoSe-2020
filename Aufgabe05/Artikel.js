@@ -49,7 +49,7 @@ var Aufgabe04;
         preis: 100, bild: "https://janinacpb.github.io/GIS-SoSe-2020/Aufgabe04/Archiv/artikel5.png", kategorieAlltag: false, kategorieHelden: true
     };
     let zehnterArtikel = {
-        name: "Zverzauberter Spiegel",
+        name: "Verzauberter Spiegel",
         beschreibung: "Wie ein normaler unsichtbarer Spiegel, wie jeder ihn zuhause hat. Nur ist es halt auch verfluch- zverzaubert!",
         preis: 450, bild: "https://janinacpb.github.io/GIS-SoSe-2020/Aufgabe04/Archiv/artikel6.jpg", kategorieAlltag: false, kategorieHelden: true
     };
@@ -119,46 +119,5 @@ var Aufgabe04;
             button.innerHTML = "Kaufen!";
         }
     }
-    // Alltag Ende 
-    //#Element_hinzufügen anfang
-    /*
-    let div: HTMLElement = document.createElement("div");
-    document.getElementById("alltagKat")!.appendChild(div);
-    div.setAttribute("class", "alltag");
-    div.setAttribute("id", "alltag");
-    
-    let nameUeberschrift: HTMLElement = document.createElement("h3");
-    document.getElementById("alltag")!.appendChild(nameUeberschrift);
-    nameUeberschrift.innerHTML = ersterArtikel.name;
-    
-    let bild: HTMLElement = document.createElement("img");
-    document.getElementById("alltag")!.appendChild(bild);
-    bild.setAttribute("src", ersterArtikel.bild);
-    bild.setAttribute("class", "bildArtikel");
-    
-    let p1: HTMLElement = document.createElement("p");
-    document.getElementById("alltag")!.appendChild(p1);
-    p1.innerHTML = zweiterArtikel.beschreibung;
-    
-    let p2: HTMLElement = document.createElement("p");
-    document.getElementById("alltag")!.appendChild(p2);
-    p2.innerHTML = "Preis: " + zweiterArtikel.preis + "€";
-    
-    let button: HTMLElement = document.createElement("button");
-    document.getElementById("alltag")!.appendChild(button);
-    button.setAttribute("class", "kaufen");
-    button.innerHTML = "Kaufen!";
-    
-    //#Element_hinzufügen ende
-    
-    */
-    /*
-    <div class="alltag">
-                <h3>Decke</h3>
-                <img>
-                <p>Beschreibung </p>
-                <p>Preis: 30€</p>
-                <button class="kaufen">Kauf mich!</button>
-            </div>*/
 })(Aufgabe04 || (Aufgabe04 = {}));
 //# sourceMappingURL=Artikel.js.map
