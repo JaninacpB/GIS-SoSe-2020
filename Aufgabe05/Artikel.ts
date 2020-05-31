@@ -9,8 +9,6 @@ interface Artikel {
     kategorieHelden: boolean;
 }
 
-//Artikel anfang
-
 let ersterArtikel: Artikel = {
     name: "Geschirr",
     beschreibung: "Sie wollen ihre Gäste begeistern? Ihr Essen von allen Seiten bewundern? Dann ist dieses unsichtbare Geschirr wie gemacht für sie",
@@ -45,8 +43,6 @@ let siebterArtikel: Artikel = {
         name: "Stimme",
         beschreibung: "Ich meine... wir alle wissen, dass du gut aussiehst, daher kaufe dir den ultimativen Beweis, dass du dir absolut sicher bist, dass du umwerfend bist!",
         preis: 1, bild: "https://janinacpb.github.io/GIS-SoSe-2020/Aufgabe04/Archiv/artikel7.jpg", kategorieAlltag: true, kategorieHelden: false};
-    
-        //Neue Kategorie
 
 let achterArtikel: Artikel = {
         name: "Der eine Ring",
@@ -74,15 +70,10 @@ let zwoelfterArtikel: Artikel = {
         preis: 50, bild: "https://janinacpb.github.io/GIS-SoSe-2020/Aufgabe04/Archiv/artikel6.jpg", kategorieAlltag: false, kategorieHelden: true};
         
 
-//Artikel Ende
-
-// Array erstellen für alle Elemente 
-
 let katAlltag: Array<Artikel> = [
     ersterArtikel, zweiterArtikel, dritterArtikel, vierterArtikel, fuenfterArtikel, sechsterArtikel, siebterArtikel, achterArtikel, neunterArtikel, zehnterArtikel, elfterArtikel, zwoelfterArtikel
 ]; 
 
-// Alltag Kategorie Anfang
 for (let index: number = 0; index < katAlltag.length; index++) {
 
     if (katAlltag[index].kategorieAlltag) {
