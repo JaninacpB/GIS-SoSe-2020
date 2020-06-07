@@ -1,7 +1,6 @@
 "use strict";
 var Aufgabe04;
 (function (Aufgabe04) {
-    //Artikel anfang
     let ersterArtikel = {
         name: "Geschirr",
         beschreibung: "Sie wollen ihre Gäste begeistern? Ihr Essen von allen Seiten bewundern? Dann ist dieses unsichtbare Geschirr wie gemacht für sie",
@@ -37,7 +36,6 @@ var Aufgabe04;
         beschreibung: "Ich meine... wir alle wissen, dass du gut aussiehst, daher kaufe dir den ultimativen Beweis, dass du dir absolut sicher bist, dass du umwerfend bist!",
         preis: 1, bild: "https://janinacpb.github.io/GIS-SoSe-2020/Aufgabe04/Archiv/artikel7.jpg", kategorieAlltag: true, kategorieHelden: false
     };
-    //Neue Kategorie
     let achterArtikel = {
         name: "Der eine Ring",
         beschreibung: "Wir haben diesen einzigartige Ring (und 2000 Kopien) in einer Kiste auf dem Dachboden gefunden. Interesse?",
@@ -63,12 +61,9 @@ var Aufgabe04;
         beschreibung: "Tom ist unsichtbar.",
         preis: 50, bild: "https://janinacpb.github.io/GIS-SoSe-2020/Aufgabe04/Archiv/artikel6.jpg", kategorieAlltag: false, kategorieHelden: true
     };
-    //Artikel Ende
-    // Array erstellen für alle Elemente 
     let katAlltag = [
         ersterArtikel, zweiterArtikel, dritterArtikel, vierterArtikel, fuenfterArtikel, sechsterArtikel, siebterArtikel, achterArtikel, neunterArtikel, zehnterArtikel, elfterArtikel, zwoelfterArtikel
     ];
-    // Alltag Kategorie Anfang
     for (let index = 0; index < katAlltag.length; index++) {
         if (katAlltag[index].kategorieAlltag) {
             let div = document.createElement("div");
@@ -82,6 +77,7 @@ var Aufgabe04;
             document.getElementById(katAlltag[index].name).appendChild(bild);
             bild.setAttribute("src", katAlltag[index].bild);
             bild.setAttribute("class", "bildArtikel");
+            bild.setAttribute("alt", katAlltag[index].name);
             let p1 = document.createElement("p");
             document.getElementById(katAlltag[index].name).appendChild(p1);
             p1.innerHTML = katAlltag[index].beschreibung;

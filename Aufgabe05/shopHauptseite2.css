@@ -41,9 +41,10 @@ nav {
     max-width: 80px;
     max-height: 80px;
     filter: invert(100%);
-    background-color: #60edd2;
 
 }
+
+
 
 a {
     color: rgb(92, 160, 180);
