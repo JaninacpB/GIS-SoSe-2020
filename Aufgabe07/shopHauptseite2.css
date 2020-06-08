@@ -1,0 +1,395 @@
+body {
+    font-family: 'Raleway', sans-serif;
+    margin: 0px;
+    font-size: 1em;
+    min-width: 100%;
+}
+
+nav {
+
+    background-color: #131B23;
+    display: flex;
+    vertical-align: middle;
+    height: 82px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    justify-content: space-around;
+}
+
+#logo {
+
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 7px;
+    box-sizing: border-box;
+}
+
+.firma {
+
+    font-family: 'Oswald', sans-serif;
+    font-size: 2em;
+    color: #131B23;
+    text-shadow: -3px 0 white, 0 3px white, 3px 0 white, 0 -3px white;
+    padding-top: 14px;
+}
+
+#einkaufswagen {
+
+    max-width: 80px;
+    max-height: 80px;
+    filter: invert(100%);
+
+}
+
+.zaehler {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    background-color: red;
+    color: white;
+    margin-top: 2px;
+    line-height: 30px;
+    position: relative;
+    top: -80px;
+    right: -50px;
+}
+
+a {
+    color: rgb(92, 160, 180);
+}
+
+a:hover {
+    color: rgb(28, 38, 44);
+}
+
+a:active {
+    color: maroon;
+}
+
+a:visited {
+    color: violet;
+}
+
+/* Drop down*/
+/* Dropdown Button */
+.dropbtn {
+    background-color: #F2542D;
+    font-family: 'Raleway', sans-serif;
+    color: white;
+    font-size:2em;
+    padding-top: 20px;
+    border: none;
+    box-sizing: border-box;
+  }
+  
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    background-color: #F2542D;
+  }
+  
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 250px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* button inside */
+  .dropdown-content button {
+    font-size: 2em;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    background-color: white;
+    border: none;
+    outline: none;
+  }
+  
+  /* dropdown links on hover */
+  .dropdown-content button:hover {background-color: #ddd;}
+  
+  /*dropdown menu on hover */
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  /* dropdown button when the dropdown content is shown */
+  .dropdown:hover .dropbtn {background-color: #F2542D;}
+
+
+  /* Dropdown ende*/
+
+  .kaufen{
+      font-size: 3em;
+      margin: 20px;
+      background-color: rgb(206, 206, 206);
+      border: none;
+  }
+
+h1 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 5em;
+    text-align: center;
+    margin: 0;
+    color: tomato;
+    margin-top: 50px;
+}
+
+h3 {
+    text-align: center;
+    margin: 0;
+    padding: 5px;
+    color: white;
+}
+
+h4 {
+    color: white;
+    text-align: center;
+}
+
+h3::before {
+    content: "(Unsichtbar) ";
+}
+
+.flexbox {
+    width: 100%;
+}
+
+.alltag:nth-child(even) {
+    background-color:#131B23;
+}
+
+.alltag:nth-child(odd) {
+    background-color: #9fb8b8;
+}
+
+.bildArtikel{
+    width: 100%;
+}
+
+.bildWare {
+    width: 100%;
+}
+
+p {
+    font-size: 2em;
+    text-align: justify;
+    padding: 0px 10px;
+    color: white;
+}
+
+ .beschreibung::after {
+    display: block;
+    color: rgba(255, 99, 71, 0.678);
+    content: " Warnung, sichtbarer Gegenstands auf dem Bild dient nur für den Größenvergleich und werden nicht mitgeliefert.";
+    margin-top: 5px;
+    font-size: 0.5em;
+}
+
+.fa {
+    display: none;
+}
+
+.gesamtPreis {
+    width: 100%;
+    background-color: black;
+    text-align: end;
+}
+
+.ware {
+        width: 100%;
+}
+
+.ware:nth-child(even) {
+    background-color:#131B23;
+}
+
+.ware:nth-child(odd) {
+    background-color: #9fb8b8;
+}
+
+/* FOOTER */
+footer {
+    background-color: #191516;
+    color: white;
+    margin: 0 auto;
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1.5em;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+/* fürs erste Element*/
+
+.footerfloat {
+    text-align: center;
+}
+
+.footerlink {
+    color: white;
+}
+
+/* tablet */
+@media only screen and (min-width: 600px) {
+    
+    p {
+        font-size: 1em;
+    }
+
+    .flexbox {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
+    .alltag:nth-child(even) {
+        width: 30%;
+        margin-bottom: 10px;
+        overflow: scroll;
+    }
+
+    .alltag:nth-child(odd) {
+        width: 30%; 
+        margin-bottom: 10px;
+        height: 500px;
+        overflow: scroll;
+    }
+    
+    .ware {
+        width: 300px;
+    }
+
+    .bildWare {
+        width: 300px;
+    }
+
+    .gesamtPreis {
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    .bildArtikel {
+        height: 200px;
+    }
+
+    nav {
+        font-size: 1em;
+    }
+
+    h3 {
+        font-size: 1em;
+    }
+
+    .dropdown-content a {
+        font-size: 1em;}
+
+    button.kaufen {
+
+        font-size: 1.5em;
+        margin-left: 20px;
+    }
+
+    footer {
+        font-size: 1em;
+    }
+  }
+
+  /*Desktop*/
+
+  @media only screen and (min-width: 1024px) {
+
+
+    .ware {
+        width: 300px;
+    }
+
+    .bildWare {
+        width: 300px;
+    }
+
+    .zaehler {
+        top: -42px;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        left: 25px;
+        font-size: 14px;
+    }
+
+    .alltag:nth-child(even) {
+        width: 400px;
+        margin-bottom: 10px;
+        height: 700px;
+        overflow: hidden;
+    }
+
+    .alltag:nth-child(odd) {
+        width: 400px; 
+        margin-bottom: 10px;
+        height: 700px;
+        overflow: hidden;
+    }
+
+    .bildArtikel {
+        height: 300px
+    }
+
+    .checked {
+        color: orange;
+      }
+
+    .fa {
+        padding: 5px;
+        display: inline;
+    }
+
+    footer {
+
+        justify-content: space-evenly;
+    }
+ /* Menü Leiste Desktop */
+
+ nav {
+    height: 40px;
+}
+
+img#logo {
+
+    max-width: 40px;
+    max-height: 40px;
+}
+
+.firma {
+    font-size: 1.5em;
+    padding-top: 0;
+}
+
+#einkaufswagen {
+    max-width: 40px;
+    max-height: 40px;
+}
+
+/* Drop down*/
+/* Dropdown Button */
+.dropbtn {
+    font-size:1.5em;
+    padding-top: 10px;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    font-size: 1em;
+  }
+  /* Dropdown ende*/
+  }
+
+
