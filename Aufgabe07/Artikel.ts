@@ -1,31 +1,34 @@
-namespace Aufgabe04 {
+namespace Aufgabe07 {
 
-interface Artikel {
-    name: string;
-    beschreibung: string; 
-    preis: number;
-    bild: string;
-    kategorieAlltag: boolean;
-    kategorieHelden: boolean;
-}
+let katAlltag: Artikel[];
+getArtikel();
 
-//
-//let katAlltag: Array<Artikel> = [
- //   ersterArtikel, zweiterArtikel, dritterArtikel, vierterArtikel, fuenfterArtikel, sechsterArtikel, siebterArtikel, achterArtikel, neunterArtikel, zehnterArtikel, elfterArtikel, zwoelfterArtikel
-//]; 
-
-async function getArtikel(_url: RequestInfo): Promise<void> {
-        let artikelBekommen: Response = await fetch(_url);
-        console.log("Response", artikelBekommen);
+async function getArtikel(): Promise<void> {
+        let artikelBekommen: Response = await fetch("AlleArtikel.json");
+        katAlltag = await artikelBekommen.json();
+        artikelErstellen();
       }
-  
+
 let gesamtPreis: number = 0;
 let divZaehler: HTMLElement = document.createElement("div");
 let menge: number = 0;
+let artikelImWarenkorb: Array <Artikel>;
+let artikelImWarenkorbIndex: number = 0;
+
+if (localStorage.getItem("gesamtPreis")) {
+        gesamtPreis = parseInt(localStorage.getItem("gesamtPreis")!);
+        menge = parseInt(localStorage.getItem("menge")!);
+        artikelImWarenkorb = JSON.parse(localStorage.getItem("artikelImWarenkorbSpeicher")!);
+
+        document.getElementById("zaehlerJs")!.appendChild(divZaehler);
+        divZaehler.setAttribute("class", "zaehler");
+        divZaehler.innerHTML = menge.toString();
+
+    }
+
+function artikelErstellen(): void {
 
 for (let index: number = 0; index < katAlltag.length; index++) {
-        
-        console.log(JSON.stringify(katAlltag[index]));
 
         erstelleArtikel( true, true );
 
@@ -130,35 +133,44 @@ for (let index: number = 0; index < katAlltag.length; index++) {
                         
                         if (document.getElementById("helden")) {
                                 document.getElementById("helden")?.remove();
-                        }
-
-                               
+                        }                               
                 }
 
                 function handlerAlleFilter(): void {
                         div.remove();
                         erstelleArtikel(true, true);
                 }
-
         }        
 
         function handlerKaufen(): void {
-                
+
+                if (!artikelImWarenkorb) {
+                        artikelImWarenkorb = [katAlltag[index]];
+                }
+
+                else {
+                        artikelImWarenkorb.push(katAlltag[index]);
+                }
+
+                localStorage.setItem("artikelImWarenkorbSpeicher", JSON.stringify(artikelImWarenkorb));
+                artikelImWarenkorbIndex = artikelImWarenkorbIndex + 1;
+
                 if (gesamtPreis == 0) {
                         document.getElementById("zaehlerJs")!.appendChild(divZaehler);
                         divZaehler.setAttribute("class", "zaehler");
                         divZaehler.innerHTML = "1";
-                        menge = 1;
+                        menge = 1;        
                 }
 
                 else {
                         menge += 1;
-                        divZaehler.innerHTML = "" + menge;
+                        divZaehler.innerHTML = menge.toString();
                 }
 
                 gesamtPreis = gesamtPreis + katAlltag[index].preis;
-                console.log(gesamtPreis);
+                localStorage.setItem("gesamtPreis", gesamtPreis.toString());
+                localStorage.setItem("menge", menge.toString());
                 }
-        }        
-
+        }     
+}   
 }

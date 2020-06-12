@@ -1,5 +1,4 @@
-{"articles": [
-
+ [
 {"name":"Geschirr","beschreibung":"Sie wollen ihre Gäste begeistern? Ihr Essen von allen Seiten bewundern? Dann ist dieses unsichtbare Geschirr wie gemacht für sie","preis":80,"bild":"https://janinacpb.github.io/GIS-SoSe-2020/Aufgabe04/Archiv/artikel2.jpg","kategorieAlltag":true,"kategorieHelden":false},
 {"name":"Decke","beschreibung":"Dir ist kalt, aber du willst nicht das andere sehen, wie schwach du bist, und dass du dich am liebsten in einer Decke verkrümmeln möchtest? Hör dir nie wieder blöde Sprüche an und genieße den Vorteil einer unsichtbaren Decke.","preis":30,"bild":"https://janinacpb.github.io/GIS-SoSe-2020/Aufgabe04/Archiv/artikel1.jpg","kategorieAlltag":true,"kategorieHelden":false},
 {"name":"Zucker","beschreibung":"Wenn du es nicht sehen kannst, zählt es dann wirklich? Wir glauben nein!","preis":3,"bild":"https://janinacpb.github.io/GIS-SoSe-2020/Aufgabe04/Archiv/artikel3.jpg","kategorieAlltag":true,"kategorieHelden":false},
@@ -12,4 +11,4 @@
 {"name":"Verzauberter Spiegel","beschreibung":"Wie ein normaler unsichtbarer Spiegel, wie jeder ihn zuhause hat. Nur ist es halt auch verfluch- zverzaubert!","preis":450,"bild":"https://janinacpb.github.io/GIS-SoSe-2020/Aufgabe04/Archiv/artikel6.jpg","kategorieAlltag":false,"kategorieHelden":true},
 {"name":"Zauberstab","beschreibung":"Leid, dass jeder deinen Zauberstab klaut? Jetzt nicht mehr! Mit diesem unsichtbaren Zauberstab, kannst nicht einmal du ihn mehr finden! Wow!","preis":5000,"bild":"https://janinacpb.github.io/GIS-SoSe-2020/Aufgabe04/Archiv/artikel4.jpg","kategorieAlltag":false,"kategorieHelden":true},
 {"name":"Tom","beschreibung":"Tom ist unsichtbar.","preis":50,"bild":"https://janinacpb.github.io/GIS-SoSe-2020/Aufgabe04/Archiv/artikel6.jpg","kategorieAlltag":false,"kategorieHelden":true}
-  ] }
+  ] 
