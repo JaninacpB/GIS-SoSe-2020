@@ -11,10 +11,6 @@ namespace Aufgabe07 {
 
     if (localStorage.getItem("gesamtPreis")) {
         gesamtPreis = parseInt(localStorage.getItem("gesamtPreis")!);
-    }
-
-    if (localStorage.getItem("gesamtPreis")) {
-        
         gesamtPreisKasten!.appendChild(preisGesamt);
         preisGesamt.innerHTML = "Gesamtreis: " + gesamtPreis + "€";
 
@@ -25,9 +21,7 @@ namespace Aufgabe07 {
         buttonDelet.innerHTML = "Lösche alle Artikel";
 
         buttonDelet.addEventListener("click", handlerAlleLoeschen);
-    }
 
-    if (localStorage.getItem("menge")) {
         menge = parseInt(localStorage.getItem("menge")!);
         zaehler.setAttribute("id", "zaehlerJs");
         zaehler.setAttribute("class", "zaehler");
