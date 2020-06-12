@@ -11,8 +11,6 @@ var Aufgabe07;
     let preisGesamt = document.createElement("p");
     if (localStorage.getItem("gesamtPreis")) {
         gesamtPreis = parseInt(localStorage.getItem("gesamtPreis"));
-    }
-    if (localStorage.getItem("gesamtPreis")) {
         gesamtPreisKasten.appendChild(preisGesamt);
         preisGesamt.innerHTML = "Gesamtreis: " + gesamtPreis + "€";
         let buttonDelet = document.createElement("button");
@@ -21,8 +19,6 @@ var Aufgabe07;
         buttonDelet.setAttribute("id", "loeschen");
         buttonDelet.innerHTML = "Lösche alle Artikel";
         buttonDelet.addEventListener("click", handlerAlleLoeschen);
-    }
-    if (localStorage.getItem("menge")) {
         menge = parseInt(localStorage.getItem("menge"));
         zaehler.setAttribute("id", "zaehlerJs");
         zaehler.setAttribute("class", "zaehler");
