@@ -52,9 +52,10 @@ var Aufgabe07;
                 function handlerArtikelEntfernen() {
                     menge = menge - 1;
                     zaehler.innerHTML = menge.toString();
+                    gesamtPreis -= artikelImWarenkorb[indexWarenkorb].preis;
+                    console.log(artikelImWarenkorb);
                     localStorage.setItem("gesamtPreis", gesamtPreis.toString());
                     localStorage.setItem("menge", menge.toString());
-                    gesamtPreis = gesamtPreis - artikelImWarenkorb[indexWarenkorb].preis;
                     preisGesamt.innerHTML = preisGesamt.innerHTML = "Gesamtreis: " + gesamtPreis + "€";
                     div.remove();
                     delete artikelImWarenkorb[indexWarenkorb];
