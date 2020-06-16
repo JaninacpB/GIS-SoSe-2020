@@ -1,0 +1,19 @@
+{
+  "name": "gissosejanina",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node Aufgabe08/aufgabe08.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JaninacpB/GIS-SoSe-2020.git"
+  },
+  "author": "janina bach",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JaninacpB/GIS-SoSe-2020/issues"
+  },
+  "homepage": "https://github.com/JaninacpB/GIS-SoSe-2020#readme"
+}
