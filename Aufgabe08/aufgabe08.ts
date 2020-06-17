@@ -3,13 +3,6 @@ import * as Http from "http";
 export namespace A08Server {
   console.log("Starting server");
 
-  let formData: FormData = new FormData(document.forms[0]);
-  for (let entry of formData) {
-    console.log(entry);
-    console.log("name: " + entry[0]);
-    console.log("value: " + entry[1]);
-}
-
     // Server erstellen, wen noch nicht exestiert
   let port: number = Number(process.env.PORT);
   if (!port)

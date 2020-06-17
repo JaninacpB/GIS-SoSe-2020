@@ -5,12 +5,6 @@ const Http = require("http");
 var A08Server;
 (function (A08Server) {
     console.log("Starting server");
-    let formData = new FormData(document.forms[0]);
-    for (let entry of formData) {
-        console.log(entry);
-        console.log("name: " + entry[0]);
-        console.log("value: " + entry[1]);
-    }
     // Server erstellen, wen noch nicht exestiert
     let port = Number(process.env.PORT);
     if (!port)
