@@ -6,6 +6,11 @@ var A08Server;
 (function (A08Server) {
     console.log("Starting server");
     let formData = new FormData(document.forms[0]);
+    for (let entry of formData) {
+        console.log(entry);
+        console.log("name: " + entry[0]);
+        console.log("value: " + entry[1]);
+    }
     // Server erstellen, wen noch nicht exestiert
     let port = Number(process.env.PORT);
     if (!port)
@@ -19,11 +24,6 @@ var A08Server;
     }
     function handleRequest(_request, _response) {
         console.log("I hear voices!");
-        for (let entry of formData) {
-            console.log(entry);
-            console.log("name: " + entry[0]);
-            console.log("value: " + entry[1]);
-        }
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
         _response.write(_request.url);
