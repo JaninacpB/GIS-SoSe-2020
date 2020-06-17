@@ -5,7 +5,6 @@ const Http = require("http");
 var A08Server;
 (function (A08Server) {
     console.log("Starting server");
-    // Server erstellen, wen noch nicht exestiert
     let port = Number(process.env.PORT);
     if (!port)
         port = 8100;

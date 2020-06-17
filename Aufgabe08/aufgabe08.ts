@@ -2,8 +2,6 @@ import * as Http from "http";
 
 export namespace A08Server {
   console.log("Starting server");
-
-    // Server erstellen, wen noch nicht exestiert
   let port: number = Number(process.env.PORT);
   if (!port)
     port = 8100;
@@ -19,6 +17,7 @@ export namespace A08Server {
 
   function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void {
     console.log("I hear voices!");
+
     _response.setHeader("content-type", "text/html; charset=utf-8");
     _response.setHeader("Access-Control-Allow-Origin", "*");
 
