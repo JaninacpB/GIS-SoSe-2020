@@ -3,11 +3,9 @@ import * as Http from "http";
 export namespace A08Server {
   console.log("Starting server");
 
-
   let formData: FormData = new FormData(document.forms[0]);
 
-
-
+    // Server erstellen, wen noch nicht exestiert
   let port: number = Number(process.env.PORT);
   if (!port)
     port = 8100;
@@ -21,16 +19,14 @@ export namespace A08Server {
     console.log("Listening");
   }
 
-  async function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): Promise <void> {
+  function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void {
     console.log("I hear voices!");
 
-
-    let url: string = "https://sosegis2020.herokuapp.com/";
-    let query: URLSearchParams = new URLSearchParams(<any>formData);
-    url += url + "?" + query.toString();
-    await fetch(url);
-    console.log(url);
-
+    for (let entry of formData) {
+        console.log(entry);
+        console.log("name: " + entry[0]);
+        console.log("value: " + entry[1]);
+    }
 
     _response.setHeader("content-type", "text/html; charset=utf-8");
     _response.setHeader("Access-Control-Allow-Origin", "*");

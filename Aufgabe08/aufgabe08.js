@@ -6,6 +6,7 @@ var A08Server;
 (function (A08Server) {
     console.log("Starting server");
     let formData = new FormData(document.forms[0]);
+    // Server erstellen, wen noch nicht exestiert
     let port = Number(process.env.PORT);
     if (!port)
         port = 8100;
@@ -16,13 +17,13 @@ var A08Server;
     function handleListen() {
         console.log("Listening");
     }
-    async function handleRequest(_request, _response) {
+    function handleRequest(_request, _response) {
         console.log("I hear voices!");
-        let url = "https://sosegis2020.herokuapp.com/";
-        let query = new URLSearchParams(formData);
-        url += url + "?" + query.toString();
-        await fetch(url);
-        console.log(url);
+        for (let entry of formData) {
+            console.log(entry);
+            console.log("name: " + entry[0]);
+            console.log("value: " + entry[1]);
+        }
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
         _response.write(_request.url);
