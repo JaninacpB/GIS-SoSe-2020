@@ -1,14 +1,23 @@
 "use strict";
 var Aufgabe08;
 (function (Aufgabe08) {
+    let button = document.getElementById("SubmitButton");
     let formData = new FormData(document.forms[0]);
-    ausgabe();
+    button.addEventListener("click", handlerButton);
+    function handlerButton() {
+        ausgabe();
+    }
     async function ausgabe() {
-        let url = "https://whatever.server/path/file";
+        let url = "https://sosegis2020.herokuapp.com/";
         let query = new URLSearchParams(formData);
-        url = url + "?" + query.toString();
-        await fetch(url);
-        console.log(url);
+        url = url + "?" + formData.toString();
+        let serverDaten = await fetch(url);
+        console.log(serverDaten);
+        for (let entry of query) {
+            console.log(entry);
+            console.log("name: " + entry[0]);
+            console.log("value: " + entry[1]);
+        }
     }
 })(Aufgabe08 || (Aufgabe08 = {}));
 //# sourceMappingURL=Artikel08.js.map

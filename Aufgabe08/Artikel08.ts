@@ -1,14 +1,29 @@
 namespace Aufgabe08 {
 
+    let button: HTMLButtonElement = <HTMLButtonElement> document.getElementById("SubmitButton");
     let formData: FormData = new FormData(document.forms[0]);
-    ausgabe();
+
+    button.addEventListener("click", handlerButton);
+
+
+    function handlerButton(): void {
+        ausgabe();
+    }
 
     async function ausgabe(): Promise<void> { 
-    let url: string = "https://whatever.server/path/file";
+
+    let url: string = "https://sosegis2020.herokuapp.com/";
     let query: URLSearchParams = new URLSearchParams(<any>formData);
-    url = url + "?" + query.toString();
-    await fetch(url);
-    console.log(url);
+    url = url + "?" + formData.toString();
+    let serverDaten: any = await fetch(url);
+    console.log(serverDaten);
+
+    for (let entry of query) {
+        console.log(entry);
+        console.log("name: " + entry[0]);
+        console.log("value: " + entry[1]);
+    }
+
     }
 
 }
