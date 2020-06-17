@@ -4,6 +4,11 @@ export namespace A08Server {
   console.log("Starting server");
 
   let formData: FormData = new FormData(document.forms[0]);
+  for (let entry of formData) {
+    console.log(entry);
+    console.log("name: " + entry[0]);
+    console.log("value: " + entry[1]);
+}
 
     // Server erstellen, wen noch nicht exestiert
   let port: number = Number(process.env.PORT);
@@ -21,13 +26,6 @@ export namespace A08Server {
 
   function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void {
     console.log("I hear voices!");
-
-    for (let entry of formData) {
-        console.log(entry);
-        console.log("name: " + entry[0]);
-        console.log("value: " + entry[1]);
-    }
-
     _response.setHeader("content-type", "text/html; charset=utf-8");
     _response.setHeader("Access-Control-Allow-Origin", "*");
 
