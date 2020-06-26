@@ -4,5 +4,12 @@ h1 {
 
 body {
     font-family: 'Open Sans', sans-serif;
-    background-image:  ;
+    background: url(https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/hintergrund.jpg);
+    background-repeat: repeat;
+    background-size: 400px;
+}
+
+header {
+    height: 500px;
+    background-color: thistle;
 }
