@@ -17,9 +17,57 @@ header {
 }
 
 .box {
+    width: 95%;
     background-color: wheat;
     margin: 0 auto;
-    width: 95%;
+}
+
+.schritt {
+    width: 100%;
+}
+
+.flexbox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.artikelEis {
+    background-color: white;
+    color: #ED4659;
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+.eisBild {
+    width: 300px;
+    display: block;
+}
+
+.eisBild + div {
+    display: flex;
+    justify-content: flex-end;
+}
+
+h3 {
+    display: inline;
+    line-height: 1.9;
+    font-size: 18px;
+    vertical-align: middle;
+    padding-right: 30px;
+}
+
+.hinzufuegenEis {
+    background-color: #ED4659;
+    color: white;
+    border: none;
+    height: 70px;
+    padding: 0px 10px 0px 10px;
+    font-size: 20px;
+}
+
+.hinzufuegenEis:hover {
+    background-color:  #c42639;
 }
 
 /* FOOTER */
@@ -45,7 +93,7 @@ footer {
 
 /* fürs erste Element*/
 .socialMediaEins{
-    margin-left: 40%;
+    margin-left: 10%;
     width: 30px;
     height: 30px;
     padding: 35px 10px 20px 10px;
