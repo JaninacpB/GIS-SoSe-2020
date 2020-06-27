@@ -5,15 +5,69 @@ body {
     margin: 0;
 }
 
-h1 {
-    font-family: 'Delius Unicase', cursive;
-}
-
 header {
-    height: 300px;
+    height: 105px;
     background-image: url(https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/markise.png);
     background-repeat: repeat-x;
     background-size: 950px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav  p {
+    font-size: 20px;
+}
+
+h1 {
+    font-family: 'Delius Unicase', cursive;
+    font-size: 50px;
+}
+
+.anleitung {
+    background-image: url(https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/anleitung.png);
+    background-repeat: repeat-x;
+    margin: 0 2.5%;
+    margin-bottom: 20px;
+}
+
+.anleitung h2 {
+    text-align: center;
+    font-size: 15px;
+    background-color: #8BCC9F;
+    color: white;
+    letter-spacing: 5px;
+    font-weight: lighter;
+}
+
+.anleitung p {
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    text-shadow: 1px 1px 5px #191516;
+    margin: 0;
+}
+
+.kreis {
+    width: 120px;
+    height: 120px;
+    border-radius: 80px;
+    text-align: center;
+    line-height: 120px;
+    font-size: 120px;
+    color: white;
+    opacity: 0.9;
+}
+
+.flexbox div:nth-child(odd) .kreis{
+    background-color: #ED4659;
+}
+
+.flexbox div:nth-child(even) .kreis{
+    background-color: #8BCC9F;
 }
 
 .box {
@@ -67,7 +121,7 @@ h3 {
 }
 
 .hinzufuegenEis:hover {
-    background-color:  #c42639;
+    background-color:  #911a28;
 }
 
 /* FOOTER */
