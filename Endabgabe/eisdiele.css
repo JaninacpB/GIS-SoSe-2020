@@ -1,15 +1,66 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: url(https://gabriel-rausch.github.io/EIA1-SoSe20/L03/task_material/images/bg.png);
+    background-repeat: repeat;
+    margin: 0;
+}
+
 h1 {
     font-family: 'Delius Unicase', cursive;
 }
 
-body {
-    font-family: 'Open Sans', sans-serif;
-    background: url(https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/hintergrund.jpg);
-    background-repeat: repeat;
-    background-size: 400px;
+header {
+    height: 300px;
+    background-image: url(https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/markise.png);
+    background-repeat: repeat-x;
+    background-size: 950px;
 }
 
-header {
-    height: 500px;
-    background-color: thistle;
+.box {
+    background-color: wheat;
+    margin: 0 auto;
+    width: 95%;
+}
+
+/* FOOTER */
+footer {
+    background-color: #191516;
+    color: white;
+    margin: 0 auto;
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.socialMedia {
+    width: 30px;
+    height: 30px;
+    padding: 35px 10px 20px 10px;
+    filter: grayscale(100%);
+}
+
+.socialMedia:hover{
+    filter: none;
+}
+
+/* fürs erste Element*/
+.socialMediaEins{
+    margin-left: 40%;
+    width: 30px;
+    height: 30px;
+    padding: 35px 10px 20px 10px;
+    filter: grayscale(100%)
+}
+
+.socialMediaEins:hover{
+    filter: none;
+}
+
+.footerfloat {
+    padding: 10px 0 50px 160px;
+    text-align: center;
+}
+
+.footerlink {
+    color: white;
 }
