@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <title>Forumlar</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="forumlar.css" type="text/css">
+    <script src="Artikel09.js" defer> </script>
+</head>
+
+<body>
+
+    <header> Formular </header>
+    <article>
+        <form action="https://localhost:8001"> 
+            <p>Bitte fülle alles sorgfältig aus </p>
+
+            <p>
+            <label for="vorname">Vorname:</label><br>
+            <input type="text" name="vorname" ><br>
+            <label for="nachname">Nachname:</label><br>
+            <input type="text" name="nachname" > <br> </p>
+
+            <p>
+            <input type="radio" name="fh1" value="mib">
+            <label for="mib">Medieninformatik</label><br>
+            <input type="radio" name="fh1" value="omb">
+            <label for="omb">Online Medien</label><br> </p>
+
+            <p>
+            <label for="buch">Lieblingsbuch</label> <br>
+            <select name="buch">
+              <option value="got">Game of Thrones</option>
+              <option value="pj">Percy Jackson</option>
+              <option value="lotr">Herr der Ringe</option>
+              <option value="top">Tribute von Panem</option>
+            </select> <br> </p>
+
+            <button id="SubmitButton" type="button" > Submit me = html</button>
+            <button id="jsonButton" type="button" > Submit me = json</button>
+        </form>
+
+    </article>
+
+</body>
+
+</html>

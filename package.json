@@ -16,7 +16,10 @@
     "url": "https://github.com/JaninacpB/GIS-SoSe-2020/issues"
   },
   "homepage": "https://github.com/JaninacpB/GIS-SoSe-2020#readme",
-  "dependencies": {},
+  "dependencies": {
+    "@types/mongodb": "^3.5.25",
+    "mongodb": "^3.5.9"
+  },
   "devDependencies": {
     "@types/node": "^14.0.13"
   }
