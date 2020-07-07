@@ -22,7 +22,7 @@ nav {
     justify-content: space-around;
     align-items: center;
     position: relative;
-    top: 50px;
+    top: 55px;
     margin-bottom: 50px;
 }
 
@@ -40,6 +40,7 @@ h1 {
     background-repeat: repeat-x;
     margin: 0 2.5%;
     margin-bottom: 20px;
+    cursor: default;
 }
 
 .anleitung h2 {
@@ -105,6 +106,14 @@ h1 {
     background-image: url(https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/schritt1.png);
 }
 
+.zwei {
+    background-image: url(https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/schritt2.png);
+}
+
+.drei {
+    background-image: url();
+}
+
 .flexbox {
     display: flex;
     flex-wrap: wrap;
@@ -157,6 +166,7 @@ footer {
     display: flex;
     width: 100%;
     box-sizing: border-box;
+    padding-left: 20%;
 }
 
 .socialMedia {
