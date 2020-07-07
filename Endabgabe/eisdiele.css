@@ -94,8 +94,6 @@ h1 {
 }
 
 .schritt {
-    width: 100%; 
-    width: 100%;
     color: white;
     font-size: 30px;
     text-shadow: 1px 1px 2px black;
@@ -111,7 +109,7 @@ h1 {
 }
 
 .drei {
-    background-image: url();
+    background-image: url(https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/schritt3.png);
 }
 
 .flexbox {
