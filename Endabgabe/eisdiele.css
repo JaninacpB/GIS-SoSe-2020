@@ -118,19 +118,34 @@ h1 {
     justify-content: space-around;
 }
 
-.artikelEis {
+
+button.waffelAuswahl {
+    padding: 0;
+    border: 0;
+    margin: 10px;
+}
+
+button.waffelAuswahl:hover {
+    opacity: 0.5;
+}
+
+button.waffelAuswahl:focus {
+    opacity: 0.5;
+}
+
+.artikelBox {
     background-color: white;
     color: #ED4659;
     margin: 10px;
     box-sizing: border-box;
 }
 
-.eisBild {
+.artikelBild {
     width: 300px;
     display: block;
 }
 
-.eisBild + div {
+.artikelBild + div {
     display: flex;
     justify-content: flex-end;
 }
@@ -156,6 +171,54 @@ h3 {
     background-color:  #911a28;
 }
 
+.weiter {
+    font-size: 20px;
+    background-color: lightslategray;
+    color: white;
+    border: none;
+    padding: 50px;
+    font-family: inherit;
+    align-self: center;
+    margin: 5px;
+}
+
+.weiter:hover {
+    background-color: lightcoral;
+    animation: name duration timing-function delay iteration-count direction fill-mode;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+form {
+    padding-left: 10%;
+}
+
+form input {
+    display: block;
+    padding: 5px;
+    color: #191516;
+    background-color: white;
+    border: none;
+}
+
+form h3 {
+    display: block;
+    color: #ED4659;
+    line-height: 5px;
+}
+
+div ~ button {
+    border: none;
+    font-size: 25px;
+    font-family: inherit;
+    padding: 5px;
+    margin: 0 auto;
+    margin-top: 10px;
+    display: block;
+}
+
 /* FOOTER */
 footer {
     background-color: #191516;
@@ -164,7 +227,7 @@ footer {
     display: flex;
     width: 100%;
     box-sizing: border-box;
-    padding-left: 20%;
+    justify-content: space-evenly;
 }
 
 .socialMedia {
@@ -178,21 +241,8 @@ footer {
     filter: none;
 }
 
-/* fürs erste Element*/
-.socialMediaEins{
-    margin-left: 10%;
-    width: 30px;
-    height: 30px;
-    padding: 35px 10px 20px 10px;
-    filter: grayscale(100%)
-}
-
-.socialMediaEins:hover{
-    filter: none;
-}
-
-.footerfloat {
-    padding: 10px 0 50px 160px;
+footer div {
+    padding: 10px 0 50px 0px;
     text-align: center;
 }
 
