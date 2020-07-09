@@ -1,6 +1,7 @@
 "use strict";
 var Aufgabe10;
 (function (Aufgabe10) {
+    // mongodb+srv://janinaBach:<password>@janinabach.ospoe.mongodb.net/<dbname>?retryWrites=true&w=majority
     let button = document.getElementById("SubmitButton");
     let buttonJson = document.getElementById("jsonButton");
     button.addEventListener("click", handlerButton);
