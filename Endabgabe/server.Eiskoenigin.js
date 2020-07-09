@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.eisdiele = void 0;
 const Http = require("http");
+const Mongo = require("mongodb");
 var eisdiele;
 (function (eisdiele) {
     console.log("Starting server");
@@ -15,11 +16,13 @@ var eisdiele;
     function handleListen() {
         console.log("Listening");
     }
-    function handleRequest(_request, _response) {
+    async function handleRequest(_request, _response) {
         console.log("I'm running!");
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
         /*Hier Antwort */
+        let mongoClient = new Mongo.MongoClient(_url, options);
+        await mongoClient.connect();
         _response.end();
     }
 })(eisdiele = exports.eisdiele || (exports.eisdiele = {}));

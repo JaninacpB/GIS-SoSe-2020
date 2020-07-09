@@ -158,7 +158,6 @@ h1 {
 }
 
 /* Radio Button*/
-
 .auswahlFormularWaffel {
     flex-wrap: wrap;
     display: flex;
@@ -174,21 +173,6 @@ input[type='radio']
 { transform: scale(2);
 margin-top: 13px; 
 margin-right: 20px;}
-
-/*
-button.waffelAuswahl {
-    padding: 0;
-    border: 0;
-    margin: 10px;
-}
-
-button.waffelAuswahl:hover {
-    opacity: 0.5;
-}
-
-button.waffelAuswahl:focus {
-    opacity: 0.5;
-}*/
 
 .artikelBox {
     background-color: white;
@@ -222,10 +206,6 @@ h3 {
     height: 70px;
     padding: 0px 10px 0px 10px;
     font-size: 20px;
-}
-
-.hinzufuegenEis:hover {
-    background-color:  #911a28;
 }
 
 .weiter {
@@ -305,4 +285,130 @@ footer div {
 
 .footerlink {
     color: white;
+}
+
+@media only screen and (max-width: 1024px) {
+
+    header {
+        background-image: none;
+    }
+
+    nav {
+        top: 0;
+        margin-bottom: 0;
+    }
+    
+    h1 {
+        font-size: 20px;
+        color: #ED4659;
+    }
+
+    h3 {
+        font-size: 15px;
+        padding-right: 15px;
+    }
+
+    .hinzufuegenEis {
+        font-size: 15px;
+    }
+
+    .anleitung {
+        display: none;
+    }
+
+    .eisVorschau {
+        width: 200px;
+        height: 200px;
+    }
+
+  .vorschauBild {
+      width: 40px;
+      left: 85px;
+  }
+
+  .artikelBild {
+      width: 200px;
+  }
+
+  .weiter {
+    padding: 10px;
+  }
+
+  .vWaffel{
+      top: 130px;
+  }
+
+  .vKugelEins {
+    top: 105px;
+  }
+
+  .vKugelZwei{
+      top: 90px;
+  }
+
+  .vKugelDrei {
+      top: 75px;
+  }
+
+}
+
+@media only screen and (max-width: 600px) { 
+    .socialMedia {
+        display: none;
+    }
+    
+    footer div {
+        padding: 10px 0 10px 0;
+    }
+    
+    .artikelBild {
+        display: none;
+    }
+
+    .hinzufuegenEis {
+        padding: 5px;
+        height: inherit;
+    }
+
+    textarea {
+        width: 80%;
+    }
+
+    nav a {
+        font-size: 15px;
+    }
+
+    h1 {
+        font-size: 15px;
+    }
+
+   form h3 {
+        line-height: 15px;
+    }
+
+    h3 {
+        display: block;
+        text-align: center;
+    }
+
+    .schritt {
+        font-size: 25px;
+    }
+
+    .flexbox {
+        display: block;
+    }
+
+    .auswahlFormularWaffel {
+        display: block;
+    }
+
+    .artikelBox {
+        width: 95%;
+    }
+
+    .eisVorschau {
+        margin: auto;
+    }
+
 }

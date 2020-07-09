@@ -1,4 +1,6 @@
 import * as Http from "http";
+import * as url from "url";
+import * as Mongo from "mongodb";
 
 export namespace eisdiele {
   console.log("Starting server");
@@ -15,13 +17,15 @@ export namespace eisdiele {
     console.log("Listening");
   }
 
-  function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void {
+  async function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): Promise<void> {
     console.log("I'm running!");
 
     _response.setHeader("content-type", "text/html; charset=utf-8");
     _response.setHeader("Access-Control-Allow-Origin", "*");
 
     /*Hier Antwort */
+    let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, options);
+    await mongoClient.connect();
 
     _response.end();
   }
