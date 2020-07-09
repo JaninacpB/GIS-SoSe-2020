@@ -26,8 +26,14 @@ nav {
     margin-bottom: 50px;
 }
 
-nav  p {
+nav a {
     font-size: 20px;
+    color: black;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #8BCC9F;
 }
 
 h1 {
@@ -69,6 +75,7 @@ h1 {
     font-size: 120px;
     color: white;
     opacity: 0.9;
+    margin-top: 5px;
 }
 
 .flexbox div:nth-child(odd) .kreis{
@@ -86,6 +93,37 @@ h1 {
 .flexbox div:nth-child(even) .kreis:hover{
     background-color: #abf8c2;
 }
+
+.eisVorschau {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 300px;
+    background-color: burlywood;
+  }
+
+  .vorschauBild {
+      position: absolute;
+      width: 70px;
+      left: 115px;
+  }
+
+    .vWaffel {
+    top: 180px;
+  }
+
+    .vKugelEins {
+    top: 140px;
+}
+
+    .vKugelZwei {
+    top: 120px;
+}
+
+    .vKugelDrei {
+        top: 100px;
+    }
 
 .box {
     width: 95%;
@@ -118,7 +156,25 @@ h1 {
     justify-content: space-around;
 }
 
+/* Radio Button*/
 
+.auswahlFormularWaffel {
+    flex-wrap: wrap;
+    display: flex;
+    align-self: auto;
+    justify-content: space-between;
+}
+
+.radioWaffel {
+    margin: 0 auto;
+}
+
+input[type='radio'] 
+{ transform: scale(2);
+margin-top: 13px; 
+margin-right: 20px;}
+
+/*
 button.waffelAuswahl {
     padding: 0;
     border: 0;
@@ -131,7 +187,7 @@ button.waffelAuswahl:hover {
 
 button.waffelAuswahl:focus {
     opacity: 0.5;
-}
+}*/
 
 .artikelBox {
     background-color: white;
@@ -191,11 +247,11 @@ button:hover {
     cursor: pointer;
 }
 
-form {
+.versandt{
     padding-left: 10%;
 }
 
-form input {
+.versandt input {
     display: block;
     padding: 5px;
     color: #191516;

@@ -13,13 +13,13 @@
 
     <header> </header>
     <nav>
-        <p>Kontakt</p>
+       <a href="kontakt.html">Kontakt</a> 
         <h1 id="oben">Die Eiskönigin</h1>
-        <p>Login</p>
+        <a href="">Login</a>
     </nav>
 
     <div class="anleitung">
-        <h2>5 einfache Schritte zu ihrer Bestellung</h2>
+      <!--  <h2>5 einfache Schritte zu ihrer Bestellung</h2> -->
         <div class="flexbox">
             <div>
                 <div class="kreis">1</div>
@@ -46,13 +46,35 @@
             Schritt 1: Wähle deine Waffeln!
         </div>
 
-        <div class="flexbox">
+        <div class="flexbox">   
 
-            <div class="auswahlOverlay">
-                <button class="waffelAuswahl"><img class="artikelBild" src="Archiv/waffel1.png"> </img> </button>
+            <form class="auswahlFormularWaffel">
+            <div class="artikelBox">
+                <img class="artikelBild" src="Archiv/waffel1.png"> </img>
+                <div class="radioWaffel">
+                    <label for="waffelTrue"><h3>Waffel</h3></label> 
+                    <input type="radio" name="auswahlBehaelter" value="true" id="waffelTrue">
+                </div>
             </div>
 
-            <button class="waffelAuswahl"> <img class="artikelBild" src="Archiv/becher1.png"> </img> </button>
+            <div class="artikelBox">
+                <img class="artikelBild" src="Archiv/becher1.png"> </img>
+                <div class="radioWaffel">
+                    <label for="waffelFalse"><h3>Becher</h3></label> 
+                    <input type="radio" name="auswahlBehaelter" value="false" id="waffelFalse">
+                </div>
+            </div>
+
+            <div class="artikelBox">
+                <div class="eisVorschau">
+                    <img src="https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/waffel.png" class="vorschauBild vWaffel">
+                    <img src="https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/himbeerGrafik.png" class="vorschauBild vKugelEins">
+                    <img src="https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/erdbeerGrafik.png" class="vorschauBild vKugelZwei">
+                    <img src="https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/minzeGrafik.png" class="vorschauBild vKugelDrei">
+                </div>
+            </div>
+
+            </form>
             <button class="weiter"> Weiter zu Schritt 2 </button>
         </div>
 
@@ -180,7 +202,7 @@
         </div>
 
         <div class="flexbox">
-        <form>
+        <form class="versandt">
          <h3>Kontaktdaten</h3>
          <label for="vorname">Vorname:</label>
          <input type="text" name="vorname" >
