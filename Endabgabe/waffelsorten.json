@@ -1,0 +1,4 @@
+[  
+    {"name":"Waffel","bild":"https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/waffel1.png", "alt": "Knusprige Waffel", "for": "waffelTrue", "value": "true", "id": "waffelTrue"},
+    {"name":"Becher", "bild":"https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/becher1.png","alt": "Umweltschonender Becher", "for": "waffelFalse", "value": "false", "id": "waffelFalse"}
+]

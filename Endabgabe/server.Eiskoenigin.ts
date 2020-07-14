@@ -1,6 +1,6 @@
 import * as Http from "http";
-import * as url from "url";
-import * as Mongo from "mongodb";
+//import * as url from "url";
+//import * as Mongo from "mongodb";
 
 export namespace eisdiele {
   console.log("Starting server");
@@ -24,8 +24,8 @@ export namespace eisdiele {
     _response.setHeader("Access-Control-Allow-Origin", "*");
 
     /*Hier Antwort */
-    let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, options);
-    await mongoClient.connect();
+    /* let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, options);
+    await mongoClient.connect(); */
 
     _response.end();
   }

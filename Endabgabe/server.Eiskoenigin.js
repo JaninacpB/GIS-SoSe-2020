@@ -2,7 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.eisdiele = void 0;
 const Http = require("http");
-const Mongo = require("mongodb");
+//import * as url from "url";
+//import * as Mongo from "mongodb";
 var eisdiele;
 (function (eisdiele) {
     console.log("Starting server");
@@ -21,8 +22,8 @@ var eisdiele;
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
         /*Hier Antwort */
-        let mongoClient = new Mongo.MongoClient(_url, options);
-        await mongoClient.connect();
+        /* let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, options);
+        await mongoClient.connect(); */
         _response.end();
     }
 })(eisdiele = exports.eisdiele || (exports.eisdiele = {}));

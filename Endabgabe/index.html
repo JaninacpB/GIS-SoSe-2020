@@ -23,38 +23,40 @@
       <!--  <h2>5 einfache Schritte zu ihrer Bestellung</h2> -->
         <div class="flexbox">
             <div>
-                <div class="kreis">1</div>
+                <div class="kreis" id="kreisWaffel">1</div>
                 <p>Becher </p>
             </div>
             <div>
-                <div class="kreis">2</div>
+                <div class="kreis" id="kreisKugel">2</div>
                 <p>Eissorten </p>
             </div>
             <div>
-                <div class="kreis">3</div>
+                <div class="kreis" id="kreisTopping">3</div>
                 <p>Topping</p>
             </div>
             <div>
-                <div class="kreis">4</div>
+                <div class="kreis" id="kreisBestellen">4</div>
                 <p>Bestellen</p>
             </div>
         </div>
     </div>
 
-    <div class="box">
+    <div class="box" id="grosseBox">
 
-        <div class="schritt drei">
+        
+       <!-- <div id="flexWaffel"> 
+         <div class="schritt drei">
             Schritt 1: Wähle deine Waffeln!
-        </div>
+        </div>  
 
-        <div class="flexbox">   
+        <div class="flexbox" id="flexboxschrittEins">   
 
-            <form class="auswahlFormularWaffel" action="" method="GET">
+             <form class="auswahlFormularWaffel" id="waffelFormular" action="" method="GET">
             <div class="artikelBox">
                 <img class="artikelBild" src="Archiv/waffel1.png"> 
                 <div class="radioWaffel">
                     <label for="waffelTrue"><h3>Waffel</h3></label> 
-                    <input type="radio" name="auswahlBehaelter" value="true" id="waffelTrue">
+                    <input type="radio" name="auswahlBehaelter" value="true" id="waffelTrue" checked>
                 </div>
             </div>
 
@@ -66,27 +68,17 @@
                 </div>
             </div>
 
-            <div class="artikelBox">
-                <div class="eisVorschau">
-                    <img src="https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/waffel.png" class="vorschauBild vWaffel">
-                    <img src="https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/himbeerGrafik.png" class="vorschauBild vKugelEins">
-                    <img src="https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/erdbeerGrafik.png" class="vorschauBild vKugelZwei">
-                    <img src="https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/minzeGrafik.png" class="vorschauBild vKugelDrei">
-                </div>
-                <div>
-                    <h3>Vorschau</h3>
-                </div>
-            </div>
-
             </form>
-            <button class="weiter" type="submit"> Weiter zu Schritt 2 </button>
-        </div>
+            <button class="weiter" type="submit" id="buttonSchrittEins"> Weiter zu Schritt 2 </button>
+        </div>  -->
+    </div>
 
+   <!--  <div id="flexKugel"> 
         <div class="schritt eins">
             Schritt 2: Wähle deine Eissorten!
         </div>
 
-        <div class="flexbox">
+        <div class="flexbox" id="flexboxschrittZwei">
 
             <div class="artikelBox">
                 <img class="artikelBild" src="Archiv/eis2.png"> </img>
@@ -143,26 +135,25 @@
             </div>
 
             <div class="artikelBox">
-                <div class="eisVorschau">
-                    <img src="https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/waffel.png" class="vorschauBild vWaffel">
-                    <img src="https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/himbeerGrafik.png" class="vorschauBild vKugelEins">
-                    <img src="https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/erdbeerGrafik.png" class="vorschauBild vKugelZwei">
-                    <img src="https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/minzeGrafik.png" class="vorschauBild vKugelDrei">
+                <div class="eisVorschau" id="eisVorschauKugeln">
+
                 </div>
                 <div>
                     <h3>Vorschau</h3>
                 </div>
             </div>
 
-        <button class="weiter"> Weiter zu Schritt 3 </button>
+        <button class="weiter" id="buttonSchrittZwei"> Weiter zu Schritt 3 </button>
 
         </div>
+    </div>
 
+     <div id="flexTopping">
         <div class="schritt zwei">
             Schritt 3: Wähle dein Topping!
         </div>
 
-        <div class="flexbox">
+        <div class="flexbox" id="flexboxschrittDrei">
 
             <div class="artikelBox">
                 <img class="artikelBild" src="Archiv/topping1.png"> </img>
@@ -211,25 +202,24 @@
 
             <div class="artikelBox">
                 <div class="eisVorschau">
-                    <img src="https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/waffel.png" class="vorschauBild vWaffel">
-                    <img src="https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/himbeerGrafik.png" class="vorschauBild vKugelEins">
-                    <img src="https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/erdbeerGrafik.png" class="vorschauBild vKugelZwei">
-                    <img src="https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/minzeGrafik.png" class="vorschauBild vKugelDrei">
+                   
                 </div>
                 <div>
                     <h3>Vorschau</h3>
                 </div>
             </div>
 
-            <button class="weiter"> Weiter zum Bestellvorgang </button>
+            <button class="weiter" id="buttonSchrittDrei"> Weiter zum Bestellvorgang </button>
 
         </div>
-
-        <div class="schritt eins">
+    </div>
+  
+        <div id="flexBestellen">
+        <div class="schritt eins" id="headBestellen">
             Schritt 4: Bestellen!
         </div>
 
-        <div class="flexbox">
+        <div class="flexbox" id="flexboxschrittVier">
         <form class="versandt">
          <h3>Kontaktdaten</h3>
          <label for="vorname">Vorname:</label>
@@ -252,19 +242,17 @@
 
         <div class="artikelBox">
             <div class="eisVorschau">
-                <img src="https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/waffel.png" class="vorschauBild vWaffel">
-                <img src="https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/himbeerGrafik.png" class="vorschauBild vKugelEins">
-                <img src="https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/erdbeerGrafik.png" class="vorschauBild vKugelZwei">
-                <img src="https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/minzeGrafik.png" class="vorschauBild vKugelDrei">
+                
             </div>
             <div>
                 <h3>Bin gleich bei dir!</h3>
             </div>
         </div>
 </div>
-        <button type="button">Bestell mich!</button>
+        <button type="button" id="buttonBestellen">Bestell mich!</button>
 
     </div>
+    </div> -->
 
     <footer>
         <div>
