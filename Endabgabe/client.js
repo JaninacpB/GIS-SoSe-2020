@@ -128,6 +128,7 @@ var eisdiele;
         textArea.setAttribute("spellspeck", "true");
         formBestellen.appendChild(textArea);
         eisvorschauboxErstellen(flexboxSchrittVier);
+        vorschauEis(meineBestellungEis, meineBestellungTopping, meinBecherIstWaffel);
         let buttonDritterSchritt = erstellButton("vier", 0, flexboxSchrittVier);
     }
     // Ablauf vorbei, Funktionen
@@ -146,19 +147,12 @@ var eisdiele;
         for (let index = 0; index <= artikelArt.length; index++) {
             let divClassBox = document.createElement("div");
             divClassBox.setAttribute("class", "artikelBox");
+            divClassBox.setAttribute("id", "divClassBox");
             elternElement.appendChild(divClassBox);
             // Letzter Durchgang -> Vorschau
             if (index == artikelArt.length) {
                 eisvorschauboxErstellen(divClassBox);
-                /*  let div: HTMLElement = <HTMLElement>document.createElement("div");
-                 div.setAttribute("class", "eisVorschau");
-                 div.setAttribute("id", "eisVorschauKugeln");
-                 divClassBox.appendChild(div);
- 
-                 let h3Vorschau: HTMLElement = <HTMLElement>document.createElement("h3");
-                 h3Vorschau.innerHTML = "Vorschau";
-                 divClassBox.appendChild(h3Vorschau); */
-                // vorschauEis(radioWert);
+                vorschauEis(meineBestellungEis, meineBestellungTopping, meinBecherIstWaffel);
             }
             else {
                 let imgEis = document.createElement("img");
@@ -201,12 +195,11 @@ var eisdiele;
                             }
                             else {
                                 let schonimWagen = false;
-                                for (let indexX = 0; indexX < meineBestellungTopping.length; index++) {
+                                for (let indexX = 0; indexX < meineBestellungTopping.length; indexX++) {
                                     if (meineBestellungTopping[indexX] == toppingArten[index]) {
                                         alert("Das hast du bereits ausgewählt!");
                                         schonimWagen = true;
                                         indexX += meineBestellungTopping.length;
-                                        console.log("hey");
                                     }
                                 }
                                 if (!schonimWagen) {
@@ -217,19 +210,19 @@ var eisdiele;
                     }
                     let gesamtPreis = 0;
                     if (meineBestellungEis) {
-                        for (let index = 0; index < meineBestellungEis.length; index++) {
-                            gesamtPreis += meineBestellungEis[index].preis;
+                        for (let index1 = 0; index1 < meineBestellungEis.length; index1++) {
+                            gesamtPreis += meineBestellungEis[index1].preis;
                         }
                     }
                     if (meineBestellungTopping) {
-                        for (let index = 0; index < meineBestellungTopping.length; index++) {
-                            gesamtPreis += meineBestellungTopping[index].preis;
+                        for (let index1 = 0; index1 < meineBestellungTopping.length; index1++) {
+                            gesamtPreis += meineBestellungTopping[index1].preis;
                         }
                     }
                     let gesamtPreisString = gesamtPreis.toString();
                     localStorage.setItem("gesamtpreis", gesamtPreisString);
-                    console.log(meineBestellungEis);
-                    console.log(meineBestellungTopping);
+                    //VorschauBild generieren (aktualisieren)
+                    vorschauEis(meineBestellungEis, meineBestellungTopping, meinBecherIstWaffel);
                 }
             }
         }
@@ -250,6 +243,7 @@ var eisdiele;
     function eisvorschauboxErstellen(elternElement) {
         let divClassBox = document.createElement("div");
         divClassBox.setAttribute("class", "artikelBox");
+        divClassBox.setAttribute("id", "vorschau");
         elternElement.appendChild(divClassBox);
         let div = document.createElement("div");
         div.setAttribute("class", "eisVorschau");
@@ -269,17 +263,67 @@ var eisdiele;
         input.setAttribute("name", forName);
         elternElement.appendChild(input);
     }
-    function vorschauEis(radioWert) {
+    function vorschauEis(eis, topping, waffelJa) {
+        //Löschen für neubau später
+        if (document.getElementById("eisVorschauKugeln")?.hasChildNodes) {
+            let loeschen = document.getElementById("eisVorschauKugeln");
+            for (let anzahlKugel = 0; anzahlKugel <= eissorten.length; anzahlKugel++) {
+                loeschen.firstChild?.remove();
+            }
+            for (let anzahlKugel = 0; anzahlKugel < toppingArten.length; anzahlKugel++) {
+                loeschen.firstChild?.remove();
+            }
+        }
         let imgBehaehlter = document.createElement("img");
-        if (radioWert == "true") {
+        imgBehaehlter.setAttribute("id", "exestiertWaffel");
+        let div = document.getElementById("eisVorschauKugeln");
+        if (waffelJa) {
             imgBehaehlter.setAttribute("src", "https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/waffel.png");
             imgBehaehlter.setAttribute("class", "vWaffel vorschauBild");
+            div.appendChild(imgBehaehlter);
+            if (eis) {
+                for (let index = 0; index < eis.length; index++) {
+                    fuegEisHinzu(eis[index], index, div);
+                }
+            }
+            if (topping) {
+                for (let index = 0; index < topping.length; index++) {
+                    let imgEisTopping = document.createElement("img");
+                    imgEisTopping.setAttribute("class", "vKugel" + eis.length + " vorschauBild");
+                    imgEisTopping.setAttribute("src", topping[index].bildComic);
+                    imgEisTopping.setAttribute("alt", topping[index].alt);
+                    div.appendChild(imgEisTopping);
+                }
+            }
         }
         else {
             imgBehaehlter.setAttribute("src", "https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/becher.png");
             imgBehaehlter.setAttribute("class", "vBecher vorschauBild");
+            div.appendChild(imgBehaehlter);
+            if (eis) {
+                for (let index = 0; index < eis.length; index++) {
+                    fuegEisHinzu(eis[index], index, div);
+                }
+            }
+            if (topping) {
+                for (let index = 0; index < topping.length; index++) {
+                    let imgEisTopping = document.createElement("img");
+                    imgEisTopping.setAttribute("class", "vKugel" + eis.length + " vorschauBild");
+                    imgEisTopping.setAttribute("src", topping[index].bildComic);
+                    imgEisTopping.setAttribute("alt", topping[index].alt);
+                    div.appendChild(imgEisTopping);
+                }
+            }
         }
         document.getElementById("eisVorschauKugeln")?.appendChild(imgBehaehlter);
+    }
+    function fuegEisHinzu(eis, index, elternElement) {
+        let zaehlerAngepasst = index + 1;
+        let imgEisKugel = document.createElement("img");
+        imgEisKugel.setAttribute("class", "vKugel" + zaehlerAngepasst + " vorschauBild");
+        imgEisKugel.setAttribute("src", eis.bildComic);
+        imgEisKugel.setAttribute("alt", eis.alt);
+        elternElement.appendChild(imgEisKugel);
     }
     /*
                 if (index == 0) {

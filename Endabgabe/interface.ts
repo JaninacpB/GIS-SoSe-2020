@@ -14,5 +14,6 @@ namespace eisdiele {
         preis: number;
         bild: string;
         alt: string;
+        bildComic: string;
     }
 }

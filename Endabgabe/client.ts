@@ -172,6 +172,7 @@ namespace eisdiele {
         formBestellen.appendChild(textArea);
 
         eisvorschauboxErstellen(flexboxSchrittVier);
+        vorschauEis(meineBestellungEis, meineBestellungTopping, meinBecherIstWaffel);
 
         let buttonDritterSchritt: HTMLElement = erstellButton("vier", 0, flexboxSchrittVier);
 
@@ -199,22 +200,13 @@ namespace eisdiele {
 
             let divClassBox: HTMLElement = <HTMLElement>document.createElement("div");
             divClassBox.setAttribute("class", "artikelBox");
+            divClassBox.setAttribute("id", "divClassBox");
             elternElement.appendChild(divClassBox);
 
             // Letzter Durchgang -> Vorschau
             if (index == artikelArt.length) {
-
                 eisvorschauboxErstellen(divClassBox);
-                /*  let div: HTMLElement = <HTMLElement>document.createElement("div");
-                 div.setAttribute("class", "eisVorschau");
-                 div.setAttribute("id", "eisVorschauKugeln");
-                 divClassBox.appendChild(div);
- 
-                 let h3Vorschau: HTMLElement = <HTMLElement>document.createElement("h3");
-                 h3Vorschau.innerHTML = "Vorschau";
-                 divClassBox.appendChild(h3Vorschau); */
-                // vorschauEis(radioWert);
-
+                vorschauEis(meineBestellungEis, meineBestellungTopping, meinBecherIstWaffel);
             }
             else {
 
@@ -260,46 +252,44 @@ namespace eisdiele {
                         }
                     }
                     if (artikelArt == toppingArten) {
-                        {if (!meineBestellungTopping) {
-                            meineBestellungTopping = [toppingArten[index]];
-                        }
-                        else {
-                            let schonimWagen: boolean = false;
-                            for (let indexX: number = 0; indexX < meineBestellungTopping.length; index++) {
-                                if (meineBestellungTopping[indexX] == toppingArten[index]) {
-                                    alert("Das hast du bereits ausgewählt!");
-                                    schonimWagen = true;
-                                    indexX += meineBestellungTopping.length;
-                                    console.log("hey");
+                        {
+                            if (!meineBestellungTopping) {
+                                meineBestellungTopping = [toppingArten[index]];
+                            }
+                            else {
+                                let schonimWagen: boolean = false;
+                                for (let indexX: number = 0; indexX < meineBestellungTopping.length; indexX++) {
+                                    if (meineBestellungTopping[indexX] == toppingArten[index]) {
+                                        alert("Das hast du bereits ausgewählt!");
+                                        schonimWagen = true;
+                                        indexX += meineBestellungTopping.length;
+                                    }
+                                }
+                                if (!schonimWagen) {
+                                    meineBestellungTopping.push(toppingArten[index]);
                                 }
                             }
-                            if (!schonimWagen) {
-                                meineBestellungTopping.push(toppingArten[index]);
-                            }
                         }
-                    }
                     }
 
                     let gesamtPreis: number = 0;
                     if (meineBestellungEis) {
-                    for (let index: number = 0; index < meineBestellungEis.length; index++) {
-                        gesamtPreis += meineBestellungEis[index].preis;
+                        for (let index1: number = 0; index1 < meineBestellungEis.length; index1++) {
+                            gesamtPreis += meineBestellungEis[index1].preis;
+                        }
                     }
-                }
                     if (meineBestellungTopping) {
-                        for (let index: number = 0; index < meineBestellungTopping.length; index++) {
-                            gesamtPreis += meineBestellungTopping[index].preis;
-                        } 
+                        for (let index1: number = 0; index1 < meineBestellungTopping.length; index1++) {
+                            gesamtPreis += meineBestellungTopping[index1].preis;
+                        }
                     }
                     let gesamtPreisString: string = gesamtPreis.toString();
                     localStorage.setItem("gesamtpreis", gesamtPreisString);
-                    console.log(meineBestellungEis);
-                    console.log(meineBestellungTopping);
 
-
+                    //VorschauBild generieren (aktualisieren)
+                    vorschauEis(meineBestellungEis, meineBestellungTopping, meinBecherIstWaffel);
                 }
             }
-
         }
     }
 
@@ -318,8 +308,10 @@ namespace eisdiele {
     }
 
     function eisvorschauboxErstellen(elternElement: HTMLElement): void {
+
         let divClassBox: HTMLElement = <HTMLElement>document.createElement("div");
         divClassBox.setAttribute("class", "artikelBox");
+        divClassBox.setAttribute("id", "vorschau");
         elternElement.appendChild(divClassBox);
 
         let div: HTMLElement = <HTMLElement>document.createElement("div");
@@ -345,22 +337,79 @@ namespace eisdiele {
 
     }
 
-    function vorschauEis(radioWert: string): void {
-        let imgBehaehlter: HTMLElement = <HTMLElement>document.createElement("img");
+    function vorschauEis(eis: EissortenUTopping[], topping: EissortenUTopping[], waffelJa: boolean): void {
 
-        if (radioWert == "true") {
+        //Löschen für neubau später
+        if (document.getElementById("eisVorschauKugeln")?.hasChildNodes) {
+            let loeschen: HTMLElement = <HTMLElement>document.getElementById("eisVorschauKugeln");
+            for (let anzahlKugel: number = 0; anzahlKugel <= eissorten.length; anzahlKugel++) {
+                loeschen.firstChild?.remove();
+            }
+            for (let anzahlKugel: number = 0; anzahlKugel < toppingArten.length; anzahlKugel++) {
+                loeschen.firstChild?.remove();
+            }
+        }
+
+        let imgBehaehlter: HTMLElement = <HTMLElement>document.createElement("img");
+        imgBehaehlter.setAttribute("id", "exestiertWaffel");
+
+        let div: HTMLElement = <HTMLElement>document.getElementById("eisVorschauKugeln");
+
+        if (waffelJa) {
             imgBehaehlter.setAttribute("src", "https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/waffel.png");
             imgBehaehlter.setAttribute("class", "vWaffel vorschauBild");
+            div.appendChild(imgBehaehlter);
+
+            if (eis) {
+                for (let index: number = 0; index < eis.length; index++) {
+                    fuegEisHinzu(eis[index], index, div);
+                }
+            }
+
+            if (topping) {
+                for (let index: number = 0; index < topping.length; index++) {
+                    let imgEisTopping: HTMLElement = <HTMLElement>document.createElement("img");
+                    imgEisTopping.setAttribute("class", "vKugel" + eis.length + " vorschauBild");
+                    imgEisTopping.setAttribute("src", topping[index].bildComic);
+                    imgEisTopping.setAttribute("alt", topping[index].alt);
+                    div.appendChild(imgEisTopping);
+                }
+            }
         }
 
         else {
             imgBehaehlter.setAttribute("src", "https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/becher.png");
             imgBehaehlter.setAttribute("class", "vBecher vorschauBild");
+            div.appendChild(imgBehaehlter);
+
+            if (eis) {
+                for (let index: number = 0; index < eis.length; index++) {
+                    fuegEisHinzu(eis[index], index, div);
+                }
+            }
+            if (topping) {
+                for (let index: number = 0; index < topping.length; index++) {
+                    let imgEisTopping: HTMLElement = <HTMLElement>document.createElement("img");
+                    imgEisTopping.setAttribute("class", "vKugel" + eis.length + " vorschauBild");
+                    imgEisTopping.setAttribute("src", topping[index].bildComic);
+                    imgEisTopping.setAttribute("alt", topping[index].alt);
+                    div.appendChild(imgEisTopping);
+                }
+            }
+
         }
 
         document.getElementById("eisVorschauKugeln")?.appendChild(imgBehaehlter);
     }
 
+    function fuegEisHinzu( eis: EissortenUTopping, index: number, elternElement: HTMLElement): void {
+        let zaehlerAngepasst: number = index + 1;
+        let imgEisKugel: HTMLElement = <HTMLElement>document.createElement("img");
+        imgEisKugel.setAttribute("class", "vKugel" + zaehlerAngepasst + " vorschauBild");
+        imgEisKugel.setAttribute("src", eis.bildComic);
+        imgEisKugel.setAttribute("alt", eis.alt);
+        elternElement.appendChild(imgEisKugel);
+    }
 
     /*
                 if (index == 0) {

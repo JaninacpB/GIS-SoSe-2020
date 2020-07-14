@@ -1,7 +1,7 @@
 [  
-    {"name":"Kirschen","preis":1.50,"bild":"https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/topping1.png", "alt": "Frische Kirschen vom Feld"},
-    {"name":"Nuss", "preis":0.50,"bild":"https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/topping2.png","alt": "Nusstopping mit Haselnuss"},
-    {"name":"Sahne","preis":1,"bild":"https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/topping3.png","alt": "Leichte Sahne"},
-    {"name":"Streusel", "preis":0.10,"bild":"https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/topping4.png","alt": "Bunte Streusel"},
-    {"name":"Schokosoße", "preis":1,"bild":"https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/topping5.png","alt": "Dunkle Schokoladensoße"}
+    {"name":"Kirschen","preis":1.50,"bild":"https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/topping1.png", "alt": "Frische Kirschen vom Feld", "bildComic": "https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/kirsche.png"},
+    {"name":"Nuss", "preis":0.50,"bild":"https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/topping2.png","alt": "Nusstopping mit Haselnuss", "bildComic": "https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/nussStreusel.png"},
+    {"name":"Sahne","preis":1,"bild":"https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/topping3.png","alt": "Leichte Sahne", "bildComic": "https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/sahne.png"},
+    {"name":"Streusel", "preis":0.10,"bild":"https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/topping4.png","alt": "Bunte Streusel", "bildComic": "https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/streusel.png"},
+    {"name":"Schokosoße", "preis":1,"bild":"https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/topping5.png","alt": "Dunkle Schokoladensoße", "bildComic": "https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/schokoso%C3%9Fe.png"}
 ]

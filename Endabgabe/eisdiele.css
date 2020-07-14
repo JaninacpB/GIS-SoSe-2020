@@ -116,16 +116,48 @@ h1 {
     width: 90px;
 } 
 
-.vKugelEins {
+.vKugel1 {
     top: 140px;
+    z-index: 1;
 }
 
-.vKugelZwei {
+.vKugel2 {
     top: 120px;
+    z-index: 2;
 }
 
-.vKugelDrei {
+.vKugel3 {
     top: 100px;
+    z-index: 3;
+}
+
+.vKugel4 {
+    top: 80px;
+    z-index: 4;
+}
+
+.vKugelBecher1 {
+    top: 200px;
+    left: 100px;
+    z-index: 1;
+}
+
+.vKugelBecher2 {
+    top: 200px;
+    left: 140px;
+    z-index: 2;
+}
+
+.vKugelBecher3 {
+    top: 170px;
+    left: 110px;
+    z-index: 3;
+}
+
+.vKugelBecher4 {
+    top: 170px;
+    left: 130px;
+    z-index: 5;
 }
 
 .box {
@@ -347,17 +379,49 @@ footer div {
       left: 75px;
   }
 
-  .vKugelEins {
-    top: 105px;
-  }
+  .vKugel1 {
+    top: 110px;
+    z-index: 1;
+}
 
-  .vKugelZwei{
-      top: 90px;
-  }
+.vKugel2 {
+    top: 95px;
+    z-index: 2;
+}
 
-  .vKugelDrei {
-      top: 75px;
-  }
+.vKugel3 {
+    top: 80px;
+    z-index: 3;
+}
+
+.vKugel4 {
+    top: 65px;
+    z-index: 4;
+}
+
+.vKugelBecher1 {
+    top: 130px;
+    left: 70px;
+    z-index: 1;
+}
+
+.vKugelBecher2 {
+    top: 130px;
+    left: 100px;
+    z-index: 2;
+}
+
+.vKugelBecher3 {
+    top: 110px;
+    left: 80px;
+    z-index: 3;
+}
+
+.vKugelBecher4 {
+    top: 110px;
+    left: 95px;
+    z-index: 5;
+}
 
 }
 
