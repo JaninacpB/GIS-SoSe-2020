@@ -1,8 +1,8 @@
 [  
-    {"name":"Erdbeere","preis":2,"bild":"https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/eis2.png", "alt": "Cremiges Erdbeereis", "bildComic": "https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/erdbeerGrafik.png"},
+    {"name":"Erdbeere","preis":1,"bild":"https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/eis2.png", "alt": "Cremiges Erdbeereis", "bildComic": "https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/erdbeerGrafik.png"},
     {"name":"Himbeere", "preis":1.50,"bild":"https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/eis3.png","alt": "Luftiges Himbeereis", "bildComic": "https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/himbeerGrafik.png"},
     {"name":"Schokolade","preis":1.50,"bild":"https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/eis4.png","alt": "Kräftiges Schokoladeneis", "bildComic": "https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/schokoladeGrafik.png"},
-    {"name":"Karamell", "preis":3,"bild":"https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/eis5.png","alt": "Klebriges Karamelleis", "bildComic": "https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/karamellGrafik.png"},
-    {"name":"Minze", "preis":2,"bild":"https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/eis7.png","alt": "Firsches Minzeis", "bildComic": "https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/minzeGrafik.png"},
-    {"name":"Galaxy", "preis":3,"bild":"https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/eis8.png","alt": "Buntes, suesses Galaxyeis", "bildComic": "https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/schlumpfGrafik.png"}
+    {"name":"Karamell", "preis":2,"bild":"https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/eis5.png","alt": "Klebriges Karamelleis", "bildComic": "https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/karamellGrafik.png"},
+    {"name":"Minze", "preis":1.5,"bild":"https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/eis7.png","alt": "Firsches Minzeis", "bildComic": "https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/minzeGrafik.png"},
+    {"name":"Galaxy", "preis":2,"bild":"https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/eis8.png","alt": "Buntes, suesses Galaxyeis", "bildComic": "https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/schlumpfGrafik.png"}
 ]

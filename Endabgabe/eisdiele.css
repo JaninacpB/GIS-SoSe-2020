@@ -295,6 +295,11 @@ div ~ button {
     display: block;
 }
 
+iframe {
+    width: 50%;
+    height: 500px
+}
+
 /* FOOTER */
 footer {
     background-color: #191516;
@@ -425,6 +430,11 @@ footer div {
     top: 110px;
     left: 95px;
     z-index: 5;
+}
+
+iframe {
+    width: 100%;
+    height: 300px
 }
 
 }

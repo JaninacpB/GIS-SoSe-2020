@@ -57,6 +57,10 @@ export namespace eisdiele {
         storeOrder(url.query);
 
       }
+
+      if (url.pathname == "/lesen") {
+        mongoAntwort(_response);
+      }
       
     }
 
@@ -65,6 +69,11 @@ export namespace eisdiele {
 
   function storeOrder(_order: Order): void {
     bestellungen.insert(_order);
+  }
+
+  async function mongoAntwort(_response: Http.ServerResponse): Promise <void> {
+    let ausgabe: string[] = await bestellungen.find().toArray();
+    _response.write(JSON.stringify(ausgabe));
   }
 
 }

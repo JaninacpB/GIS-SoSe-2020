@@ -40,11 +40,18 @@ var eisdiele;
                 _response.write(_jsonString);
                 storeOrder(url.query);
             }
+            if (url.pathname == "/lesen") {
+                mongoAntwort(_response);
+            }
         }
         _response.end();
     }
     function storeOrder(_order) {
         bestellungen.insert(_order);
+    }
+    async function mongoAntwort(_response) {
+        let ausgabe = await bestellungen.find().toArray();
+        _response.write(JSON.stringify(ausgabe));
     }
 })(eisdiele = exports.eisdiele || (exports.eisdiele = {}));
 //# sourceMappingURL=serverEiskoenigin.js.map

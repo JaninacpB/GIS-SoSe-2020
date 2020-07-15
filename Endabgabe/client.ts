@@ -92,8 +92,6 @@ namespace eisdiele {
         else {
             meinBecherIstWaffel = false;
         }
-        // localStorage.setItem("behaelterIstWaffel", radioWert);
-
         //Aktuelles Menü lösche
         // let uerbschriftWaffel: HTMLElement = <HTMLElement> document.getElementById("waffelUeberschrift");
         let flexWaffel: HTMLElement = <HTMLElement>document.getElementById("flexWaffel");
@@ -179,11 +177,18 @@ namespace eisdiele {
         textArea.setAttribute("spellspeck", "true");
         formBestellen.appendChild(textArea);
 
+        let preisNumber: number = + localStorage.getItem("gesamtpreis")!;
+
+        let h3Preis: HTMLElement = <HTMLElement> document.createElement("h3");
+        h3Preis.innerHTML = "Alles zusammen macht das: <u>" + preisNumber.toFixed(2) + "€ </u>";
+        formBestellen.appendChild(h3Preis);
+ 
         eisvorschauboxErstellen(flexboxSchrittVier);
         vorschauEis(meineBestellungEis, meineBestellungTopping, meinBecherIstWaffel);
 
         let buttonDritterSchritt: HTMLElement = erstellButton("vier", 0, formBestellen);
         buttonDritterSchritt.setAttribute("type", "submit");
+        buttonDritterSchritt.setAttribute("style", "display: block");
         buttonDritterSchritt.setAttribute("action", "https://sosegis2020.herokuapp.com");
 
         buttonDritterSchritt.addEventListener("click", handlerAbschicken);
@@ -199,27 +204,22 @@ namespace eisdiele {
         for (let index: number = 0; index < meineBestellungEis.length; index++) {
             datenZumVerschicken += "name=" + meineBestellungEis[index].name + "&" + "preis=" + meineBestellungEis[index].preis + "&"; 
         }
-
-        if (meineBestellungTopping != undefined) {
-            for (let index: number = 0; index < meineBestellungTopping.length; index++) {
-                datenZumVerschicken += "name=" + meineBestellungTopping[index].name + "&" + "preis=" + meineBestellungTopping[index].preis + "&"; 
-            }
-        }
-
+        
         let datenForm: FormData = new FormData(document.forms[0]);
         let urlSendenZu: string = "";
         let query: URLSearchParams = new URLSearchParams(<any>datenForm);
         let queryString: string = query.toString();
 
-        urlSendenZu = "https://sosegis2020.herokuapp.com" + "/eingabe" + "?" + datenZumVerschicken + queryString;
+        let endgueltigerPreis: string = localStorage.getItem("gesamtPreis") + "";
+
+        urlSendenZu = "https://sosegis2020.herokuapp.com" + "/eingabe" + "?" + datenZumVerschicken + endgueltigerPreis + "?" + queryString;
 
         await fetch(urlSendenZu);
-
-        console.log(urlSendenZu);
 
     }
 
     function erstellHeaderSchritt(flexArtikel: HTMLElement, ueberschriftArtikel: HTMLElement, flexboxSchritt: HTMLElement, nameArtikel: string, classUeberschrift: string, aktuellerSchritt: number, satzOben: string): void {
+        
         flexArtikel.setAttribute("id", "flex" + nameArtikel);
         document.getElementById("grosseBox")?.appendChild(flexArtikel);
 
@@ -374,7 +374,6 @@ namespace eisdiele {
         input.setAttribute("name", forName);
         input.required = true;
         elternElement.appendChild(input);
-
     }
 
     function vorschauEis(eis: EissortenUTopping[], topping: EissortenUTopping[], waffelJa: boolean): void {
@@ -466,14 +465,4 @@ namespace eisdiele {
         imgEisKugel.setAttribute("alt", eis.alt);
         elternElement.appendChild(imgEisKugel);
     }
-
-    /*
-                if (index == 0) {
-                   let radioWaffel: HTMLFormElement = <HTMLFormElement> document.getElementById("waffelFormular"); 
-                   let radioWert: string = radioWaffel["auswahlBehaelter"].value;
-                   localStorage.setItem("behaelterIstWaffel", radioWert);
-                   vorschauEis(radioWert);
-        } */
-
-
 }
