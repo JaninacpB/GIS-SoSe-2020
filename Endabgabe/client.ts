@@ -192,7 +192,7 @@ namespace eisdiele {
 
     // Ablauf vorbei, Funktionen
 
-    async function handlerAbschicken(): void {
+    async function handlerAbschicken(): Promise <void> {
 
         let datenZumVerschicken: string = "";
 
