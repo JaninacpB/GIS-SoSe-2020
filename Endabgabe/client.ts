@@ -362,7 +362,7 @@ namespace eisdiele {
 
             if (eis) {
                 for (let index: number = 0; index < eis.length; index++) {
-                    fuegEisHinzu(eis[index], index, div);
+                    fuegEisHinzu(eis[index], index, div, true);
                 }
             }
 
@@ -373,6 +373,8 @@ namespace eisdiele {
                     imgEisTopping.setAttribute("src", topping[index].bildComic);
                     imgEisTopping.setAttribute("alt", topping[index].alt);
                     div.appendChild(imgEisTopping);
+
+                    fuegToppingHinzu(topping[index], eis, div, true);
                 }
             }
         }
@@ -384,16 +386,18 @@ namespace eisdiele {
 
             if (eis) {
                 for (let index: number = 0; index < eis.length; index++) {
-                    fuegEisHinzu(eis[index], index, div);
+                    fuegEisHinzu(eis[index], index, div, false);
                 }
             }
             if (topping) {
                 for (let index: number = 0; index < topping.length; index++) {
-                    let imgEisTopping: HTMLElement = <HTMLElement>document.createElement("img");
-                    imgEisTopping.setAttribute("class", "vKugel" + eis.length + " vorschauBild");
-                    imgEisTopping.setAttribute("src", topping[index].bildComic);
-                    imgEisTopping.setAttribute("alt", topping[index].alt);
-                    div.appendChild(imgEisTopping);
+                    /*  let imgEisTopping: HTMLElement = <HTMLElement>document.createElement("img");
+                     imgEisTopping.setAttribute("class", "vKugel" + eis.length + " vorschauBild");
+                     imgEisTopping.setAttribute("src", topping[index].bildComic);
+                     imgEisTopping.setAttribute("alt", topping[index].alt);
+                     div.appendChild(imgEisTopping); */
+
+                    fuegToppingHinzu(topping[index], eis, div, false);
                 }
             }
 
@@ -402,10 +406,28 @@ namespace eisdiele {
         document.getElementById("eisVorschauKugeln")?.appendChild(imgBehaehlter);
     }
 
-    function fuegEisHinzu( eis: EissortenUTopping, index: number, elternElement: HTMLElement): void {
+    function fuegToppingHinzu(top: EissortenUTopping, eis: EissortenUTopping[], elternElement: HTMLElement, istWaffel: boolean): void {
+        let imgEisTopping: HTMLElement = <HTMLElement>document.createElement("img");
+        if (istWaffel) {
+            imgEisTopping.setAttribute("class", "vKugel" + eis.length + " vorschauBild");
+        }
+        else {
+            imgEisTopping.setAttribute("class", "vKugelBecher" + eis.length + " vorschauBild");
+        }
+        imgEisTopping.setAttribute("src", top.bildComic);
+        imgEisTopping.setAttribute("alt", top.alt);
+        elternElement.appendChild(imgEisTopping);
+    }
+
+    function fuegEisHinzu(eis: EissortenUTopping, index: number, elternElement: HTMLElement, istWaffle: boolean): void {
         let zaehlerAngepasst: number = index + 1;
         let imgEisKugel: HTMLElement = <HTMLElement>document.createElement("img");
-        imgEisKugel.setAttribute("class", "vKugel" + zaehlerAngepasst + " vorschauBild");
+        if (istWaffle) {
+            imgEisKugel.setAttribute("class", "vKugel" + zaehlerAngepasst + " vorschauBild");
+        }
+        else {
+            imgEisKugel.setAttribute("class", "vKugelBecher" + zaehlerAngepasst + " vorschauBild");
+        }
         imgEisKugel.setAttribute("src", eis.bildComic);
         imgEisKugel.setAttribute("alt", eis.alt);
         elternElement.appendChild(imgEisKugel);

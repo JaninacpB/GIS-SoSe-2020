@@ -283,7 +283,7 @@ var eisdiele;
             div.appendChild(imgBehaehlter);
             if (eis) {
                 for (let index = 0; index < eis.length; index++) {
-                    fuegEisHinzu(eis[index], index, div);
+                    fuegEisHinzu(eis[index], index, div, true);
                 }
             }
             if (topping) {
@@ -293,6 +293,7 @@ var eisdiele;
                     imgEisTopping.setAttribute("src", topping[index].bildComic);
                     imgEisTopping.setAttribute("alt", topping[index].alt);
                     div.appendChild(imgEisTopping);
+                    fuegToppingHinzu(topping[index], eis, div, true);
                 }
             }
         }
@@ -302,25 +303,43 @@ var eisdiele;
             div.appendChild(imgBehaehlter);
             if (eis) {
                 for (let index = 0; index < eis.length; index++) {
-                    fuegEisHinzu(eis[index], index, div);
+                    fuegEisHinzu(eis[index], index, div, false);
                 }
             }
             if (topping) {
                 for (let index = 0; index < topping.length; index++) {
-                    let imgEisTopping = document.createElement("img");
-                    imgEisTopping.setAttribute("class", "vKugel" + eis.length + " vorschauBild");
-                    imgEisTopping.setAttribute("src", topping[index].bildComic);
-                    imgEisTopping.setAttribute("alt", topping[index].alt);
-                    div.appendChild(imgEisTopping);
+                    /*  let imgEisTopping: HTMLElement = <HTMLElement>document.createElement("img");
+                     imgEisTopping.setAttribute("class", "vKugel" + eis.length + " vorschauBild");
+                     imgEisTopping.setAttribute("src", topping[index].bildComic);
+                     imgEisTopping.setAttribute("alt", topping[index].alt);
+                     div.appendChild(imgEisTopping); */
+                    fuegToppingHinzu(topping[index], eis, div, false);
                 }
             }
         }
         document.getElementById("eisVorschauKugeln")?.appendChild(imgBehaehlter);
     }
-    function fuegEisHinzu(eis, index, elternElement) {
+    function fuegToppingHinzu(top, eis, elternElement, istWaffel) {
+        let imgEisTopping = document.createElement("img");
+        if (istWaffel) {
+            imgEisTopping.setAttribute("class", "vKugel" + eis.length + " vorschauBild");
+        }
+        else {
+            imgEisTopping.setAttribute("class", "vKugelBecher" + eis.length + " vorschauBild");
+        }
+        imgEisTopping.setAttribute("src", top.bildComic);
+        imgEisTopping.setAttribute("alt", top.alt);
+        elternElement.appendChild(imgEisTopping);
+    }
+    function fuegEisHinzu(eis, index, elternElement, istWaffle) {
         let zaehlerAngepasst = index + 1;
         let imgEisKugel = document.createElement("img");
-        imgEisKugel.setAttribute("class", "vKugel" + zaehlerAngepasst + " vorschauBild");
+        if (istWaffle) {
+            imgEisKugel.setAttribute("class", "vKugel" + zaehlerAngepasst + " vorschauBild");
+        }
+        else {
+            imgEisKugel.setAttribute("class", "vKugelBecher" + zaehlerAngepasst + " vorschauBild");
+        }
         imgEisKugel.setAttribute("src", eis.bildComic);
         imgEisKugel.setAttribute("alt", eis.alt);
         elternElement.appendChild(imgEisKugel);
