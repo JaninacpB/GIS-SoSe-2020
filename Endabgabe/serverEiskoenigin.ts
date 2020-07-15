@@ -14,7 +14,7 @@ export namespace eisdiele {
   if (port == undefined)
     port = 5001;
 
-  let databaseUrl: string = "mongodb+srv://janinaBach:<password>@janinabach.ospoe.mongodb.net/<dbname>?retryWrites=true&w=majority";  
+  let databaseUrl: string = "mongodb+srv://janinaBach:1234@janinabach.ospoe.mongodb.net/Eiskoenigin?retryWrites=true&w=majority";  
 
   startServer(port);
   connectToDatabase(databaseUrl);

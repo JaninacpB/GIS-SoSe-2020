@@ -10,7 +10,7 @@ var eisdiele;
     let port = process.env.PORT;
     if (port == undefined)
         port = 5001;
-    let databaseUrl = "mongodb+srv://janinaBach:<password>@janinabach.ospoe.mongodb.net/<dbname>?retryWrites=true&w=majority";
+    let databaseUrl = "mongodb+srv://janinaBach:1234@janinabach.ospoe.mongodb.net/Eiskoenigin?retryWrites=true&w=majority";
     startServer(port);
     connectToDatabase(databaseUrl);
     function startServer(_port) {
@@ -47,4 +47,4 @@ var eisdiele;
         bestellungen.insert(_order);
     }
 })(eisdiele = exports.eisdiele || (exports.eisdiele = {}));
-//# sourceMappingURL=server.Eiskoenigin.js.map
+//# sourceMappingURL=serverEiskoenigin.js.map
