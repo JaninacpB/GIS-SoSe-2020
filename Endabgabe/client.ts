@@ -184,6 +184,7 @@ namespace eisdiele {
 
         let buttonDritterSchritt: HTMLElement = erstellButton("vier", 0, formBestellen);
         buttonDritterSchritt.setAttribute("type", "submit");
+        buttonDritterSchritt.setAttribute("action", "https://sosegis2020.herokuapp.com");
 
         buttonDritterSchritt.addEventListener("click", handlerAbschicken);
 
@@ -191,7 +192,7 @@ namespace eisdiele {
 
     // Ablauf vorbei, Funktionen
 
-    function handlerAbschicken(): void {
+    async function handlerAbschicken(): void {
 
         let datenZumVerschicken: string = "";
 
@@ -210,7 +211,9 @@ namespace eisdiele {
         let query: URLSearchParams = new URLSearchParams(<any>datenForm);
         let queryString: string = query.toString();
 
-        urlSendenZu = "/eingabe" + "?" + datenZumVerschicken + queryString;
+        urlSendenZu = "https://sosegis2020.herokuapp.com" + "/eingabe" + "?" + datenZumVerschicken + queryString;
+
+        await fetch(urlSendenZu);
 
         console.log(urlSendenZu);
 

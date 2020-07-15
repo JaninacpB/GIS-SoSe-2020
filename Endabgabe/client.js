@@ -137,10 +137,11 @@ var eisdiele;
         vorschauEis(meineBestellungEis, meineBestellungTopping, meinBecherIstWaffel);
         let buttonDritterSchritt = erstellButton("vier", 0, formBestellen);
         buttonDritterSchritt.setAttribute("type", "submit");
+        buttonDritterSchritt.setAttribute("action", "https://sosegis2020.herokuapp.com");
         buttonDritterSchritt.addEventListener("click", handlerAbschicken);
     }
     // Ablauf vorbei, Funktionen
-    function handlerAbschicken() {
+    async function handlerAbschicken() {
         let datenZumVerschicken = "";
         for (let index = 0; index < meineBestellungEis.length; index++) {
             datenZumVerschicken += "name=" + meineBestellungEis[index].name + "&" + "preis=" + meineBestellungEis[index].preis + "&";
@@ -154,7 +155,8 @@ var eisdiele;
         let urlSendenZu = "";
         let query = new URLSearchParams(datenForm);
         let queryString = query.toString();
-        urlSendenZu = "/eingabe" + "?" + datenZumVerschicken + queryString;
+        urlSendenZu = "https://sosegis2020.herokuapp.com" + "/eingabe" + "?" + datenZumVerschicken + queryString;
+        await fetch(urlSendenZu);
         console.log(urlSendenZu);
     }
     function erstellHeaderSchritt(flexArtikel, ueberschriftArtikel, flexboxSchritt, nameArtikel, classUeberschrift, aktuellerSchritt, satzOben) {
