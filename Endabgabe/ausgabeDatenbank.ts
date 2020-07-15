@@ -1,11 +1,9 @@
 namespace eisdiele {
 
-
     let urlSendenZu: string = "/lesen";
     urlSendenZu = "https://sosegis2020.herokuapp.com" + "/lesen";
 
     datenbankAuslesen();
-
 
     async function datenbankAuslesen(): Promise <void> {
 
@@ -13,6 +11,7 @@ namespace eisdiele {
         let ausgabeText: string = await response.text();
         
         console.log(ausgabeText);
+        console.log("Help");
         
         let antwort: HTMLElement = document.createElement("p");
         antwort.innerHTML = ausgabeText;

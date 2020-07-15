@@ -8,6 +8,7 @@ var eisdiele;
         let response = await fetch(urlSendenZu);
         let ausgabeText = await response.text();
         console.log(ausgabeText);
+        console.log("Help");
         let antwort = document.createElement("p");
         antwort.innerHTML = ausgabeText;
         document.getElementById("flexboxFuerAusgaben").appendChild(antwort);
