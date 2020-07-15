@@ -118,6 +118,12 @@ namespace eisdiele {
 
     function handlerLoeschZweiMachDrei(): void {
 
+        if (meineBestellungEis == undefined) {
+            alert("Wähle eine Eissorte aus!");
+        }
+
+        else {
+
         // Daten merken
 
         //Aktuelles Menü lösche
@@ -136,6 +142,7 @@ namespace eisdiele {
         let buttonDritterSchritt: HTMLElement = erstellButton("zweiter", 4, flexboxSchrittDrei);
 
         buttonDritterSchritt.addEventListener("click", handlerLoeschDreiMachVier);
+        }
     }
 
     function handlerLoeschDreiMachVier(): void {
@@ -165,7 +172,8 @@ namespace eisdiele {
         h3Form.innerHTML = "Weitere Anmerkungen";
         formBestellen.appendChild(h3Form);
 
-        let textArea: HTMLElement = <HTMLElement>document.createElement("textarea");
+        let textArea: HTMLTextAreaElement = <HTMLTextAreaElement> document.createElement("textarea");
+        textArea.setAttribute("name", "anmerkung");
         textArea.setAttribute("rows", "10");
         textArea.setAttribute("cols", "60");
         textArea.setAttribute("spellspeck", "true");
@@ -174,11 +182,39 @@ namespace eisdiele {
         eisvorschauboxErstellen(flexboxSchrittVier);
         vorschauEis(meineBestellungEis, meineBestellungTopping, meinBecherIstWaffel);
 
-        let buttonDritterSchritt: HTMLElement = erstellButton("vier", 0, flexboxSchrittVier);
+        let buttonDritterSchritt: HTMLElement = erstellButton("vier", 0, formBestellen);
+        buttonDritterSchritt.setAttribute("type", "submit");
+
+        buttonDritterSchritt.addEventListener("click", handlerAbschicken);
 
     }
 
     // Ablauf vorbei, Funktionen
+
+    function handlerAbschicken(): void {
+
+        let datenZumVerschicken: string = "";
+
+        for (let index: number = 0; index < meineBestellungEis.length; index++) {
+            datenZumVerschicken += "name=" + meineBestellungEis[index].name + "&" + "preis=" + meineBestellungEis[index].preis + "&"; 
+        }
+
+        if (meineBestellungTopping != undefined) {
+            for (let index: number = 0; index < meineBestellungTopping.length; index++) {
+                datenZumVerschicken += "name=" + meineBestellungTopping[index].name + "&" + "preis=" + meineBestellungTopping[index].preis + "&"; 
+            }
+        }
+
+        let datenForm: FormData = new FormData(document.forms[0]);
+        let urlSendenZu: string = "";
+        let query: URLSearchParams = new URLSearchParams(<any>datenForm);
+        let queryString: string = query.toString();
+
+        urlSendenZu = "/eingabe" + "?" + datenZumVerschicken + queryString;
+
+        console.log(urlSendenZu);
+
+    }
 
     function erstellHeaderSchritt(flexArtikel: HTMLElement, ueberschriftArtikel: HTMLElement, flexboxSchritt: HTMLElement, nameArtikel: string, classUeberschrift: string, aktuellerSchritt: number, satzOben: string): void {
         flexArtikel.setAttribute("id", "flex" + nameArtikel);
@@ -330,9 +366,10 @@ namespace eisdiele {
         label.innerHTML = forName + ":";
         elternElement.appendChild(label);
 
-        let input: HTMLElement = <HTMLElement>document.createElement("input");
+        let input: HTMLInputElement = <HTMLInputElement>document.createElement("input");
         input.setAttribute("type", "text");
         input.setAttribute("name", forName);
+        input.required = true;
         elternElement.appendChild(input);
 
     }
@@ -391,12 +428,6 @@ namespace eisdiele {
             }
             if (topping) {
                 for (let index: number = 0; index < topping.length; index++) {
-                    /*  let imgEisTopping: HTMLElement = <HTMLElement>document.createElement("img");
-                     imgEisTopping.setAttribute("class", "vKugel" + eis.length + " vorschauBild");
-                     imgEisTopping.setAttribute("src", topping[index].bildComic);
-                     imgEisTopping.setAttribute("alt", topping[index].alt);
-                     div.appendChild(imgEisTopping); */
-
                     fuegToppingHinzu(topping[index], eis, div, false);
                 }
             }

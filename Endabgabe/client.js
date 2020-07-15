@@ -86,20 +86,25 @@ var eisdiele;
         buttonZweiterSchritt.addEventListener("click", handlerLoeschZweiMachDrei);
     }
     function handlerLoeschZweiMachDrei() {
-        // Daten merken
-        //Aktuelles Menü lösche
-        let flexKugel = document.getElementById("flexKugel");
-        let flexboxSchrittZwei = document.getElementById("flexboxschritt2");
-        flexboxSchrittZwei.remove();
-        flexKugel.remove();
-        //neues erstellen
-        let flexTopping = document.createElement("div");
-        let uerbschriftTopping = document.createElement("div");
-        let flexboxSchrittDrei = document.createElement("div");
-        erstellHeaderSchritt(flexTopping, uerbschriftTopping, flexboxSchrittDrei, "Topping", "zwei", 3, "Wähle dein Topping!");
-        artikelEinsortieren(flexboxSchrittDrei, toppingArten);
-        let buttonDritterSchritt = erstellButton("zweiter", 4, flexboxSchrittDrei);
-        buttonDritterSchritt.addEventListener("click", handlerLoeschDreiMachVier);
+        if (meineBestellungEis == undefined) {
+            alert("Wähle eine Eissorte aus!");
+        }
+        else {
+            // Daten merken
+            //Aktuelles Menü lösche
+            let flexKugel = document.getElementById("flexKugel");
+            let flexboxSchrittZwei = document.getElementById("flexboxschritt2");
+            flexboxSchrittZwei.remove();
+            flexKugel.remove();
+            //neues erstellen
+            let flexTopping = document.createElement("div");
+            let uerbschriftTopping = document.createElement("div");
+            let flexboxSchrittDrei = document.createElement("div");
+            erstellHeaderSchritt(flexTopping, uerbschriftTopping, flexboxSchrittDrei, "Topping", "zwei", 3, "Wähle dein Topping!");
+            artikelEinsortieren(flexboxSchrittDrei, toppingArten);
+            let buttonDritterSchritt = erstellButton("zweiter", 4, flexboxSchrittDrei);
+            buttonDritterSchritt.addEventListener("click", handlerLoeschDreiMachVier);
+        }
     }
     function handlerLoeschDreiMachVier() {
         //Remove
@@ -123,15 +128,35 @@ var eisdiele;
         h3Form.innerHTML = "Weitere Anmerkungen";
         formBestellen.appendChild(h3Form);
         let textArea = document.createElement("textarea");
+        textArea.setAttribute("name", "anmerkung");
         textArea.setAttribute("rows", "10");
         textArea.setAttribute("cols", "60");
         textArea.setAttribute("spellspeck", "true");
         formBestellen.appendChild(textArea);
         eisvorschauboxErstellen(flexboxSchrittVier);
         vorschauEis(meineBestellungEis, meineBestellungTopping, meinBecherIstWaffel);
-        let buttonDritterSchritt = erstellButton("vier", 0, flexboxSchrittVier);
+        let buttonDritterSchritt = erstellButton("vier", 0, formBestellen);
+        buttonDritterSchritt.setAttribute("type", "submit");
+        buttonDritterSchritt.addEventListener("click", handlerAbschicken);
     }
     // Ablauf vorbei, Funktionen
+    function handlerAbschicken() {
+        let datenZumVerschicken = "";
+        for (let index = 0; index < meineBestellungEis.length; index++) {
+            datenZumVerschicken += "name=" + meineBestellungEis[index].name + "&" + "preis=" + meineBestellungEis[index].preis + "&";
+        }
+        if (meineBestellungTopping != undefined) {
+            for (let index = 0; index < meineBestellungTopping.length; index++) {
+                datenZumVerschicken += "name=" + meineBestellungTopping[index].name + "&" + "preis=" + meineBestellungTopping[index].preis + "&";
+            }
+        }
+        let datenForm = new FormData(document.forms[0]);
+        let urlSendenZu = "";
+        let query = new URLSearchParams(datenForm);
+        let queryString = query.toString();
+        urlSendenZu = "/eingabe" + "?" + datenZumVerschicken + queryString;
+        console.log(urlSendenZu);
+    }
     function erstellHeaderSchritt(flexArtikel, ueberschriftArtikel, flexboxSchritt, nameArtikel, classUeberschrift, aktuellerSchritt, satzOben) {
         flexArtikel.setAttribute("id", "flex" + nameArtikel);
         document.getElementById("grosseBox")?.appendChild(flexArtikel);
@@ -261,6 +286,7 @@ var eisdiele;
         let input = document.createElement("input");
         input.setAttribute("type", "text");
         input.setAttribute("name", forName);
+        input.required = true;
         elternElement.appendChild(input);
     }
     function vorschauEis(eis, topping, waffelJa) {
@@ -308,11 +334,6 @@ var eisdiele;
             }
             if (topping) {
                 for (let index = 0; index < topping.length; index++) {
-                    /*  let imgEisTopping: HTMLElement = <HTMLElement>document.createElement("img");
-                     imgEisTopping.setAttribute("class", "vKugel" + eis.length + " vorschauBild");
-                     imgEisTopping.setAttribute("src", topping[index].bildComic);
-                     imgEisTopping.setAttribute("alt", topping[index].alt);
-                     div.appendChild(imgEisTopping); */
                     fuegToppingHinzu(topping[index], eis, div, false);
                 }
             }
