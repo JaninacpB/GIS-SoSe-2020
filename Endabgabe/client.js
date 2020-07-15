@@ -148,7 +148,7 @@ var eisdiele;
     async function handlerAbschicken() {
         let datenZumVerschicken = "";
         for (let index = 0; index < meineBestellungEis.length; index++) {
-            datenZumVerschicken += "name=" + meineBestellungEis[index].name + "&" + "preis=" + meineBestellungEis[index].preis + "&";
+            datenZumVerschicken += "name=" + meineBestellungEis[index].name + "&";
         }
         let datenForm = new FormData(document.forms[0]);
         let urlSendenZu = "";
@@ -156,6 +156,7 @@ var eisdiele;
         let queryString = query.toString();
         let endgueltigerPreis = localStorage.getItem("gesamtPreis") + "";
         urlSendenZu = "https://sosegis2020.herokuapp.com" + "/eingabe" + "?" + datenZumVerschicken + endgueltigerPreis + "?" + queryString;
+        console.log("https://sosegis2020.herokuapp.com" + "/eingabe" + "?" + datenZumVerschicken + endgueltigerPreis + "?" + queryString);
         await fetch(urlSendenZu);
     }
     function erstellHeaderSchritt(flexArtikel, ueberschriftArtikel, flexboxSchritt, nameArtikel, classUeberschrift, aktuellerSchritt, satzOben) {

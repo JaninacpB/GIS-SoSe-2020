@@ -202,7 +202,7 @@ namespace eisdiele {
         let datenZumVerschicken: string = "";
 
         for (let index: number = 0; index < meineBestellungEis.length; index++) {
-            datenZumVerschicken += "name=" + meineBestellungEis[index].name + "&" + "preis=" + meineBestellungEis[index].preis + "&"; 
+            datenZumVerschicken += "name=" + meineBestellungEis[index].name + "&"; 
         }
         
         let datenForm: FormData = new FormData(document.forms[0]);
@@ -213,7 +213,7 @@ namespace eisdiele {
         let endgueltigerPreis: string = localStorage.getItem("gesamtPreis") + "";
 
         urlSendenZu = "https://sosegis2020.herokuapp.com" + "/eingabe" + "?" + datenZumVerschicken + endgueltigerPreis + "?" + queryString;
-
+        console.log("https://sosegis2020.herokuapp.com" + "/eingabe" + "?" + datenZumVerschicken + endgueltigerPreis + "?" + queryString);
         await fetch(urlSendenZu);
 
     }
