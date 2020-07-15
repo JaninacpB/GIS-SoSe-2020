@@ -41,7 +41,6 @@ export namespace eisdiele {
     _response.setHeader("content-type", "text/html; charset=utf-8");
     _response.setHeader("Access-Control-Allow-Origin", "*");
 
-
     if (_request.url) {
       let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
       
@@ -63,17 +62,10 @@ export namespace eisdiele {
         _response.write(JSON.stringify(speicherArray));
       }
     }
-
     _response.end();
   }
 
   function storeOrder(_order: Order): void {
     bestellungen.insert(_order);
   }
-
- /*  async function mongoAntwort(_response: Http.ServerResponse): Promise <void> {
-    let ausgabe: string[] = await bestellungen.find().toArray();
-    _response.write(JSON.stringify(ausgabe));
-  } */
-
 }

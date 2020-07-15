@@ -51,9 +51,5 @@ var eisdiele;
     function storeOrder(_order) {
         bestellungen.insert(_order);
     }
-    /*  async function mongoAntwort(_response: Http.ServerResponse): Promise <void> {
-       let ausgabe: string[] = await bestellungen.find().toArray();
-       _response.write(JSON.stringify(ausgabe));
-     } */
 })(eisdiele = exports.eisdiele || (exports.eisdiele = {}));
 //# sourceMappingURL=serverEiskoenigin.js.map
