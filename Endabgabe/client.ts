@@ -170,12 +170,12 @@ namespace eisdiele {
         h3Form.innerHTML = "Weitere Anmerkungen";
         formBestellen.appendChild(h3Form);
 
-        let textArea: HTMLTextAreaElement = <HTMLTextAreaElement> document.createElement("textarea");
+       /*  let textArea: HTMLTextAreaElement = <HTMLTextAreaElement> document.createElement("textarea");
         textArea.setAttribute("name", "anmerkung");
         textArea.setAttribute("rows", "10");
         textArea.setAttribute("cols", "60");
         textArea.setAttribute("spellspeck", "true");
-        formBestellen.appendChild(textArea);
+        formBestellen.appendChild(textArea); */
 
         let preisNumber: number = + localStorage.getItem("gesamtpreis")!;
 
@@ -202,7 +202,7 @@ namespace eisdiele {
         let datenZumVerschicken: string = "";
 
         for (let index: number = 0; index < meineBestellungEis.length; index++) {
-            datenZumVerschicken += "name=" + meineBestellungEis[index].name + "&"; 
+            datenZumVerschicken += "eiskugel" + index + "=" + meineBestellungEis[index].name + "&"; 
         }
         
         let datenForm: FormData = new FormData(document.forms[0]);

@@ -126,12 +126,12 @@ var eisdiele;
         let h3Form = document.createElement("h3");
         h3Form.innerHTML = "Weitere Anmerkungen";
         formBestellen.appendChild(h3Form);
-        let textArea = document.createElement("textarea");
-        textArea.setAttribute("name", "anmerkung");
-        textArea.setAttribute("rows", "10");
-        textArea.setAttribute("cols", "60");
-        textArea.setAttribute("spellspeck", "true");
-        formBestellen.appendChild(textArea);
+        /*  let textArea: HTMLTextAreaElement = <HTMLTextAreaElement> document.createElement("textarea");
+         textArea.setAttribute("name", "anmerkung");
+         textArea.setAttribute("rows", "10");
+         textArea.setAttribute("cols", "60");
+         textArea.setAttribute("spellspeck", "true");
+         formBestellen.appendChild(textArea); */
         let preisNumber = +localStorage.getItem("gesamtpreis");
         let h3Preis = document.createElement("h3");
         h3Preis.innerHTML = "Alles zusammen macht das: <u>" + preisNumber.toFixed(2) + "€ </u>";
@@ -148,7 +148,7 @@ var eisdiele;
     async function handlerAbschicken() {
         let datenZumVerschicken = "";
         for (let index = 0; index < meineBestellungEis.length; index++) {
-            datenZumVerschicken += "name=" + meineBestellungEis[index].name + "&";
+            datenZumVerschicken += "eiskugel" + index + "=" + meineBestellungEis[index].name + "&";
         }
         let datenForm = new FormData(document.forms[0]);
         let urlSendenZu = "";
