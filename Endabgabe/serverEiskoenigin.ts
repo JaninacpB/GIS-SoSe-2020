@@ -55,13 +55,11 @@ export namespace eisdiele {
         _response.write(_jsonString);
 
         storeOrder(url.query);
-
       }
 
       if (url.pathname == "/lesen") {
         mongoAntwort(_response);
       }
-      
     }
 
     _response.end();
