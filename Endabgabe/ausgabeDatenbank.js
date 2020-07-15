@@ -3,6 +3,7 @@ var eisdiele;
 (function (eisdiele) {
     let urlSendenZu = "/lesen";
     urlSendenZu = "https://sosegis2020.herokuapp.com" + "/lesen";
+    console.log("Help");
     datenbankAuslesen();
     async function datenbankAuslesen() {
         let response = await fetch(urlSendenZu);

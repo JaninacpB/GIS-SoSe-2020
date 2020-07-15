@@ -58,7 +58,9 @@ export namespace eisdiele {
       }
 
       if (url.pathname == "/lesen") {
-        mongoAntwort(_response);
+        let speicher: Mongo.Cursor <string> = bestellungen.find();
+        let speicherArray: string[] = await speicher.toArray();
+        _response.write(JSON.stringify(speicherArray));
       }
     }
 
@@ -69,9 +71,9 @@ export namespace eisdiele {
     bestellungen.insert(_order);
   }
 
-  async function mongoAntwort(_response: Http.ServerResponse): Promise <void> {
+ /*  async function mongoAntwort(_response: Http.ServerResponse): Promise <void> {
     let ausgabe: string[] = await bestellungen.find().toArray();
     _response.write(JSON.stringify(ausgabe));
-  }
+  } */
 
 }

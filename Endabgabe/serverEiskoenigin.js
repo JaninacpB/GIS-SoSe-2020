@@ -41,7 +41,9 @@ var eisdiele;
                 storeOrder(url.query);
             }
             if (url.pathname == "/lesen") {
-                mongoAntwort(_response);
+                let speicher = bestellungen.find();
+                let speicherArray = await speicher.toArray();
+                _response.write(JSON.stringify(speicherArray));
             }
         }
         _response.end();
@@ -49,9 +51,9 @@ var eisdiele;
     function storeOrder(_order) {
         bestellungen.insert(_order);
     }
-    async function mongoAntwort(_response) {
-        let ausgabe = await bestellungen.find().toArray();
-        _response.write(JSON.stringify(ausgabe));
-    }
+    /*  async function mongoAntwort(_response: Http.ServerResponse): Promise <void> {
+       let ausgabe: string[] = await bestellungen.find().toArray();
+       _response.write(JSON.stringify(ausgabe));
+     } */
 })(eisdiele = exports.eisdiele || (exports.eisdiele = {}));
 //# sourceMappingURL=serverEiskoenigin.js.map
