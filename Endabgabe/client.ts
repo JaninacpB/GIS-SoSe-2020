@@ -196,7 +196,6 @@ namespace eisdiele {
         for (let index: number = 0; index < meineBestellungEis.length; index++) {
             datenZumVerschicken += "eiskugel" + "=" + meineBestellungEis[index].name + "&"; 
         }
-        
 
         if (meineBestellungTopping) {
             for (let index: number = 0; index < meineBestellungTopping.length; index++) {
