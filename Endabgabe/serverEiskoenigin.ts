@@ -61,6 +61,11 @@ export namespace eisdiele {
         let speicherArray: string[] = await speicher.toArray();
         _response.write(JSON.stringify(speicherArray));
       }
+
+      if (url.pathname == "/loeschen") {
+        bestellungen.drop();
+        console.log("alles gelöscht");
+      }
     }
     _response.end();
   }

@@ -36,6 +36,33 @@ nav a:hover {
     color: #8BCC9F;
 }
 
+.bestellung {
+    line-height: 12px;
+    font-size: 15px;
+    margin: 0 auto;
+    padding: 5px;
+}
+
+.bestellung::first-letter {
+    color: white;
+    font-size: 20px;
+}
+
+.bestellungBox {
+    margin-bottom: 40px;
+}
+
+div > .bestellung:first-child {
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    font-weight: bolder;
+}
+
+.bearbeitenButton {
+    font-size: 12px;
+    background-color: white;
+}
+
 h1 {
     font-family: 'Delius Unicase', cursive;
     font-size: 50px;
