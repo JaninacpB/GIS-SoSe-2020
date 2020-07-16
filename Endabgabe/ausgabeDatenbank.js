@@ -6,9 +6,10 @@ var eisdiele;
     datenbankAuslesen();
     async function datenbankAuslesen() {
         let response = await fetch(urlSendenZu);
-        let ausgabeText = await response.text();
+        // let ausgabeText: string = await response.text();
+        let bestellung = await response.json();
         let antwort = document.createElement("p");
-        antwort.innerHTML = ausgabeText;
+        antwort.innerHTML = bestellung.name[0];
         document.getElementById("h3FuerAusgaben").appendChild(antwort);
     }
 })(eisdiele || (eisdiele = {}));

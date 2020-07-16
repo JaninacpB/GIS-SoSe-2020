@@ -7,10 +7,15 @@ namespace eisdiele {
     async function datenbankAuslesen(): Promise <void> {
 
         let response: Response = await fetch(urlSendenZu);
-        let ausgabeText: string = await response.text();
+        // let ausgabeText: string = await response.text();
+
+        let bestellung: Bestellung = await response.json();
         
         let antwort: HTMLElement = document.createElement("p");
-        antwort.innerHTML = ausgabeText;
+        antwort.innerHTML = bestellung.name[0];
         document.getElementById("h3FuerAusgaben")!.appendChild(antwort);
+
+        
+
     }
 }

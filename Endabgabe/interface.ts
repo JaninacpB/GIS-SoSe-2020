@@ -16,4 +16,14 @@ namespace eisdiele {
         alt: string;
         bildComic: string;
     }
+
+   export interface Bestellung {
+        id: string;
+        name: string[];
+        preis: number;
+        vorname: string;
+        nachname: string;
+        strasse: string;
+        stadt: string;
+    }
 }
