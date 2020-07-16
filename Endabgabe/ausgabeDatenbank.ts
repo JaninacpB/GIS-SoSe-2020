@@ -21,7 +21,7 @@ namespace eisdiele {
         erstellButton( div, "Erledigt", "bearbeitenButton");
         htmlElementErstellen(div, "p", "bestellung").innerHTML =  "Artikel " + (aktuellerIndex + 1);
         htmlElementErstellen(div, "p", "bestellung").innerHTML =  "Eissorten: " + aktuelleBestellung[aktuellerIndex].eiskugel;
-        if (aktuelleBestellung[aktuellerIndex].topping){
+        if (aktuelleBestellung[aktuellerIndex].topping) {
             htmlElementErstellen(div, "p", "bestellung").innerHTML =  "Topping: " + aktuelleBestellung[aktuellerIndex].topping;
             }
         htmlElementErstellen(div, "p", "bestellung").innerHTML = "Preis: " + aktuelleBestellung[aktuellerIndex].preis;

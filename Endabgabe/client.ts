@@ -170,13 +170,6 @@ namespace eisdiele {
         h3Form.innerHTML = "Weitere Anmerkungen";
         formBestellen.appendChild(h3Form);
 
-       /*  let textArea: HTMLTextAreaElement = <HTMLTextAreaElement> document.createElement("textarea");
-        textArea.setAttribute("name", "anmerkung");
-        textArea.setAttribute("rows", "10");
-        textArea.setAttribute("cols", "60");
-        textArea.setAttribute("spellspeck", "true");
-        formBestellen.appendChild(textArea); */
-
         let preisNumber: number = + localStorage.getItem("gesamtpreis")!;
 
         let h3Preis: HTMLElement = <HTMLElement> document.createElement("h3");
@@ -187,12 +180,11 @@ namespace eisdiele {
         vorschauEis(meineBestellungEis, meineBestellungTopping, meinBecherIstWaffel);
 
         let buttonDritterSchritt: HTMLElement = erstellButton("vier", 0, formBestellen);
-        buttonDritterSchritt.setAttribute("type", "button"); 
+        buttonDritterSchritt.setAttribute("type", "submit"); 
         buttonDritterSchritt.setAttribute("style", "display: block");
         buttonDritterSchritt.setAttribute("action", "https://sosegis2020.herokuapp.com");
 
         buttonDritterSchritt.addEventListener("click", handlerAbschicken);
-
     }
 
     // Ablauf vorbei, Funktionen
