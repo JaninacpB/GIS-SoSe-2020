@@ -213,7 +213,6 @@ namespace eisdiele {
 
         urlSendenZu = "https://sosegis2020.herokuapp.com" + "/eingabe?"  + datenZumVerschicken + endgueltigerPreis + queryString;
         fetch(urlSendenZu);
-
     }
 
     function erstellHeaderSchritt(flexArtikel: HTMLElement, ueberschriftArtikel: HTMLElement, flexboxSchritt: HTMLElement, nameArtikel: string, classUeberschrift: string, aktuellerSchritt: number, satzOben: string): void {
