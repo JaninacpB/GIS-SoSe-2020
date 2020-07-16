@@ -18,10 +18,13 @@ var eisdiele;
         let div = htmlElementErstellen(flexbox, "div", "bestellungBox");
         erstellButton(div, "Erledigt", "bearbeitenButton");
         htmlElementErstellen(div, "p", "bestellung").innerHTML = "Artikel " + (aktuellerIndex + 1);
-        htmlElementErstellen(div, "p", "bestellung").innerHTML = "Eissorten: " + aktuelleBestellung[aktuellerIndex].name;
+        htmlElementErstellen(div, "p", "bestellung").innerHTML = "Eissorten: " + aktuelleBestellung[aktuellerIndex].eiskugel;
+        if (aktuelleBestellung[aktuellerIndex].topping) {
+            htmlElementErstellen(div, "p", "bestellung").innerHTML = "Topping: " + aktuelleBestellung[aktuellerIndex].topping;
+        }
         htmlElementErstellen(div, "p", "bestellung").innerHTML = "Preis: " + aktuelleBestellung[aktuellerIndex].preis;
-        htmlElementErstellen(div, "p", "bestellung").innerHTML = "Versandadresse: " + aktuelleBestellung[aktuellerIndex].nachname + ", " + aktuelleBestellung[aktuellerIndex].vorname;
-        htmlElementErstellen(div, "p", "bestellung").innerHTML = aktuelleBestellung[aktuellerIndex].strasse + ", " + aktuelleBestellung[aktuellerIndex].stadt;
+        htmlElementErstellen(div, "p", "bestellung").innerHTML = "Besteller: " + aktuelleBestellung[aktuellerIndex].nachname + ", " + aktuelleBestellung[aktuellerIndex].vorname;
+        htmlElementErstellen(div, "p", "bestellung").innerHTML = "Adresse: " + aktuelleBestellung[aktuellerIndex].strasse + ", " + aktuelleBestellung[aktuellerIndex].stadt;
         if (aktuellerIndex + 1 == aktuelleBestellung.length) {
             let allesLoschenButton = erstellButton(flexbox, "Lösch alles!", "weiter");
             allesLoschenButton.addEventListener("click", handlerLoeschen);
@@ -33,7 +36,6 @@ var eisdiele;
         fetch(urlSendenZu);
         for (let index = 0; index < (bestellung.length * 2); index++) {
             flexbox.firstChild?.remove();
-            console.log("hello");
         }
     }
     function htmlElementErstellen(elternElement, artElement, classe) {

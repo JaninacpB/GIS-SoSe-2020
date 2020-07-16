@@ -18,12 +18,13 @@ namespace eisdiele {
     }
 
    export interface Bestellung {
-        id: string;
-        name: string[];
-        preis: number;
-        vorname: string;
         nachname: string;
-        strasse: string;
         stadt: string;
+        strasse: string;
+        vorname: string;
+        eiskugel: string[];
+        topping: string[];
+        preis: number;
+        id: string;
     }
 }

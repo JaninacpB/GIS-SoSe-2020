@@ -161,10 +161,10 @@ namespace eisdiele {
         formBestellen.setAttribute("class", "versandt");
         flexboxSchrittVier.appendChild(formBestellen);
 
-        fuellFrom("Vorname", formBestellen);
-        fuellFrom("Nachname", formBestellen);
-        fuellFrom("Strasse", formBestellen);
-        fuellFrom("Stadt", formBestellen);
+        fuellFrom("vorname", formBestellen);
+        fuellFrom("nachname", formBestellen);
+        fuellFrom("strasse", formBestellen);
+        fuellFrom("stadt", formBestellen);
 
         let h3Form: HTMLElement = <HTMLElement>document.createElement("h3");
         h3Form.innerHTML = "Weitere Anmerkungen";
@@ -204,11 +204,13 @@ namespace eisdiele {
         for (let index: number = 0; index < meineBestellungEis.length; index++) {
             datenZumVerschicken += "eiskugel" + "=" + meineBestellungEis[index].name + "&"; 
         }
-
-        for (let index: number = 0; index < meineBestellungTopping.length; index++) {
-            datenZumVerschicken += "topping" + "=" + meineBestellungTopping[index].name + "&"; 
-        }
         
+
+        if (meineBestellungTopping) {
+            for (let index: number = 0; index < meineBestellungTopping.length; index++) {
+            datenZumVerschicken += "topping" + "=" + meineBestellungTopping[index].name + "&"; 
+            }
+        } 
 
         let datenForm: FormData = new FormData(document.forms[0]);
         let urlSendenZu: string = "";

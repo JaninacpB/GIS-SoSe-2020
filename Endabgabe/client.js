@@ -119,10 +119,10 @@ var eisdiele;
         let formBestellen = document.createElement("form");
         formBestellen.setAttribute("class", "versandt");
         flexboxSchrittVier.appendChild(formBestellen);
-        fuellFrom("Vorname", formBestellen);
-        fuellFrom("Nachname", formBestellen);
-        fuellFrom("Strasse", formBestellen);
-        fuellFrom("Stadt", formBestellen);
+        fuellFrom("vorname", formBestellen);
+        fuellFrom("nachname", formBestellen);
+        fuellFrom("strasse", formBestellen);
+        fuellFrom("stadt", formBestellen);
         let h3Form = document.createElement("h3");
         h3Form.innerHTML = "Weitere Anmerkungen";
         formBestellen.appendChild(h3Form);
@@ -150,8 +150,10 @@ var eisdiele;
         for (let index = 0; index < meineBestellungEis.length; index++) {
             datenZumVerschicken += "eiskugel" + "=" + meineBestellungEis[index].name + "&";
         }
-        for (let index = 0; index < meineBestellungTopping.length; index++) {
-            datenZumVerschicken += "topping" + "=" + meineBestellungTopping[index].name + "&";
+        if (meineBestellungTopping) {
+            for (let index = 0; index < meineBestellungTopping.length; index++) {
+                datenZumVerschicken += "topping" + "=" + meineBestellungTopping[index].name + "&";
+            }
         }
         let datenForm = new FormData(document.forms[0]);
         let urlSendenZu = "";
