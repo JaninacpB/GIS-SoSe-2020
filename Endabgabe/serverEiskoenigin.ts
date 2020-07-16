@@ -46,14 +46,15 @@ export namespace eisdiele {
       
       if (url.pathname == "/eingabe") {
         
-        for (let key in url.query) {
+        /* for (let key in url.query) {
           _response.write(key + ":" + url.query[key] + "</br>");
-        }
+        } */
 
         let _jsonString: string = JSON.stringify(url.query);
         _response.write(_jsonString);
 
         storeOrder(url.query);
+        console.log("Lese neue Daten ein");
       }
 
       if (url.pathname == "/lesen") {

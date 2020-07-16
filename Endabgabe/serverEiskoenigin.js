@@ -33,12 +33,13 @@ var eisdiele;
         if (_request.url) {
             let url = Url.parse(_request.url, true);
             if (url.pathname == "/eingabe") {
-                for (let key in url.query) {
-                    _response.write(key + ":" + url.query[key] + "</br>");
-                }
+                /* for (let key in url.query) {
+                  _response.write(key + ":" + url.query[key] + "</br>");
+                } */
                 let _jsonString = JSON.stringify(url.query);
                 _response.write(_jsonString);
                 storeOrder(url.query);
+                console.log("Lese neue Daten ein");
             }
             if (url.pathname == "/lesen") {
                 let speicher = bestellungen.find();

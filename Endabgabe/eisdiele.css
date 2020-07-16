@@ -36,7 +36,7 @@ nav a:hover {
     color: #8BCC9F;
 }
 
-.bestellung {
+.bestellungBox {
     line-height: 12px;
     font-size: 15px;
     margin: 0 auto;
@@ -48,11 +48,11 @@ nav a:hover {
     font-size: 20px;
 }
 
-.bestellungBox {
-    margin-bottom: 40px;
+.bearbeitenButton + p::first-letter {
+    color: black;
 }
 
-div > .bestellung:first-child {
+.bearbeitenButton + p {
     text-decoration: underline;
     text-decoration-style: wavy;
     font-weight: bolder;

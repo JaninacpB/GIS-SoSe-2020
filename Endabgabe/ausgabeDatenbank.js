@@ -22,7 +22,7 @@ var eisdiele;
         if (aktuelleBestellung[aktuellerIndex].topping) {
             htmlElementErstellen(div, "p", "bestellung").innerHTML = "Topping: " + aktuelleBestellung[aktuellerIndex].topping;
         }
-        htmlElementErstellen(div, "p", "bestellung").innerHTML = "Preis: " + aktuelleBestellung[aktuellerIndex].preis;
+        htmlElementErstellen(div, "p", "bestellung").innerHTML = "Preis: " + aktuelleBestellung[aktuellerIndex].preis + "€";
         htmlElementErstellen(div, "p", "bestellung").innerHTML = "Besteller: " + aktuelleBestellung[aktuellerIndex].nachname + ", " + aktuelleBestellung[aktuellerIndex].vorname;
         htmlElementErstellen(div, "p", "bestellung").innerHTML = "Adresse: " + aktuelleBestellung[aktuellerIndex].strasse + ", " + aktuelleBestellung[aktuellerIndex].stadt;
         if (aktuellerIndex + 1 == aktuelleBestellung.length) {
