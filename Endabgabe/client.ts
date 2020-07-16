@@ -187,7 +187,7 @@ namespace eisdiele {
         vorschauEis(meineBestellungEis, meineBestellungTopping, meinBecherIstWaffel);
 
         let buttonDritterSchritt: HTMLElement = erstellButton("vier", 0, formBestellen);
-        buttonDritterSchritt.setAttribute("type", "submit");
+        buttonDritterSchritt.setAttribute("type", "button"); 
         buttonDritterSchritt.setAttribute("style", "display: block");
         buttonDritterSchritt.setAttribute("action", "https://sosegis2020.herokuapp.com");
 
@@ -197,24 +197,28 @@ namespace eisdiele {
 
     // Ablauf vorbei, Funktionen
 
-    async function handlerAbschicken(): Promise <void> {
+    function handlerAbschicken(): void {
 
         let datenZumVerschicken: string = "";
 
         for (let index: number = 0; index < meineBestellungEis.length; index++) {
-            datenZumVerschicken += "eiskugel" + index + "=" + meineBestellungEis[index].name + "&"; 
+            datenZumVerschicken += "eiskugel" + "=" + meineBestellungEis[index].name + "&"; 
+        }
+
+        for (let index: number = 0; index < meineBestellungTopping.length; index++) {
+            datenZumVerschicken += "topping" + "=" + meineBestellungTopping[index].name + "&"; 
         }
         
+
         let datenForm: FormData = new FormData(document.forms[0]);
         let urlSendenZu: string = "";
         let query: URLSearchParams = new URLSearchParams(<any>datenForm);
         let queryString: string = query.toString();
 
-        let endgueltigerPreis: string = localStorage.getItem("gesamtPreis") + "";
+        let endgueltigerPreis: string = "preis=" + localStorage.getItem("gesamtpreis")! + "&";
 
-        urlSendenZu = "https://sosegis2020.herokuapp.com" + "/eingabe" + "?" + datenZumVerschicken + endgueltigerPreis + "?" + queryString;
-        console.log("https://sosegis2020.herokuapp.com" + "/eingabe" + "?" + datenZumVerschicken + endgueltigerPreis + "?" + queryString);
-        await fetch(urlSendenZu);
+        urlSendenZu = "https://sosegis2020.herokuapp.com" + "/eingabe?"  + datenZumVerschicken + endgueltigerPreis + queryString;
+        fetch(urlSendenZu);
 
     }
 

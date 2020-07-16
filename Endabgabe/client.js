@@ -139,25 +139,27 @@ var eisdiele;
         eisvorschauboxErstellen(flexboxSchrittVier);
         vorschauEis(meineBestellungEis, meineBestellungTopping, meinBecherIstWaffel);
         let buttonDritterSchritt = erstellButton("vier", 0, formBestellen);
-        buttonDritterSchritt.setAttribute("type", "submit");
+        buttonDritterSchritt.setAttribute("type", "button");
         buttonDritterSchritt.setAttribute("style", "display: block");
         buttonDritterSchritt.setAttribute("action", "https://sosegis2020.herokuapp.com");
         buttonDritterSchritt.addEventListener("click", handlerAbschicken);
     }
     // Ablauf vorbei, Funktionen
-    async function handlerAbschicken() {
+    function handlerAbschicken() {
         let datenZumVerschicken = "";
         for (let index = 0; index < meineBestellungEis.length; index++) {
-            datenZumVerschicken += "eiskugel" + index + "=" + meineBestellungEis[index].name + "&";
+            datenZumVerschicken += "eiskugel" + "=" + meineBestellungEis[index].name + "&";
+        }
+        for (let index = 0; index < meineBestellungTopping.length; index++) {
+            datenZumVerschicken += "topping" + "=" + meineBestellungTopping[index].name + "&";
         }
         let datenForm = new FormData(document.forms[0]);
         let urlSendenZu = "";
         let query = new URLSearchParams(datenForm);
         let queryString = query.toString();
-        let endgueltigerPreis = localStorage.getItem("gesamtPreis") + "";
-        urlSendenZu = "https://sosegis2020.herokuapp.com" + "/eingabe" + "?" + datenZumVerschicken + endgueltigerPreis + "?" + queryString;
-        console.log("https://sosegis2020.herokuapp.com" + "/eingabe" + "?" + datenZumVerschicken + endgueltigerPreis + "?" + queryString);
-        await fetch(urlSendenZu);
+        let endgueltigerPreis = "preis=" + localStorage.getItem("gesamtpreis") + "&";
+        urlSendenZu = "https://sosegis2020.herokuapp.com" + "/eingabe?" + datenZumVerschicken + endgueltigerPreis + queryString;
+        fetch(urlSendenZu);
     }
     function erstellHeaderSchritt(flexArtikel, ueberschriftArtikel, flexboxSchritt, nameArtikel, classUeberschrift, aktuellerSchritt, satzOben) {
         flexArtikel.setAttribute("id", "flex" + nameArtikel);
