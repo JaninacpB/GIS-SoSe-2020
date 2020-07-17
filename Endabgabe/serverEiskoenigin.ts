@@ -64,12 +64,10 @@ export namespace eisdiele {
       }
 
       if (url.pathname == "/bearbeiten") {
-        // irgendwas mit update()
-
-        console.log(url.search);
         console.log(url.query);
         for (let key in url.query) {
-          console.log(key + ":" + url.query[key]);
+          bestellungen.update({"_id": url.query[key] }, { $set: { "geschmolzen": "true" }} );
+          console.log("Geschmolzen ist: " + url.query[key]);
         }
 
         //let value: string = <string> url["_id"];
@@ -81,7 +79,6 @@ export namespace eisdiele {
 
         bestellungen.update({ "_id": zuaendernesObjektId }, { $set: { "geschmolzen": "true" } });
  */
-        console.log("dieser Eintrag ist geschmolzen");
       }
 
     }
