@@ -30,6 +30,13 @@ var eisdiele;
             let allesLoschenButton = erstellButton(flexbox, "Lösch alles!", "weiter");
             allesLoschenButton.addEventListener("click", handlerLoeschen);
         }
+        function handlerArtikelBearbeiten() {
+            let urlSendenZu;
+            let id = aktuelleBestellung[aktuellerIndex]._id + "";
+            urlSendenZu = "https://sosegis2020.herokuapp.com" + "/bearbeiten?" + "id=" + id;
+            fetch(urlSendenZu);
+            console.log("https://sosegis2020.herokuapp.com" + "/bearbeiten?" + "id=" + id);
+        }
     }
     function handlerLoeschen() {
         let urlSendenZu;
@@ -38,11 +45,6 @@ var eisdiele;
         for (let index = 0; index < (bestellung.length * 2); index++) {
             flexbox.firstChild?.remove();
         }
-    }
-    function handlerArtikelBearbeiten() {
-        let urlSendenZu;
-        urlSendenZu = "https://sosegis2020.herokuapp.com" + "/bearbeiten";
-        fetch(urlSendenZu);
     }
     function htmlElementErstellen(elternElement, artElement, classe) {
         let element = document.createElement(artElement);

@@ -65,13 +65,12 @@ export namespace eisdiele {
 
       if (url.pathname == "/bearbeiten") {
         // irgendwas mit update()
-        console.log("Bestellungen: " + bestellungen);
 
         let urlBearbeiten: Order = <Order> url.query;
 
         console.log(" UrlBearbeiten: " + urlBearbeiten);
 
-        let value: string = <string> urlBearbeiten["id"];
+        let value: string = <string> urlBearbeiten["_id"];
         console.log("Value: " + value);
 
         let zuaendernesObjektId: Mongo.ObjectID = new Mongo.ObjectID(value);

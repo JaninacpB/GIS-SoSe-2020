@@ -49,10 +49,9 @@ var eisdiele;
             }
             if (url.pathname == "/bearbeiten") {
                 // irgendwas mit update()
-                console.log("Bestellungen: " + bestellungen);
                 let urlBearbeiten = url.query;
                 console.log(" UrlBearbeiten: " + urlBearbeiten);
-                let value = urlBearbeiten["id"];
+                let value = urlBearbeiten["_id"];
                 console.log("Value: " + value);
                 let zuaendernesObjektId = new Mongo.ObjectID(value);
                 console.log("ZuänderdesObjektid: " + zuaendernesObjektId);

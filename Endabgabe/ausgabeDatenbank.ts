@@ -33,6 +33,14 @@ namespace eisdiele {
             let allesLoschenButton: HTMLButtonElement = <HTMLButtonElement> erstellButton( flexbox, "Lösch alles!", "weiter");
             allesLoschenButton.addEventListener("click", handlerLoeschen);
         }
+
+        function handlerArtikelBearbeiten(): void {
+            let urlSendenZu: string;
+            let id: string = aktuelleBestellung[aktuellerIndex]._id + "";
+            urlSendenZu = "https://sosegis2020.herokuapp.com" + "/bearbeiten?" + "id=" + id;
+            fetch(urlSendenZu);
+            console.log("https://sosegis2020.herokuapp.com" + "/bearbeiten?" + "id=" + id);
+        }
     }
 
     function handlerLoeschen(): void {
@@ -43,12 +51,6 @@ namespace eisdiele {
         for ( let index: number = 0; index < (bestellung.length * 2); index++) {
             flexbox.firstChild?.remove();
         }
-    }
-
-    function handlerArtikelBearbeiten(): void {
-        let urlSendenZu: string;
-        urlSendenZu = "https://sosegis2020.herokuapp.com" + "/bearbeiten";
-        fetch(urlSendenZu);
     }
 
     function htmlElementErstellen ( elternElement: HTMLElement, artElement: string, classe: string): HTMLElement {
