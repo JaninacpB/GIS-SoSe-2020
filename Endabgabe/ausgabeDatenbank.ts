@@ -28,12 +28,6 @@ namespace eisdiele {
         htmlElementErstellen(div, "p", "bestellung").innerHTML = "Preis: " + aktuelleBestellung[aktuellerIndex].preis + "€";
         htmlElementErstellen(div, "p", "bestellung").innerHTML = "Besteller: " + aktuelleBestellung[aktuellerIndex].nachname + ", " + aktuelleBestellung[aktuellerIndex].vorname;
         htmlElementErstellen(div, "p", "bestellung").innerHTML = "Adresse: " + aktuelleBestellung[aktuellerIndex].strasse + ", " + aktuelleBestellung[aktuellerIndex].stadt;
-        let geschmolzenText: HTMLElement = htmlElementErstellen(div, "p", "bestellung");
-        geschmolzenText.innerHTML = "Ist geschmolzen: " + aktuelleBestellung[aktuellerIndex].geschmolzen;
-
-        if ( aktuelleBestellung[aktuellerIndex].geschmolzen == "true") {
-            div.setAttribute("class", "bestellungBox geschmolzen");
-        }
 
         if (aktuellerIndex + 1 == aktuelleBestellung.length) {
             let allesLoschenButton: HTMLButtonElement = <HTMLButtonElement> erstellButton( flexbox, "Lösch alles!", "weiter");
@@ -44,16 +38,7 @@ namespace eisdiele {
             let urlSendenZu: string;
             let id: string = aktuelleBestellung[aktuellerIndex]._id + "";
             urlSendenZu = "https://sosegis2020.herokuapp.com" + "/bearbeiten?" + "id=" + id;
-
-            let response: Response = await fetch(urlSendenZu);
-            let antwort: Bestellung[] = await response.json();
-            console.log(antwort);
-            aktuelleBestellung[aktuellerIndex] = await response.json();
-            div.setAttribute("class", "bestellungBox geschmolzen");
-
-            console.log(aktuelleBestellung[aktuellerIndex]);
-
-            geschmolzenText.innerHTML = "Ist geschmolzen: " + aktuelleBestellung[aktuellerIndex].geschmolzen;
+            fetch(urlSendenZu);
         }
     }
 

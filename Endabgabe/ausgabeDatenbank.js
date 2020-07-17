@@ -26,11 +26,6 @@ var eisdiele;
         htmlElementErstellen(div, "p", "bestellung").innerHTML = "Preis: " + aktuelleBestellung[aktuellerIndex].preis + "€";
         htmlElementErstellen(div, "p", "bestellung").innerHTML = "Besteller: " + aktuelleBestellung[aktuellerIndex].nachname + ", " + aktuelleBestellung[aktuellerIndex].vorname;
         htmlElementErstellen(div, "p", "bestellung").innerHTML = "Adresse: " + aktuelleBestellung[aktuellerIndex].strasse + ", " + aktuelleBestellung[aktuellerIndex].stadt;
-        let geschmolzenText = htmlElementErstellen(div, "p", "bestellung");
-        geschmolzenText.innerHTML = "Ist geschmolzen: " + aktuelleBestellung[aktuellerIndex].geschmolzen;
-        if (aktuelleBestellung[aktuellerIndex].geschmolzen == "true") {
-            div.setAttribute("class", "bestellungBox geschmolzen");
-        }
         if (aktuellerIndex + 1 == aktuelleBestellung.length) {
             let allesLoschenButton = erstellButton(flexbox, "Lösch alles!", "weiter");
             allesLoschenButton.addEventListener("click", handlerLoeschen);
@@ -39,13 +34,7 @@ var eisdiele;
             let urlSendenZu;
             let id = aktuelleBestellung[aktuellerIndex]._id + "";
             urlSendenZu = "https://sosegis2020.herokuapp.com" + "/bearbeiten?" + "id=" + id;
-            let response = await fetch(urlSendenZu);
-            let antwort = await response.json();
-            console.log(antwort);
-            aktuelleBestellung[aktuellerIndex] = await response.json();
-            div.setAttribute("class", "bestellungBox geschmolzen");
-            console.log(aktuelleBestellung[aktuellerIndex]);
-            geschmolzenText.innerHTML = "Ist geschmolzen: " + aktuelleBestellung[aktuellerIndex].geschmolzen;
+            fetch(urlSendenZu);
         }
     }
     function handlerLoeschen() {
