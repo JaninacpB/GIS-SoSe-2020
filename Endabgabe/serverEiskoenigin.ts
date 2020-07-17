@@ -68,6 +68,10 @@ export namespace eisdiele {
           bestellungen.updateOne({"_id": url.query[key] }, { $set: { "geschmolzen": "true" }} );
           bestellungen.updateOne({"_id": url.query[key] }, { $set: { "test": "true" }} );
           console.log("Geschmolzen ist: " + url.query[key]);
+
+          let speicher: Mongo.Cursor <string> = bestellungen.find({ "_id": url.query[key]});
+          let speicherArray: string[] = await speicher.toArray();
+          _response.write(JSON.stringify(speicherArray));
         }
       }
     }

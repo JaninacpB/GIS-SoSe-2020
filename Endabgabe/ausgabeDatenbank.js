@@ -26,6 +26,8 @@ var eisdiele;
         htmlElementErstellen(div, "p", "bestellung").innerHTML = "Preis: " + aktuelleBestellung[aktuellerIndex].preis + "€";
         htmlElementErstellen(div, "p", "bestellung").innerHTML = "Besteller: " + aktuelleBestellung[aktuellerIndex].nachname + ", " + aktuelleBestellung[aktuellerIndex].vorname;
         htmlElementErstellen(div, "p", "bestellung").innerHTML = "Adresse: " + aktuelleBestellung[aktuellerIndex].strasse + ", " + aktuelleBestellung[aktuellerIndex].stadt;
+        let geschmolzenText = htmlElementErstellen(div, "p", "bestellung");
+        geschmolzenText.innerHTML = "Ist geschmolzen: " + aktuelleBestellung[aktuellerIndex].geschmolzen;
         if (aktuelleBestellung[aktuellerIndex].geschmolzen == "true") {
             div.setAttribute("class", "bestellungBox geschmolzen");
         }
@@ -33,12 +35,14 @@ var eisdiele;
             let allesLoschenButton = erstellButton(flexbox, "Lösch alles!", "weiter");
             allesLoschenButton.addEventListener("click", handlerLoeschen);
         }
-        function handlerArtikelBearbeiten() {
+        async function handlerArtikelBearbeiten() {
             let urlSendenZu;
             let id = aktuelleBestellung[aktuellerIndex]._id + "";
             urlSendenZu = "https://sosegis2020.herokuapp.com" + "/bearbeiten?" + "id=" + id;
-            fetch(urlSendenZu);
+            let response = await fetch(urlSendenZu);
+            aktuelleBestellung[aktuellerIndex] = await response.json();
             div.setAttribute("class", "bestellungBox geschmolzen");
+            geschmolzenText.innerHTML = "Ist geschmolzen: " + aktuelleBestellung[aktuellerIndex].geschmolzen;
         }
     }
     function handlerLoeschen() {

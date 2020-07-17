@@ -23,7 +23,6 @@ if (localStorage.getItem("gesamtPreis")) {
         document.getElementById("zaehlerJs")!.appendChild(divZaehler);
         divZaehler.setAttribute("class", "zaehler");
         divZaehler.innerHTML = menge.toString();
-
     }
 
 function artikelErstellen(): void {
