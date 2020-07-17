@@ -66,11 +66,11 @@ export namespace eisdiele {
       if (url.pathname == "/bearbeiten") {
         // irgendwas mit update()
 
-        console.log(url.pathname);
-        console.log(url.path);
         console.log(url.search);
-
-        console.log("UrlBearbeiten: " + url);
+        console.log(url.query);
+        for (let key in url.query) {
+          console.log(key + ":" + url.query[key]);
+        }
 
         //let value: string = <string> url["_id"];
         //console.log("Value: " + value);
