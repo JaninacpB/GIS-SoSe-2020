@@ -48,18 +48,10 @@ var eisdiele;
                 console.log("alles gelöscht");
             }
             if (url.pathname == "/bearbeiten") {
-                console.log(url.query);
                 for (let key in url.query) {
-                    bestellungen.update({ "_id": url.query[key] }, { $set: { "geschmolzen": "true" } });
+                    bestellungen.updateOne({ "_id": url.query[key] }, { $set: { "geschmolzen": "true" } });
                     console.log("Geschmolzen ist: " + url.query[key]);
                 }
-                //let value: string = <string> url["_id"];
-                //console.log("Value: " + value);
-                //let zuaendernesObjektId: Mongo.ObjectID = new Mongo.ObjectID(value);
-                /* console.log("ZuänderdesObjektid: " + zuaendernesObjektId);
-        
-                bestellungen.update({ "_id": zuaendernesObjektId }, { $set: { "geschmolzen": "true" } });
-         */
             }
         }
         _response.end();
