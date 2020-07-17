@@ -34,7 +34,7 @@ namespace eisdiele {
             allesLoschenButton.addEventListener("click", handlerLoeschen);
         }
 
-        async function handlerArtikelBearbeiten(): Promise <void> {
+        function handlerArtikelBearbeiten(): void {
             let urlSendenZu: string;
             let id: string = aktuelleBestellung[aktuellerIndex]._id + "";
             urlSendenZu = "https://sosegis2020.herokuapp.com" + "/bearbeiten?" + "id=" + id;

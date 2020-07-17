@@ -30,7 +30,7 @@ var eisdiele;
             let allesLoschenButton = erstellButton(flexbox, "Lösch alles!", "weiter");
             allesLoschenButton.addEventListener("click", handlerLoeschen);
         }
-        async function handlerArtikelBearbeiten() {
+        function handlerArtikelBearbeiten() {
             let urlSendenZu;
             let id = aktuelleBestellung[aktuellerIndex]._id + "";
             urlSendenZu = "https://sosegis2020.herokuapp.com" + "/bearbeiten?" + "id=" + id;
