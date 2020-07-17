@@ -66,8 +66,10 @@ export namespace eisdiele {
       if (url.pathname == "/bearbeiten") {
         console.log(url.query);
         for (let key in url.query) {
-          bestellungen.updateOne({"_id": url.query[key] }, { $set: { "geschmolzen": "true" }} );
-          console.log("Geschmolzen ist: " + url.query[key]);
+          let wert: string = <string> url.query[key];
+          let objekt: Mongo.ObjectID = new Mongo.ObjectID(wert);
+          bestellungen.updateOne({"_id": objekt }, { $set: { "geschmolzen": "true" }} );
+          console.log("Geschmolzen ist: " + objekt);
         }
       }
     }
