@@ -16,7 +16,8 @@ var eisdiele;
     }
     function erstellBestellungHtml(aktuellerIndex, aktuelleBestellung) {
         let div = htmlElementErstellen(flexbox, "div", "bestellungBox");
-        erstellButton(div, "Erledigt", "bearbeitenButton");
+        let buttonArtikel = erstellButton(div, "Geschmolzen", "bearbeitenButton");
+        buttonArtikel.addEventListener("click", handlerArtikelBearbeiten);
         htmlElementErstellen(div, "p", "bestellung").innerHTML = "Artikel " + (aktuellerIndex + 1);
         htmlElementErstellen(div, "p", "bestellung").innerHTML = "Eissorten: " + aktuelleBestellung[aktuellerIndex].eiskugel;
         if (aktuelleBestellung[aktuellerIndex].topping) {
@@ -37,6 +38,11 @@ var eisdiele;
         for (let index = 0; index < (bestellung.length * 2); index++) {
             flexbox.firstChild?.remove();
         }
+    }
+    function handlerArtikelBearbeiten() {
+        let urlSendenZu;
+        urlSendenZu = "https://sosegis2020.herokuapp.com" + "/bearbeiten";
+        fetch(urlSendenZu);
     }
     function htmlElementErstellen(elternElement, artElement, classe) {
         let element = document.createElement(artElement);

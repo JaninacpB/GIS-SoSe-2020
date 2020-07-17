@@ -18,7 +18,8 @@ namespace eisdiele {
     function erstellBestellungHtml(aktuellerIndex: number, aktuelleBestellung: Bestellung[]): void {
         let div: HTMLElement = htmlElementErstellen(flexbox, "div", "bestellungBox");
 
-        erstellButton( div, "Erledigt", "bearbeitenButton");
+        let buttonArtikel: HTMLButtonElement = <HTMLButtonElement> erstellButton( div, "Geschmolzen", "bearbeitenButton");
+        buttonArtikel.addEventListener("click", handlerArtikelBearbeiten);
         htmlElementErstellen(div, "p", "bestellung").innerHTML =  "Artikel " + (aktuellerIndex + 1);
         htmlElementErstellen(div, "p", "bestellung").innerHTML =  "Eissorten: " + aktuelleBestellung[aktuellerIndex].eiskugel;
         if (aktuelleBestellung[aktuellerIndex].topping) {
@@ -42,6 +43,12 @@ namespace eisdiele {
         for ( let index: number = 0; index < (bestellung.length * 2); index++) {
             flexbox.firstChild?.remove();
         }
+    }
+
+    function handlerArtikelBearbeiten(): void {
+        let urlSendenZu: string;
+        urlSendenZu = "https://sosegis2020.herokuapp.com" + "/bearbeiten";
+        fetch(urlSendenZu);
     }
 
     function htmlElementErstellen ( elternElement: HTMLElement, artElement: string, classe: string): HTMLElement {

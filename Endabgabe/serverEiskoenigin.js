@@ -33,9 +33,6 @@ var eisdiele;
         if (_request.url) {
             let url = Url.parse(_request.url, true);
             if (url.pathname == "/eingabe") {
-                /* for (let key in url.query) {
-                  _response.write(key + ":" + url.query[key] + "</br>");
-                } */
                 let _jsonString = JSON.stringify(url.query);
                 _response.write(_jsonString);
                 storeOrder(url.query);
@@ -49,6 +46,18 @@ var eisdiele;
             if (url.pathname == "/loeschen") {
                 bestellungen.drop();
                 console.log("alles gelöscht");
+            }
+            if (url.pathname == "/bearbeiten") {
+                // irgendwas mit update()
+                console.log("Bestellungen: " + bestellungen);
+                let urlBearbeiten = url.query;
+                console.log(" UrlBearbeiten: " + urlBearbeiten);
+                let value = urlBearbeiten["id"];
+                console.log("Value: " + value);
+                let zuaendernesObjektId = new Mongo.ObjectID(value);
+                console.log("ZuänderdesObjektid: " + zuaendernesObjektId);
+                bestellungen.update({ "_id": zuaendernesObjektId }, { $set: { "geschmolzen": "true" } });
+                console.log("dieser Eintrag ist geschmolzen");
             }
         }
         _response.end();

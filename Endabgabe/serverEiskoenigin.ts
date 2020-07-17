@@ -45,11 +45,6 @@ export namespace eisdiele {
       let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
       
       if (url.pathname == "/eingabe") {
-        
-        /* for (let key in url.query) {
-          _response.write(key + ":" + url.query[key] + "</br>");
-        } */
-
         let _jsonString: string = JSON.stringify(url.query);
         _response.write(_jsonString);
 
@@ -67,6 +62,27 @@ export namespace eisdiele {
         bestellungen.drop();
         console.log("alles gelöscht");
       }
+
+      if (url.pathname == "/bearbeiten") {
+        // irgendwas mit update()
+        console.log("Bestellungen: " + bestellungen);
+
+        let urlBearbeiten: Order = <Order> url.query;
+
+        console.log(" UrlBearbeiten: " + urlBearbeiten);
+
+        let value: string = <string> urlBearbeiten["id"];
+        console.log("Value: " + value);
+
+        let zuaendernesObjektId: Mongo.ObjectID = new Mongo.ObjectID(value);
+
+        console.log("ZuänderdesObjektid: " + zuaendernesObjektId);
+
+        bestellungen.update({ "_id": zuaendernesObjektId }, { $set: { "geschmolzen": "true" } });
+
+        console.log("dieser Eintrag ist geschmolzen");
+      }
+
     }
     _response.end();
   }
