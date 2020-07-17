@@ -39,7 +39,7 @@ namespace eisdiele {
             let id: string = aktuelleBestellung[aktuellerIndex]._id + "";
             urlSendenZu = "https://sosegis2020.herokuapp.com" + "/bearbeiten?" + "id=" + id;
             fetch(urlSendenZu);
-            console.log("https://sosegis2020.herokuapp.com" + "/bearbeiten?" + "id=" + id);
+            console.log("Button Gedrückt");
         }
     }
 

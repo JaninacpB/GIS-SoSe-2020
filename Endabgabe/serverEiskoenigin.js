@@ -49,13 +49,17 @@ var eisdiele;
             }
             if (url.pathname == "/bearbeiten") {
                 // irgendwas mit update()
-                let urlBearbeiten = url.query;
-                console.log(" UrlBearbeiten: " + urlBearbeiten);
-                let value = urlBearbeiten["_id"];
-                console.log("Value: " + value);
-                let zuaendernesObjektId = new Mongo.ObjectID(value);
-                console.log("ZuänderdesObjektid: " + zuaendernesObjektId);
+                console.log(url.pathname);
+                console.log(url.path);
+                console.log(url.search);
+                console.log("UrlBearbeiten: " + url);
+                //let value: string = <string> url["_id"];
+                //console.log("Value: " + value);
+                //let zuaendernesObjektId: Mongo.ObjectID = new Mongo.ObjectID(value);
+                /* console.log("ZuänderdesObjektid: " + zuaendernesObjektId);
+        
                 bestellungen.update({ "_id": zuaendernesObjektId }, { $set: { "geschmolzen": "true" } });
+         */
                 console.log("dieser Eintrag ist geschmolzen");
             }
         }
