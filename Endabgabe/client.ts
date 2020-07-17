@@ -210,9 +210,9 @@ namespace eisdiele {
 
         let endgueltigerPreis: string = "preis=" + localStorage.getItem("gesamtpreis")! + "&";
 
-        urlSendenZu = "https://sosegis2020.herokuapp.com" + "/eingabe?"  + datenZumVerschicken + endgueltigerPreis + queryString;
+        urlSendenZu = "https://sosegis2020.herokuapp.com" + "/eingabe?"  + datenZumVerschicken + endgueltigerPreis + "geschmolzen=false&" + queryString;
 
-        console.log("/eingabe?"  + datenZumVerschicken + endgueltigerPreis + queryString);
+        console.log("/eingabe?"  + datenZumVerschicken + endgueltigerPreis +  "geschmolzen=false&" + queryString);
 
         fetch(urlSendenZu);
     }

@@ -29,6 +29,10 @@ namespace eisdiele {
         htmlElementErstellen(div, "p", "bestellung").innerHTML = "Besteller: " + aktuelleBestellung[aktuellerIndex].nachname + ", " + aktuelleBestellung[aktuellerIndex].vorname;
         htmlElementErstellen(div, "p", "bestellung").innerHTML = "Adresse: " + aktuelleBestellung[aktuellerIndex].strasse + ", " + aktuelleBestellung[aktuellerIndex].stadt;
 
+        if ( aktuelleBestellung[aktuellerIndex].geschmolzen == "true") {
+            div.setAttribute("class", "bestellungBox geschmolzen");
+        }
+
         if (aktuellerIndex + 1 == aktuelleBestellung.length) {
             let allesLoschenButton: HTMLButtonElement = <HTMLButtonElement> erstellButton( flexbox, "Lösch alles!", "weiter");
             allesLoschenButton.addEventListener("click", handlerLoeschen);
@@ -39,7 +43,7 @@ namespace eisdiele {
             let id: string = aktuelleBestellung[aktuellerIndex]._id + "";
             urlSendenZu = "https://sosegis2020.herokuapp.com" + "/bearbeiten?" + "id=" + id;
             fetch(urlSendenZu);
-            console.log("Button Gedrückt");
+            div.setAttribute("class", "bestellungBox geschmolzen");
         }
     }
 

@@ -154,8 +154,8 @@ var eisdiele;
         let query = new URLSearchParams(datenForm);
         let queryString = query.toString();
         let endgueltigerPreis = "preis=" + localStorage.getItem("gesamtpreis") + "&";
-        urlSendenZu = "https://sosegis2020.herokuapp.com" + "/eingabe?" + datenZumVerschicken + endgueltigerPreis + queryString;
-        console.log("/eingabe?" + datenZumVerschicken + endgueltigerPreis + queryString);
+        urlSendenZu = "https://sosegis2020.herokuapp.com" + "/eingabe?" + datenZumVerschicken + endgueltigerPreis + "geschmolzen=false&" + queryString;
+        console.log("/eingabe?" + datenZumVerschicken + endgueltigerPreis + "geschmolzen=false&" + queryString);
         fetch(urlSendenZu);
     }
     function erstellHeaderSchritt(flexArtikel, ueberschriftArtikel, flexboxSchritt, nameArtikel, classUeberschrift, aktuellerSchritt, satzOben) {
