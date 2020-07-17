@@ -40,8 +40,11 @@ var eisdiele;
             let id = aktuelleBestellung[aktuellerIndex]._id + "";
             urlSendenZu = "https://sosegis2020.herokuapp.com" + "/bearbeiten?" + "id=" + id;
             let response = await fetch(urlSendenZu);
+            let antwort = await response.json();
+            console.log(antwort);
             aktuelleBestellung[aktuellerIndex] = await response.json();
             div.setAttribute("class", "bestellungBox geschmolzen");
+            console.log(aktuelleBestellung[aktuellerIndex]);
             geschmolzenText.innerHTML = "Ist geschmolzen: " + aktuelleBestellung[aktuellerIndex].geschmolzen;
         }
     }

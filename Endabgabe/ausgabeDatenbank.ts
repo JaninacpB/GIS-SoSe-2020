@@ -46,9 +46,13 @@ namespace eisdiele {
             urlSendenZu = "https://sosegis2020.herokuapp.com" + "/bearbeiten?" + "id=" + id;
 
             let response: Response = await fetch(urlSendenZu);
+            let antwort: Bestellung[] = await response.json();
+            console.log(antwort);
             aktuelleBestellung[aktuellerIndex] = await response.json();
             div.setAttribute("class", "bestellungBox geschmolzen");
-            
+
+            console.log(aktuelleBestellung[aktuellerIndex]);
+
             geschmolzenText.innerHTML = "Ist geschmolzen: " + aktuelleBestellung[aktuellerIndex].geschmolzen;
         }
     }
