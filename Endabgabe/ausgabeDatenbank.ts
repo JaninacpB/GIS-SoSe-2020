@@ -18,7 +18,7 @@ namespace eisdiele {
     function erstellBestellungHtml(aktuellerIndex: number, aktuelleBestellung: Bestellung[]): void {
         let div: HTMLElement = htmlElementErstellen(flexbox, "div", "bestellungBox");
 
-        let buttonArtikel: HTMLButtonElement = <HTMLButtonElement> erstellButton( div, "Geschmolzen", "bearbeitenButton");
+        let buttonArtikel: HTMLButtonElement = <HTMLButtonElement> erstellButton( div, "Geschmolzen eintragen in Datenbank", "bearbeitenButton");
         buttonArtikel.addEventListener("click", handlerArtikelBearbeiten);
         htmlElementErstellen(div, "p", "bestellung").innerHTML =  "Artikel " + (aktuellerIndex + 1);
         htmlElementErstellen(div, "p", "bestellung").innerHTML =  "Eissorten: " + aktuelleBestellung[aktuellerIndex].eiskugel;

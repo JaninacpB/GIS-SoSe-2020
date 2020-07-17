@@ -16,7 +16,7 @@ var eisdiele;
     }
     function erstellBestellungHtml(aktuellerIndex, aktuelleBestellung) {
         let div = htmlElementErstellen(flexbox, "div", "bestellungBox");
-        let buttonArtikel = erstellButton(div, "Geschmolzen", "bearbeitenButton");
+        let buttonArtikel = erstellButton(div, "Geschmolzen eintragen in Datenbank", "bearbeitenButton");
         buttonArtikel.addEventListener("click", handlerArtikelBearbeiten);
         htmlElementErstellen(div, "p", "bestellung").innerHTML = "Artikel " + (aktuellerIndex + 1);
         htmlElementErstellen(div, "p", "bestellung").innerHTML = "Eissorten: " + aktuelleBestellung[aktuellerIndex].eiskugel;
