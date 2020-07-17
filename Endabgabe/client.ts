@@ -180,7 +180,7 @@ namespace eisdiele {
         vorschauEis(meineBestellungEis, meineBestellungTopping, meinBecherIstWaffel);
 
         let buttonDritterSchritt: HTMLElement = erstellButton("vier", 0, formBestellen);
-        buttonDritterSchritt.setAttribute("type", "button"); 
+        buttonDritterSchritt.setAttribute("type", "submit"); 
         buttonDritterSchritt.setAttribute("style", "display: block");
         buttonDritterSchritt.setAttribute("action", "https://sosegis2020.herokuapp.com");
 
