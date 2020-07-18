@@ -133,7 +133,7 @@ var eisdiele;
         eisvorschauboxErstellen(flexboxSchrittVier);
         vorschauEis(meineBestellungEis, meineBestellungTopping, meinBecherIstWaffel);
         let buttonDritterSchritt = erstellButton("vier", 0, formBestellen);
-        buttonDritterSchritt.setAttribute("type", "button");
+        buttonDritterSchritt.setAttribute("type", "submit");
         buttonDritterSchritt.setAttribute("style", "display: block");
         buttonDritterSchritt.setAttribute("action", "https://sosegis2020.herokuapp.com");
         buttonDritterSchritt.addEventListener("click", handlerAbschicken);
