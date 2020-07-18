@@ -134,11 +134,11 @@ h1 {
     background-image: url('https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/hintergrundPattern.png');
   }
 
-  .vorschauBild {
-      position: absolute;
-      width: 70px;
-      left: 115px;
-      top: 180px;
+.vorschauBild {
+    position: absolute;
+    width: 70px;
+    left: 115px;
+    top: 180px;
   }
 
 .vBecher {
@@ -228,7 +228,6 @@ img[src="https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/kirsche.png"
     align-items: center;
 }
 
-/* Radio Button*/
 .auswahlFormularWaffel {
     flex-wrap: wrap;
     display: flex;
@@ -240,10 +239,10 @@ img[src="https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/kirsche.png"
     margin: 0 auto;
 }
 
-input[type='radio'] 
-{ transform: scale(2);
-margin-top: 13px; 
-margin-right: 20px;}
+input[type='radio'] {   
+    transform: scale(2);
+    margin-top: 13px; 
+    margin-right: 20px;}
 
 .artikelBox {
     background-color: white;
@@ -275,7 +274,7 @@ h3 {
     color: white;
     border: none;
     height: 70px;
-    padding: 0px 10px 0px 10px;
+    padding: 0 10px 0 10px;
     font-size: 20px;
 }
 
@@ -313,7 +312,7 @@ button:hover {
 form h3 {
     display: block;
     color: #ED4659;
-    line-height: 5px;
+    line-height: 12px;
 }
 
 div ~ button {
@@ -331,7 +330,6 @@ iframe {
     height: 500px
 }
 
-/* FOOTER */
 footer {
     background-color: #191516;
     color: white;
@@ -354,7 +352,7 @@ footer {
 }
 
 footer div {
-    padding: 10px 0 50px 0px;
+    padding: 10px 0 50px 0;
     text-align: center;
 }
 
@@ -397,77 +395,77 @@ footer div {
         height: 200px;
     }
 
-  .vorschauBild {
-      width: 40px;
-      left: 85px;
-  }
+    .vorschauBild {
+        width: 40px;
+        left: 85px;
+    }
 
-  .artikelBild {
-      width: 200px;
-  }
+    .artikelBild {
+        width: 200px;
+    }
 
-  .weiter {
-    padding: 10px;
-  }
+    .weiter {
+        padding: 10px;
+    }
 
-  .vWaffel{
-      top: 130px;
-  }
+    .vWaffel{
+        top: 130px;
+    }
 
-  .vBecher {
-      width: 60px;
-      top: 150px;
-      left: 75px;
-  }
+    .vBecher {
+        width: 60px;
+        top: 150px;
+        left: 75px;
+    }
 
-  .vKugel1 {
-    top: 110px;
-    z-index: 1;
-}
+    .vKugel1 {
+        top: 110px;
+        z-index: 1;
+    }
 
-.vKugel2 {
-    top: 95px;
-    z-index: 2;
-}
+    .vKugel2 {
+        top: 95px;
+        z-index: 2;
+    }
 
-.vKugel3 {
-    top: 80px;
-    z-index: 3;
-}
+    .vKugel3 {
+        top: 80px;
+        z-index: 3;
+    }
 
-.vKugel4 {
-    top: 65px;
-    z-index: 4;
-}
+    .vKugel4 {
+        top: 65px;
+        z-index: 4;
+    }
 
-.vKugelBecher1 {
-    top: 130px;
-    left: 70px;
-    z-index: 1;
-}
+    .vKugelBecher1 {
+        top: 130px;
+        left: 70px;
+        z-index: 1;
+    }
 
-.vKugelBecher2 {
-    top: 130px;
-    left: 100px;
-    z-index: 2;
-}
+    .vKugelBecher2 {
+        top: 130px;
+        left: 100px;
+        z-index: 2;
+    }
 
-.vKugelBecher3 {
-    top: 110px;
-    left: 80px;
-    z-index: 3;
-}
+    .vKugelBecher3 {
+        top: 110px;
+        left: 80px;
+        z-index: 3;
+        }
 
-.vKugelBecher4 {
-    top: 110px;
-    left: 95px;
-    z-index: 5;
-}
+    .vKugelBecher4 {
+        top: 110px;
+        left: 95px;
+        z-index: 5;
+    }
 
-iframe {
-    width: 100%;
-    height: 300px
-}
+    iframe {
+        width: 100%;
+        height: 300px
+    }
 
 }
 
@@ -502,7 +500,7 @@ iframe {
         font-size: 15px;
     }
 
-   form h3 {
+    form h3 {
         line-height: 15px;
     }
 
@@ -530,5 +528,4 @@ iframe {
     .eisVorschau {
         margin: auto;
     }
-
 }

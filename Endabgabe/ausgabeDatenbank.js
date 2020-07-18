@@ -1,8 +1,7 @@
 "use strict";
-var eisdiele;
-(function (eisdiele) {
+var Eisdiele;
+(function (Eisdiele) {
     let flexbox = document.getElementById("flexbox");
-    /* htmlElementErstellen( flexbox, "div", ""); */
     let urlSendenZu;
     let bestellung;
     urlSendenZu = "https://sosegis2020.herokuapp.com" + "/lesen";
@@ -14,25 +13,25 @@ var eisdiele;
             erstellBestellungHtml(index, bestellung);
         }
     }
-    function erstellBestellungHtml(aktuellerIndex, aktuelleBestellung) {
+    function erstellBestellungHtml(_aktuellerIndex, _aktuelleBestellung) {
         let div = htmlElementErstellen(flexbox, "div", "bestellungBox");
         let buttonArtikel = erstellButton(div, "Geschmolzen eintragen in Datenbank", "bearbeitenButton");
         buttonArtikel.addEventListener("click", handlerArtikelBearbeiten);
-        htmlElementErstellen(div, "p", "bestellung").innerHTML = "Artikel " + (aktuellerIndex + 1);
-        htmlElementErstellen(div, "p", "bestellung").innerHTML = "Eissorten: " + aktuelleBestellung[aktuellerIndex].eiskugel;
-        if (aktuelleBestellung[aktuellerIndex].topping) {
-            htmlElementErstellen(div, "p", "bestellung").innerHTML = "Topping: " + aktuelleBestellung[aktuellerIndex].topping;
+        htmlElementErstellen(div, "p", "bestellung").innerHTML = "Artikel " + (_aktuellerIndex + 1);
+        htmlElementErstellen(div, "p", "bestellung").innerHTML = "Eissorten: " + _aktuelleBestellung[_aktuellerIndex].eiskugel;
+        if (_aktuelleBestellung[_aktuellerIndex].topping) {
+            htmlElementErstellen(div, "p", "bestellung").innerHTML = "Topping: " + _aktuelleBestellung[_aktuellerIndex].topping;
         }
-        htmlElementErstellen(div, "p", "bestellung").innerHTML = "Preis: " + aktuelleBestellung[aktuellerIndex].preis + "€";
-        htmlElementErstellen(div, "p", "bestellung").innerHTML = "Besteller: " + aktuelleBestellung[aktuellerIndex].nachname + ", " + aktuelleBestellung[aktuellerIndex].vorname;
-        htmlElementErstellen(div, "p", "bestellung").innerHTML = "Adresse: " + aktuelleBestellung[aktuellerIndex].strasse + ", " + aktuelleBestellung[aktuellerIndex].stadt;
-        if (aktuellerIndex + 1 == aktuelleBestellung.length) {
+        htmlElementErstellen(div, "p", "bestellung").innerHTML = "Preis: " + _aktuelleBestellung[_aktuellerIndex].preis + "€";
+        htmlElementErstellen(div, "p", "bestellung").innerHTML = "Besteller: " + _aktuelleBestellung[_aktuellerIndex].nachname + ", " + _aktuelleBestellung[_aktuellerIndex].vorname;
+        htmlElementErstellen(div, "p", "bestellung").innerHTML = "Adresse: " + _aktuelleBestellung[_aktuellerIndex].strasse + ", " + _aktuelleBestellung[_aktuellerIndex].stadt;
+        if (_aktuellerIndex + 1 == _aktuelleBestellung.length) {
             let allesLoschenButton = erstellButton(flexbox, "Lösch alles!", "weiter");
             allesLoschenButton.addEventListener("click", handlerLoeschen);
         }
         function handlerArtikelBearbeiten() {
             let urlSendenZu;
-            let id = aktuelleBestellung[aktuellerIndex]._id + "";
+            let id = _aktuelleBestellung[_aktuellerIndex]._id + "";
             urlSendenZu = "https://sosegis2020.herokuapp.com" + "/bearbeiten?" + "id=" + id;
             fetch(urlSendenZu);
         }
@@ -45,18 +44,18 @@ var eisdiele;
             flexbox.firstChild?.remove();
         }
     }
-    function htmlElementErstellen(elternElement, artElement, classe) {
-        let element = document.createElement(artElement);
+    function htmlElementErstellen(_elternElement, _artElement, classe) {
+        let element = document.createElement(_artElement);
         element.setAttribute("class", classe);
-        elternElement.appendChild(element);
+        _elternElement.appendChild(element);
         return element;
     }
-    function erstellButton(elternElement, text, textClass) {
+    function erstellButton(_elternElement, _text, _textClass) {
         let button = document.createElement("button");
-        elternElement.appendChild(button);
-        button.setAttribute("class", textClass);
-        button.innerHTML = text;
+        _elternElement.appendChild(button);
+        button.setAttribute("class", _textClass);
+        button.innerHTML = _text;
         return button;
     }
-})(eisdiele || (eisdiele = {}));
+})(Eisdiele || (Eisdiele = {}));
 //# sourceMappingURL=ausgabeDatenbank.js.map

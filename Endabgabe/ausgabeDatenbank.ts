@@ -1,42 +1,41 @@
-namespace eisdiele {
-    let flexbox: HTMLElement = <HTMLElement> document.getElementById("flexbox");
-    /* htmlElementErstellen( flexbox, "div", ""); */
+namespace Eisdiele {
+    let flexbox: HTMLElement = <HTMLElement>document.getElementById("flexbox");
     let urlSendenZu: string;
     let bestellung: Bestellung[];
     urlSendenZu = "https://sosegis2020.herokuapp.com" + "/lesen";
     datenbankAuslesen();
 
-    async function datenbankAuslesen(): Promise <void> {
+    async function datenbankAuslesen(): Promise<void> {
         let response: Response = await fetch(urlSendenZu);
         bestellung = await response.json();
-        
-        for ( let index: number = 0; index < bestellung.length; index++) {
-        erstellBestellungHtml(index, bestellung);
+
+        for (let index: number = 0; index < bestellung.length; index++) {
+            erstellBestellungHtml(index, bestellung);
         }
     }
 
-    function erstellBestellungHtml(aktuellerIndex: number, aktuelleBestellung: Bestellung[]): void {
+    function erstellBestellungHtml(_aktuellerIndex: number, _aktuelleBestellung: Bestellung[]): void {
         let div: HTMLElement = htmlElementErstellen(flexbox, "div", "bestellungBox");
 
-        let buttonArtikel: HTMLButtonElement = <HTMLButtonElement> erstellButton( div, "Geschmolzen eintragen in Datenbank", "bearbeitenButton");
+        let buttonArtikel: HTMLButtonElement = <HTMLButtonElement>erstellButton(div, "Geschmolzen eintragen in Datenbank", "bearbeitenButton");
         buttonArtikel.addEventListener("click", handlerArtikelBearbeiten);
-        htmlElementErstellen(div, "p", "bestellung").innerHTML =  "Artikel " + (aktuellerIndex + 1);
-        htmlElementErstellen(div, "p", "bestellung").innerHTML =  "Eissorten: " + aktuelleBestellung[aktuellerIndex].eiskugel;
-        if (aktuelleBestellung[aktuellerIndex].topping) {
-            htmlElementErstellen(div, "p", "bestellung").innerHTML =  "Topping: " + aktuelleBestellung[aktuellerIndex].topping;
-            }
-        htmlElementErstellen(div, "p", "bestellung").innerHTML = "Preis: " + aktuelleBestellung[aktuellerIndex].preis + "€";
-        htmlElementErstellen(div, "p", "bestellung").innerHTML = "Besteller: " + aktuelleBestellung[aktuellerIndex].nachname + ", " + aktuelleBestellung[aktuellerIndex].vorname;
-        htmlElementErstellen(div, "p", "bestellung").innerHTML = "Adresse: " + aktuelleBestellung[aktuellerIndex].strasse + ", " + aktuelleBestellung[aktuellerIndex].stadt;
+        htmlElementErstellen(div, "p", "bestellung").innerHTML = "Artikel " + (_aktuellerIndex + 1);
+        htmlElementErstellen(div, "p", "bestellung").innerHTML = "Eissorten: " + _aktuelleBestellung[_aktuellerIndex].eiskugel;
+        if (_aktuelleBestellung[_aktuellerIndex].topping) {
+            htmlElementErstellen(div, "p", "bestellung").innerHTML = "Topping: " + _aktuelleBestellung[_aktuellerIndex].topping;
+        }
+        htmlElementErstellen(div, "p", "bestellung").innerHTML = "Preis: " + _aktuelleBestellung[_aktuellerIndex].preis + "€";
+        htmlElementErstellen(div, "p", "bestellung").innerHTML = "Besteller: " + _aktuelleBestellung[_aktuellerIndex].nachname + ", " + _aktuelleBestellung[_aktuellerIndex].vorname;
+        htmlElementErstellen(div, "p", "bestellung").innerHTML = "Adresse: " + _aktuelleBestellung[_aktuellerIndex].strasse + ", " + _aktuelleBestellung[_aktuellerIndex].stadt;
 
-        if (aktuellerIndex + 1 == aktuelleBestellung.length) {
-            let allesLoschenButton: HTMLButtonElement = <HTMLButtonElement> erstellButton( flexbox, "Lösch alles!", "weiter");
+        if (_aktuellerIndex + 1 == _aktuelleBestellung.length) {
+            let allesLoschenButton: HTMLButtonElement = <HTMLButtonElement>erstellButton(flexbox, "Lösch alles!", "weiter");
             allesLoschenButton.addEventListener("click", handlerLoeschen);
         }
 
         function handlerArtikelBearbeiten(): void {
             let urlSendenZu: string;
-            let id: string = aktuelleBestellung[aktuellerIndex]._id + "";
+            let id: string = _aktuelleBestellung[_aktuellerIndex]._id + "";
             urlSendenZu = "https://sosegis2020.herokuapp.com" + "/bearbeiten?" + "id=" + id;
             fetch(urlSendenZu);
         }
@@ -47,23 +46,23 @@ namespace eisdiele {
         urlSendenZu = "https://sosegis2020.herokuapp.com" + "/loeschen";
         fetch(urlSendenZu);
 
-        for ( let index: number = 0; index < (bestellung.length * 2); index++) {
+        for (let index: number = 0; index < (bestellung.length * 2); index++) {
             flexbox.firstChild?.remove();
         }
     }
 
-    function htmlElementErstellen ( elternElement: HTMLElement, artElement: string, classe: string): HTMLElement {
-        let element: HTMLElement = document.createElement(artElement);
+    function htmlElementErstellen(_elternElement: HTMLElement, _artElement: string, classe: string): HTMLElement {
+        let element: HTMLElement = document.createElement(_artElement);
         element.setAttribute("class", classe);
-        elternElement.appendChild(element);
+        _elternElement.appendChild(element);
         return element;
     }
 
-    function erstellButton( elternElement: HTMLElement, text: string, textClass: string): HTMLElement {
-        let button: HTMLInputElement = <HTMLInputElement> document.createElement("button");
-        elternElement.appendChild(button);
-        button.setAttribute("class", textClass);
-        button.innerHTML = text;
+    function erstellButton(_elternElement: HTMLElement, _text: string, _textClass: string): HTMLElement {
+        let button: HTMLInputElement = <HTMLInputElement>document.createElement("button");
+        _elternElement.appendChild(button);
+        button.setAttribute("class", _textClass);
+        button.innerHTML = _text;
         return button;
     }
 }

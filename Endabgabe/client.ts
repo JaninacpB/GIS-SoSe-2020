@@ -1,4 +1,4 @@
-namespace eisdiele {
+namespace Eisdiele {
 
     let eissorten: EissortenUTopping[];
     let waffelArten: Beahelter[];
@@ -82,8 +82,6 @@ namespace eisdiele {
 
     function handlerLoeschEinsMachZwei(): void {
 
-        // Daten merken
-
         let radioWaffel: HTMLFormElement = <HTMLFormElement>document.getElementById("waffelFormular");
         let radioWert: string = radioWaffel["auswahlBehaelter"].value;
         if (radioWert == "true") {
@@ -92,8 +90,7 @@ namespace eisdiele {
         else {
             meinBecherIstWaffel = false;
         }
-        //Aktuelles Menü lösche
-        // let uerbschriftWaffel: HTMLElement = <HTMLElement> document.getElementById("waffelUeberschrift");
+
         let flexWaffel: HTMLElement = <HTMLElement>document.getElementById("flexWaffel");
 
         let flexboxSchrittEins: HTMLElement = <HTMLElement>document.getElementById("flexboxschritt1");
@@ -101,7 +98,6 @@ namespace eisdiele {
         flexboxSchrittEins.remove();
         flexWaffel.remove();
 
-        //neues erstellen
         let flexKugel: HTMLElement = <HTMLElement>document.createElement("div");
         let uerbschriftKugel: HTMLElement = <HTMLElement>document.createElement("div");
         let flexboxSchrittZwei: HTMLElement = <HTMLElement>document.createElement("div");
@@ -121,37 +117,30 @@ namespace eisdiele {
         }
 
         else {
+            let flexKugel: HTMLElement = <HTMLElement>document.getElementById("flexKugel");
+            let flexboxSchrittZwei: HTMLElement = <HTMLElement>document.getElementById("flexboxschritt2");
+            flexboxSchrittZwei.remove();
+            flexKugel.remove();
 
-        // Daten merken
+            let flexTopping: HTMLElement = <HTMLElement>document.createElement("div");
+            let uerbschriftTopping: HTMLElement = <HTMLElement>document.createElement("div");
+            let flexboxSchrittDrei: HTMLElement = <HTMLElement>document.createElement("div");
+            erstellHeaderSchritt(flexTopping, uerbschriftTopping, flexboxSchrittDrei, "Topping", "zwei", 3, "Wähle dein Topping!");
 
-        //Aktuelles Menü lösche
-        let flexKugel: HTMLElement = <HTMLElement>document.getElementById("flexKugel");
-        let flexboxSchrittZwei: HTMLElement = <HTMLElement>document.getElementById("flexboxschritt2");
-        flexboxSchrittZwei.remove();
-        flexKugel.remove();
+            artikelEinsortieren(flexboxSchrittDrei, toppingArten);
+            let buttonDritterSchritt: HTMLElement = erstellButton("zweiter", 4, flexboxSchrittDrei);
 
-        //neues erstellen
-        let flexTopping: HTMLElement = <HTMLElement>document.createElement("div");
-        let uerbschriftTopping: HTMLElement = <HTMLElement>document.createElement("div");
-        let flexboxSchrittDrei: HTMLElement = <HTMLElement>document.createElement("div");
-        erstellHeaderSchritt(flexTopping, uerbschriftTopping, flexboxSchrittDrei, "Topping", "zwei", 3, "Wähle dein Topping!");
-
-        artikelEinsortieren(flexboxSchrittDrei, toppingArten);
-        let buttonDritterSchritt: HTMLElement = erstellButton("zweiter", 4, flexboxSchrittDrei);
-
-        buttonDritterSchritt.addEventListener("click", handlerLoeschDreiMachVier);
+            buttonDritterSchritt.addEventListener("click", handlerLoeschDreiMachVier);
         }
     }
 
     function handlerLoeschDreiMachVier(): void {
 
-        //Remove
         let flexTopping: HTMLElement = <HTMLElement>document.getElementById("flexTopping");
         let flexboxSchrittDrei: HTMLElement = <HTMLElement>document.getElementById("flexboxschritt3");
         flexboxSchrittDrei.remove();
         flexTopping.remove();
 
-        // Neu hinzufügen
         let flexBestellen: HTMLElement = <HTMLElement>document.createElement("div");
         let uerbschriftBestellen: HTMLElement = <HTMLElement>document.createElement("div");
         let flexboxSchrittVier: HTMLElement = <HTMLElement>document.createElement("div");
@@ -172,36 +161,34 @@ namespace eisdiele {
 
         let preisNumber: number = + localStorage.getItem("gesamtpreis")!;
 
-        let h3Preis: HTMLElement = <HTMLElement> document.createElement("h3");
+        let h3Preis: HTMLElement = <HTMLElement>document.createElement("h3");
         h3Preis.innerHTML = "Alles zusammen macht das: <u>" + preisNumber.toFixed(2) + "€ </u>";
         formBestellen.appendChild(h3Preis);
- 
+
         eisvorschauboxErstellen(flexboxSchrittVier);
         vorschauEis(meineBestellungEis, meineBestellungTopping, meinBecherIstWaffel);
 
         let buttonDritterSchritt: HTMLElement = erstellButton("vier", 0, formBestellen);
-        buttonDritterSchritt.setAttribute("type", "submit"); 
+        buttonDritterSchritt.setAttribute("type", "submit");
         buttonDritterSchritt.setAttribute("style", "display: block");
         buttonDritterSchritt.setAttribute("action", "https://sosegis2020.herokuapp.com");
 
         buttonDritterSchritt.addEventListener("click", handlerAbschicken);
     }
 
-    // Ablauf vorbei, Funktionen
-
     function handlerAbschicken(): void {
 
         let datenZumVerschicken: string = "";
 
         for (let index: number = 0; index < meineBestellungEis.length; index++) {
-            datenZumVerschicken += "eiskugel" + "=" + meineBestellungEis[index].name + "&"; 
+            datenZumVerschicken += "eiskugel" + "=" + meineBestellungEis[index].name + "&";
         }
 
         if (meineBestellungTopping) {
             for (let index: number = 0; index < meineBestellungTopping.length; index++) {
-            datenZumVerschicken += "topping" + "=" + meineBestellungTopping[index].name + "&"; 
+                datenZumVerschicken += "topping" + "=" + meineBestellungTopping[index].name + "&";
             }
-        } 
+        }
 
         let datenForm: FormData = new FormData(document.forms[0]);
         let urlSendenZu: string = "";
@@ -210,39 +197,36 @@ namespace eisdiele {
 
         let endgueltigerPreis: string = "preis=" + localStorage.getItem("gesamtpreis")! + "&";
 
-        urlSendenZu = "https://sosegis2020.herokuapp.com" + "/eingabe?"  + datenZumVerschicken + endgueltigerPreis + queryString;
-
-        console.log("/eingabe?"  + datenZumVerschicken + endgueltigerPreis + queryString);
+        urlSendenZu = "https://sosegis2020.herokuapp.com" + "/eingabe?" + datenZumVerschicken + endgueltigerPreis + queryString;
 
         fetch(urlSendenZu);
     }
 
-    function erstellHeaderSchritt(flexArtikel: HTMLElement, ueberschriftArtikel: HTMLElement, flexboxSchritt: HTMLElement, nameArtikel: string, classUeberschrift: string, aktuellerSchritt: number, satzOben: string): void {
-        
-        flexArtikel.setAttribute("id", "flex" + nameArtikel);
-        document.getElementById("grosseBox")?.appendChild(flexArtikel);
+    function erstellHeaderSchritt(_flexArtikel: HTMLElement, _ueberschriftArtikel: HTMLElement, _flexboxSchritt: HTMLElement, _nameArtikel: string, _classUeberschrift: string, _aktuellerSchritt: number, _satzOben: string): void {
 
-        ueberschriftArtikel.setAttribute("class", "schritt " + classUeberschrift);
-        ueberschriftArtikel.setAttribute("id", nameArtikel + "Ueberschrift");
-        ueberschriftArtikel.innerHTML = "Schritt " + aktuellerSchritt + ": " + satzOben;
-        flexArtikel.appendChild(ueberschriftArtikel);
+        _flexArtikel.setAttribute("id", "flex" + _nameArtikel);
+        document.getElementById("grosseBox")?.appendChild(_flexArtikel);
 
-        flexboxSchritt.setAttribute("id", "flexboxschritt" + aktuellerSchritt);
-        flexboxSchritt.setAttribute("class", "flexbox");
-        flexArtikel.appendChild(flexboxSchritt);
+        _ueberschriftArtikel.setAttribute("class", "schritt " + _classUeberschrift);
+        _ueberschriftArtikel.setAttribute("id", _nameArtikel + "Ueberschrift");
+        _ueberschriftArtikel.innerHTML = "Schritt " + _aktuellerSchritt + ": " + _satzOben;
+        _flexArtikel.appendChild(_ueberschriftArtikel);
+
+        _flexboxSchritt.setAttribute("id", "flexboxschritt" + _aktuellerSchritt);
+        _flexboxSchritt.setAttribute("class", "flexbox");
+        _flexArtikel.appendChild(_flexboxSchritt);
 
     }
 
-    function artikelEinsortieren(elternElement: HTMLElement, artikelArt: EissortenUTopping[]): void {
-        for (let index: number = 0; index <= artikelArt.length; index++) {
+    function artikelEinsortieren(_elternElement: HTMLElement, _artikelArt: EissortenUTopping[]): void {
+        for (let index: number = 0; index <= _artikelArt.length; index++) {
 
             let divClassBox: HTMLElement = <HTMLElement>document.createElement("div");
             divClassBox.setAttribute("class", "artikelBox");
             divClassBox.setAttribute("id", "divClassBox");
-            elternElement.appendChild(divClassBox);
+            _elternElement.appendChild(divClassBox);
 
-            // Letzter Durchgang -> Vorschau
-            if (index == artikelArt.length) {
+            if (index == _artikelArt.length) {
                 eisvorschauboxErstellen(divClassBox);
                 vorschauEis(meineBestellungEis, meineBestellungTopping, meinBecherIstWaffel);
             }
@@ -250,19 +234,19 @@ namespace eisdiele {
 
                 let imgEis: HTMLElement = <HTMLElement>document.createElement("img");
                 imgEis.setAttribute("class", "artikelBild");
-                imgEis.setAttribute("src", artikelArt[index].bild);
-                imgEis.setAttribute("alt", artikelArt[index].alt);
+                imgEis.setAttribute("src", _artikelArt[index].bild);
+                imgEis.setAttribute("alt", _artikelArt[index].alt);
                 divClassBox.appendChild(imgEis);
 
                 let div: HTMLElement = <HTMLElement>document.createElement("div");
                 divClassBox.appendChild(div);
 
                 let h3Name: HTMLElement = <HTMLElement>document.createElement("h3");
-                h3Name.innerHTML = artikelArt[index].name;
+                h3Name.innerHTML = _artikelArt[index].name;
                 div.appendChild(h3Name);
 
                 let h3Preis: HTMLElement = <HTMLElement>document.createElement("h3");
-                h3Preis.innerHTML = artikelArt[index].preis + "€";
+                h3Preis.innerHTML = _artikelArt[index].preis + "€";
                 div.appendChild(h3Preis);
 
                 let buttonEis: HTMLElement = <HTMLElement>document.createElement("button");
@@ -274,8 +258,7 @@ namespace eisdiele {
 
                 function eisHinzufuegen(): void {
 
-                    //Button Abfrage Eiskugeln
-                    if (artikelArt == eissorten) {
+                    if (_artikelArt == eissorten) {
 
                         if (!meineBestellungEis) {
                             meineBestellungEis = [eissorten[index]];
@@ -289,7 +272,7 @@ namespace eisdiele {
                             }
                         }
                     }
-                    if (artikelArt == toppingArten) {
+                    if (_artikelArt == toppingArten) {
                         {
                             if (!meineBestellungTopping) {
                                 meineBestellungTopping = [toppingArten[index]];
@@ -324,33 +307,32 @@ namespace eisdiele {
                     let gesamtPreisString: string = gesamtPreis.toString();
                     localStorage.setItem("gesamtpreis", gesamtPreisString);
 
-                    //VorschauBild generieren (aktualisieren)
                     vorschauEis(meineBestellungEis, meineBestellungTopping, meinBecherIstWaffel);
                 }
             }
         }
     }
 
-    function erstellButton(schritt: string, naechsterSchritt: number, elternElement: HTMLElement): HTMLElement {
+    function erstellButton(_schritt: string, _naechsterSchritt: number, _elternElement: HTMLElement): HTMLElement {
         let button: HTMLElement = <HTMLElement>document.createElement("button");
         button.setAttribute("class", "weiter");
-        button.setAttribute("id", "buttonSchritt" + schritt);
-        if (naechsterSchritt == 0) {
+        button.setAttribute("id", "buttonSchritt" + _schritt);
+        if (_naechsterSchritt == 0) {
             button.innerHTML = "Bestellen!";
         }
         else {
-            button.innerHTML = "Weiter zu Schritt " + naechsterSchritt;
+            button.innerHTML = "Weiter zu Schritt " + _naechsterSchritt;
         }
-        elternElement.appendChild(button);
+        _elternElement.appendChild(button);
         return button;
     }
 
-    function eisvorschauboxErstellen(elternElement: HTMLElement): void {
+    function eisvorschauboxErstellen(_elternElement: HTMLElement): void {
 
         let divClassBox: HTMLElement = <HTMLElement>document.createElement("div");
         divClassBox.setAttribute("class", "artikelBox");
         divClassBox.setAttribute("id", "vorschau");
-        elternElement.appendChild(divClassBox);
+        _elternElement.appendChild(divClassBox);
 
         let div: HTMLElement = <HTMLElement>document.createElement("div");
         div.setAttribute("class", "eisVorschau");
@@ -362,22 +344,21 @@ namespace eisdiele {
         divClassBox.appendChild(h3Vorschau);
     }
 
-    function fuellFrom(forName: string, elternElement: HTMLElement): void {
+    function fuellFrom(_forName: string, _elternElement: HTMLElement): void {
         let label: HTMLElement = <HTMLElement>document.createElement("label");
-        label.setAttribute("for", forName);
-        label.innerHTML = forName + ":";
-        elternElement.appendChild(label);
+        label.setAttribute("for", _forName);
+        label.innerHTML = _forName + ":";
+        _elternElement.appendChild(label);
 
         let input: HTMLInputElement = <HTMLInputElement>document.createElement("input");
         input.setAttribute("type", "text");
-        input.setAttribute("name", forName);
+        input.setAttribute("name", _forName);
         input.required = true;
-        elternElement.appendChild(input);
+        _elternElement.appendChild(input);
     }
 
-    function vorschauEis(eis: EissortenUTopping[], topping: EissortenUTopping[], waffelJa: boolean): void {
+    function vorschauEis(_eis: EissortenUTopping[], _topping: EissortenUTopping[], _waffelJa: boolean): void {
 
-        //Löschen für neubau später
         if (document.getElementById("eisVorschauKugeln")?.hasChildNodes) {
             let loeschen: HTMLElement = <HTMLElement>document.getElementById("eisVorschauKugeln");
             for (let anzahlKugel: number = 0; anzahlKugel <= eissorten.length; anzahlKugel++) {
@@ -393,26 +374,26 @@ namespace eisdiele {
 
         let div: HTMLElement = <HTMLElement>document.getElementById("eisVorschauKugeln");
 
-        if (waffelJa) {
+        if (_waffelJa) {
             imgBehaehlter.setAttribute("src", "https://janinacpb.github.io/GIS-SoSe-2020/Endabgabe/Archiv/waffel.png");
             imgBehaehlter.setAttribute("class", "vWaffel vorschauBild");
             div.appendChild(imgBehaehlter);
 
-            if (eis) {
-                for (let index: number = 0; index < eis.length; index++) {
-                    fuegEisHinzu(eis[index], index, div, true);
+            if (_eis) {
+                for (let index: number = 0; index < _eis.length; index++) {
+                    fuegEisHinzu(_eis[index], index, div, true);
                 }
             }
 
-            if (topping) {
-                for (let index: number = 0; index < topping.length; index++) {
+            if (_topping) {
+                for (let index: number = 0; index < _topping.length; index++) {
                     let imgEisTopping: HTMLElement = <HTMLElement>document.createElement("img");
-                    imgEisTopping.setAttribute("class", "vKugel" + eis.length + " vorschauBild");
-                    imgEisTopping.setAttribute("src", topping[index].bildComic);
-                    imgEisTopping.setAttribute("alt", topping[index].alt);
+                    imgEisTopping.setAttribute("class", "vKugel" + _eis.length + " vorschauBild");
+                    imgEisTopping.setAttribute("src", _topping[index].bildComic);
+                    imgEisTopping.setAttribute("alt", _topping[index].alt);
                     div.appendChild(imgEisTopping);
 
-                    fuegToppingHinzu(topping[index], eis, div, true);
+                    fuegToppingHinzu(_topping[index], _eis, div, true);
                 }
             }
         }
@@ -422,14 +403,14 @@ namespace eisdiele {
             imgBehaehlter.setAttribute("class", "vBecher vorschauBild");
             div.appendChild(imgBehaehlter);
 
-            if (eis) {
-                for (let index: number = 0; index < eis.length; index++) {
-                    fuegEisHinzu(eis[index], index, div, false);
+            if (_eis) {
+                for (let index: number = 0; index < _eis.length; index++) {
+                    fuegEisHinzu(_eis[index], index, div, false);
                 }
             }
-            if (topping) {
-                for (let index: number = 0; index < topping.length; index++) {
-                    fuegToppingHinzu(topping[index], eis, div, false);
+            if (_topping) {
+                for (let index: number = 0; index < _topping.length; index++) {
+                    fuegToppingHinzu(_topping[index], _eis, div, false);
                 }
             }
 
@@ -438,30 +419,30 @@ namespace eisdiele {
         document.getElementById("eisVorschauKugeln")?.appendChild(imgBehaehlter);
     }
 
-    function fuegToppingHinzu(top: EissortenUTopping, eis: EissortenUTopping[], elternElement: HTMLElement, istWaffel: boolean): void {
+    function fuegToppingHinzu(_top: EissortenUTopping, _eis: EissortenUTopping[], _elternElement: HTMLElement, _istWaffel: boolean): void {
         let imgEisTopping: HTMLElement = <HTMLElement>document.createElement("img");
-        if (istWaffel) {
-            imgEisTopping.setAttribute("class", "vKugel" + eis.length + " vorschauBild");
+        if (_istWaffel) {
+            imgEisTopping.setAttribute("class", "vKugel" + _eis.length + " vorschauBild");
         }
         else {
-            imgEisTopping.setAttribute("class", "vKugelBecher" + eis.length + " vorschauBild");
+            imgEisTopping.setAttribute("class", "vKugelBecher" + _eis.length + " vorschauBild");
         }
-        imgEisTopping.setAttribute("src", top.bildComic);
-        imgEisTopping.setAttribute("alt", top.alt);
-        elternElement.appendChild(imgEisTopping);
+        imgEisTopping.setAttribute("src", _top.bildComic);
+        imgEisTopping.setAttribute("alt", _top.alt);
+        _elternElement.appendChild(imgEisTopping);
     }
 
-    function fuegEisHinzu(eis: EissortenUTopping, index: number, elternElement: HTMLElement, istWaffle: boolean): void {
-        let zaehlerAngepasst: number = index + 1;
+    function fuegEisHinzu(_eis: EissortenUTopping, _index: number, _elternElement: HTMLElement, _istWaffle: boolean): void {
+        let zaehlerAngepasst: number = _index + 1;
         let imgEisKugel: HTMLElement = <HTMLElement>document.createElement("img");
-        if (istWaffle) {
+        if (_istWaffle) {
             imgEisKugel.setAttribute("class", "vKugel" + zaehlerAngepasst + " vorschauBild");
         }
         else {
             imgEisKugel.setAttribute("class", "vKugelBecher" + zaehlerAngepasst + " vorschauBild");
         }
-        imgEisKugel.setAttribute("src", eis.bildComic);
-        imgEisKugel.setAttribute("alt", eis.alt);
-        elternElement.appendChild(imgEisKugel);
+        imgEisKugel.setAttribute("src", _eis.bildComic);
+        imgEisKugel.setAttribute("alt", _eis.alt);
+        _elternElement.appendChild(imgEisKugel);
     }
 }
