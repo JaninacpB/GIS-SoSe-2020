@@ -114,9 +114,6 @@ var Eisdiele;
         fuellFrom("nachname", formBestellen);
         fuellFrom("strasse", formBestellen);
         fuellFrom("stadt", formBestellen);
-        let h3Form = document.createElement("h3");
-        h3Form.innerHTML = "Weitere Anmerkungen";
-        formBestellen.appendChild(h3Form);
         let preisNumber = +localStorage.getItem("gesamtpreis");
         let h3Preis = document.createElement("h3");
         h3Preis.innerHTML = "Alles zusammen macht das: <u>" + preisNumber.toFixed(2) + "€ </u>";
@@ -151,6 +148,7 @@ var Eisdiele;
         console.log("https://sosegis2020.herokuapp.com" + "/eingabe?" + datenZumVerschicken + endgueltigerPreis + queryString);
         console.log("Deine Auswahl Eis: " + meineBestellungEis);
         console.log("Deine Auswahl Topping: " + meineBestellungTopping);
+        console.log("Dein Preis: " + endgueltigerPreis);
         fetch(urlSendenZu);
     }
     function erstellHeaderSchritt(_flexArtikel, _ueberschriftArtikel, _flexboxSchritt, _nameArtikel, _classUeberschrift, _aktuellerSchritt, _satzOben) {
