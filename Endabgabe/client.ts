@@ -199,8 +199,8 @@ namespace Eisdiele {
 
         // XXX Bug finden
         console.log("https://sosegis2020.herokuapp.com" + "/eingabe?" + datenZumVerschicken + endgueltigerPreis + queryString);
-        console.log("Deine Auswahl Eis: " + meineBestellungEis );
-        console.log("Deine Auswahl Topping: " + meineBestellungTopping);
+        console.log("Deine Auswahl: " + datenZumVerschicken );
+        console.log("Deine Daten: " + queryString);
         console.log("Dein Preis: " + endgueltigerPreis);
         fetch(urlSendenZu);
     }
