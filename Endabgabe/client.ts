@@ -155,10 +155,6 @@ namespace Eisdiele {
         fuellFrom("strasse", formBestellen);
         fuellFrom("stadt", formBestellen);
 
-        let h3Form: HTMLElement = <HTMLElement>document.createElement("h3");
-        h3Form.innerHTML = "Weitere Anmerkungen";
-        formBestellen.appendChild(h3Form);
-
         let preisNumber: number = + localStorage.getItem("gesamtpreis")!;
 
         let h3Preis: HTMLElement = <HTMLElement>document.createElement("h3");
@@ -169,7 +165,9 @@ namespace Eisdiele {
         vorschauEis(meineBestellungEis, meineBestellungTopping, meinBecherIstWaffel);
 
         let buttonDritterSchritt: HTMLElement = erstellButton("vier", 0, formBestellen);
-        buttonDritterSchritt.setAttribute("type", "submit");
+        // XXX Änderung 
+        // buttonDritterSchritt.setAttribute("type", "submit");
+        buttonDritterSchritt.setAttribute("type", "button");
         buttonDritterSchritt.setAttribute("style", "display: block");
         buttonDritterSchritt.setAttribute("action", "https://sosegis2020.herokuapp.com");
 
@@ -199,6 +197,11 @@ namespace Eisdiele {
 
         urlSendenZu = "https://sosegis2020.herokuapp.com" + "/eingabe?" + datenZumVerschicken + endgueltigerPreis + queryString;
 
+        // XXX Bug finden
+        console.log("https://sosegis2020.herokuapp.com" + "/eingabe?" + datenZumVerschicken + endgueltigerPreis + queryString);
+        console.log("Deine Auswahl Eis: " + meineBestellungEis );
+        console.log("Deine Auswahl Topping: " + meineBestellungTopping);
+        console.log("Dein Preis: " + endgueltigerPreis);
         fetch(urlSendenZu);
     }
 
