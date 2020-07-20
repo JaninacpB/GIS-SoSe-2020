@@ -165,8 +165,6 @@ namespace Eisdiele {
         vorschauEis(meineBestellungEis, meineBestellungTopping, meinBecherIstWaffel);
 
         let buttonDritterSchritt: HTMLElement = erstellButton("vier", 0, formBestellen);
-        // XXX Änderung 
-        // buttonDritterSchritt.setAttribute("type", "submit");
         buttonDritterSchritt.setAttribute("type", "button");
         buttonDritterSchritt.setAttribute("style", "display: block");
         buttonDritterSchritt.setAttribute("action", "https://sosegis2020.herokuapp.com");
@@ -196,13 +194,13 @@ namespace Eisdiele {
         let endgueltigerPreis: string = "preis=" + localStorage.getItem("gesamtpreis")! + "&";
 
         urlSendenZu = "https://sosegis2020.herokuapp.com" + "/eingabe?" + datenZumVerschicken + endgueltigerPreis + queryString;
-
-        // XXX Bug finden
-        console.log("https://sosegis2020.herokuapp.com" + "/eingabe?" + datenZumVerschicken + endgueltigerPreis + queryString);
-        console.log("Deine Auswahl: " + datenZumVerschicken );
-        console.log("Deine Daten: " + queryString);
-        console.log("Dein Preis: " + endgueltigerPreis);
         fetch(urlSendenZu);
+
+        let flexboxSchrittVier: HTMLElement = <HTMLElement>document.getElementById("flexboxschritt4");
+        flexboxSchrittVier.remove();
+        let ueberschrift: HTMLElement = <HTMLElement> document.getElementById("BestellenUeberschrift");
+        ueberschrift.innerHTML = "Sendung erfolgreich versand!";
+
     }
 
     function erstellHeaderSchritt(_flexArtikel: HTMLElement, _ueberschriftArtikel: HTMLElement, _flexboxSchritt: HTMLElement, _nameArtikel: string, _classUeberschrift: string, _aktuellerSchritt: number, _satzOben: string): void {

@@ -121,8 +121,6 @@ var Eisdiele;
         eisvorschauboxErstellen(flexboxSchrittVier);
         vorschauEis(meineBestellungEis, meineBestellungTopping, meinBecherIstWaffel);
         let buttonDritterSchritt = erstellButton("vier", 0, formBestellen);
-        // XXX Änderung 
-        // buttonDritterSchritt.setAttribute("type", "submit");
         buttonDritterSchritt.setAttribute("type", "button");
         buttonDritterSchritt.setAttribute("style", "display: block");
         buttonDritterSchritt.setAttribute("action", "https://sosegis2020.herokuapp.com");
@@ -144,12 +142,11 @@ var Eisdiele;
         let queryString = query.toString();
         let endgueltigerPreis = "preis=" + localStorage.getItem("gesamtpreis") + "&";
         urlSendenZu = "https://sosegis2020.herokuapp.com" + "/eingabe?" + datenZumVerschicken + endgueltigerPreis + queryString;
-        // XXX Bug finden
-        console.log("https://sosegis2020.herokuapp.com" + "/eingabe?" + datenZumVerschicken + endgueltigerPreis + queryString);
-        console.log("Deine Auswahl: " + datenZumVerschicken);
-        console.log("Deine Daten: " + queryString);
-        console.log("Dein Preis: " + endgueltigerPreis);
         fetch(urlSendenZu);
+        let flexboxSchrittVier = document.getElementById("flexboxschritt4");
+        flexboxSchrittVier.remove();
+        let ueberschrift = document.getElementById("BestellenUeberschrift");
+        ueberschrift.innerHTML = "Sendung erfolgreich versand!";
     }
     function erstellHeaderSchritt(_flexArtikel, _ueberschriftArtikel, _flexboxSchritt, _nameArtikel, _classUeberschrift, _aktuellerSchritt, _satzOben) {
         _flexArtikel.setAttribute("id", "flex" + _nameArtikel);

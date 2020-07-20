@@ -15,8 +15,11 @@ var Eisdiele;
     }
     function erstellBestellungHtml(_aktuellerIndex, _aktuelleBestellung) {
         let div = htmlElementErstellen(flexbox, "div", "bestellungBox");
-        let buttonArtikel = erstellButton(div, "Geschmolzen eintragen in Datenbank", "bearbeitenButton");
-        buttonArtikel.addEventListener("click", handlerArtikelBearbeiten);
+        let buttonArtikel;
+        if (!_aktuelleBestellung[_aktuellerIndex].geschmolzen) {
+            buttonArtikel = erstellButton(div, "Geschmolzen eintragen in Datenbank", "bearbeitenButton");
+            buttonArtikel.addEventListener("click", handlerArtikelBearbeiten);
+        }
         htmlElementErstellen(div, "p", "bestellung").innerHTML = "Artikel " + (_aktuellerIndex + 1);
         htmlElementErstellen(div, "p", "bestellung").innerHTML = "Eissorten: " + _aktuelleBestellung[_aktuellerIndex].eiskugel;
         if (_aktuelleBestellung[_aktuellerIndex].topping) {
@@ -25,6 +28,10 @@ var Eisdiele;
         htmlElementErstellen(div, "p", "bestellung").innerHTML = "Preis: " + _aktuelleBestellung[_aktuellerIndex].preis + "€";
         htmlElementErstellen(div, "p", "bestellung").innerHTML = "Besteller: " + _aktuelleBestellung[_aktuellerIndex].nachname + ", " + _aktuelleBestellung[_aktuellerIndex].vorname;
         htmlElementErstellen(div, "p", "bestellung").innerHTML = "Adresse: " + _aktuelleBestellung[_aktuellerIndex].strasse + ", " + _aktuelleBestellung[_aktuellerIndex].stadt;
+        if (_aktuelleBestellung[_aktuellerIndex].geschmolzen) {
+            htmlElementErstellen(div, "p", "bestellung").innerHTML = "Ich bin geschmolzen!";
+            div.setAttribute("style", "background-color: #87BBA2");
+        }
         if (_aktuellerIndex + 1 == _aktuelleBestellung.length) {
             let allesLoschenButton = erstellButton(flexbox, "Lösch alles!", "weiter");
             allesLoschenButton.addEventListener("click", handlerLoeschen);
@@ -34,6 +41,9 @@ var Eisdiele;
             let id = _aktuelleBestellung[_aktuellerIndex]._id + "";
             urlSendenZu = "https://sosegis2020.herokuapp.com" + "/bearbeiten?" + "id=" + id;
             fetch(urlSendenZu);
+            buttonArtikel.remove();
+            div.setAttribute("style", "background-color: #87BBA2");
+            htmlElementErstellen(div, "p", "bestellung").innerHTML = "Ich bin geschmolzen!";
         }
     }
     function handlerLoeschen() {

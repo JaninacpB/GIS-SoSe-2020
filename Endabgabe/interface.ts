@@ -26,5 +26,7 @@ namespace Eisdiele {
         topping: string[];
         preis: number;
         _id: string;
+        //Test 
+        geschmolzen ?: string;
     }
 }
