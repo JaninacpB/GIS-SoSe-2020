@@ -25,8 +25,7 @@ namespace Eisdiele {
         eiskugel: string[];
         topping: string[];
         preis: number;
-        _id: string;
-        //Test 
+        _id: string; 
         geschmolzen ?: string;
     }
 }
